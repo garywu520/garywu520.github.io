@@ -23,7 +23,7 @@
     <link rel="alternative" href="/atom.xml" title="Gary Wu" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="https://raw.githubusercontent.com/garywu520/garywu520.github.io/master/images/favicon.ico">
   
   
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
@@ -61,7 +61,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/img/head.jpg" class="js-avatar">
+			<img src="https://raw.githubusercontent.com/garywu520/garywu520.github.io/master/images/touxiang.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 			<h1 class="header-author"><a href="/">John Doe</a></h1>
@@ -131,7 +131,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				<a href="/">
-					<img src="/img/head.jpg" class="js-avatar">
+					<img src="https://raw.githubusercontent.com/garywu520/garywu520.github.io/master/images/touxiang.jpg" class="js-avatar">
 				</a>
 			</div>
 			<hgroup>
@@ -301,23 +301,6 @@
 
 
 <!--  -->
-
-<script>
-  /* 标签页标题切换 */
-  var originTitle = document.title;
-  var titleTime;
-  document.addEventListener("visibilitychange", function () {
-    if (document.hidden) {
-      document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
-      clearTimeout(titleTime);
-    } else {
-      document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
-      titleTime = setTimeout(function () {
-        document.title = originTitle;
-      }, 2000);
-    }
-  });
-</script>
 
 
     
@@ -4940,15 +4923,21 @@
 </body>
 
 </html>
- <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
 
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
+  POWERMODE.colorful = true; // make power mode colorful
+  POWERMODE.shake = false; // turn off shake
+  document.body.addEventListener('input', POWERMODE);
+</script>
 
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+  
+  <!-- <script async type="text/javascript" size="90" alpha="0.2" zIndex="0" src="/plugins/ribbon.js/ribbon.min.js"></script> -->
+  
+  
+  
+</body>
+
+</html>
+e DOM to save memory.
             Don't modify these 3 pswp__item elements, data is added later on. -->
         <div class="pswp__container">
             <div class="pswp__item"></div>
