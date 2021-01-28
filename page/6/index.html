@@ -196,6 +196,109 @@
             
 
   
+    <article id="post-Docker容器应用的LOG日志收集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/12/03/Docker%E5%AE%B9%E5%99%A8%E5%BA%94%E7%94%A8%E7%9A%84LOG%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86/" target="_blank">Docker容器应用的logs日志收集</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/12/03/Docker%E5%AE%B9%E5%99%A8%E5%BA%94%E7%94%A8%E7%9A%84LOG%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86/" class="archive-article-date">
+        <time datetime="2019-12-03T07:18:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-03</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="1-查看容器log插件"><a href="#1-查看容器log插件" class="headerlink" title="1. 查看容器log插件"></a>1. 查看容器log插件</h5><p>Docker有很多日志插件，默认使用json-file。只有使用json-file格式的时候，docker logs -f 才可以显示实时日志。</p>
+<p>查看docker默认的日志插件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info | grep &#x27;Logging Driver&#x27;</span><br></pre></td></tr></table></figure>
+<p>当容器运行时，docker会在宿主机上创建一个该容器相关的文件，然后将容器产生的日志转存到该文件下。docker logs -f 命令就会找到该文件内容并显示在终端上</p>
+    
+    <a class="article-more-a" href="/2019/12/03/Docker%E5%AE%B9%E5%99%A8%E5%BA%94%E7%94%A8%E7%9A%84LOG%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">logs</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日志收集</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/12/03/Docker%E5%AE%B9%E5%99%A8%E5%BA%94%E7%94%A8%E7%9A%84LOG%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-centos7-yum-docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1082,114 +1185,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/11/12/openssl%E8%87%AA%E7%AD%BEECC-V3%E8%AF%81%E4%B9%A6/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nginx代理websocket配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/11/12/nginx%E4%BB%A3%E7%90%86websocket%E9%85%8D%E7%BD%AE/" target="_blank">nginx代理websocket配置</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/11/12/nginx%E4%BB%A3%E7%90%86websocket%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-        <time datetime="2019-11-12T08:39:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="1-nginx配置"><a href="#1-nginx配置" class="headerlink" title="1. nginx配置"></a>1. nginx配置</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"> #</span><span class="bash">注：7010为研发上线的websockt服务端口</span></span><br><span class="line"> location /wsfuture/ &#123;</span><br><span class="line">        proxy_pass http://127.0.0.1:7010;</span><br><span class="line"></span><br><span class="line">        proxy_http_version 1.1;</span><br><span class="line">        proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">        proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">         </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">注：这里的wsfuture指的是研发提供的websocket服务程序的顶级目录，因为如果在此基础上添加二级目录访问出现404</span></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/11/12/nginx%E4%BB%A3%E7%90%86websocket%E9%85%8D%E7%BD%AE/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">websocket</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ws</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">wss</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">wscat</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/11/12/nginx%E4%BB%A3%E7%90%86websocket%E9%85%8D%E7%BD%AE/">展开全文 >></a>
     </p>
     
 
@@ -5748,6 +5743,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">副本集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">NAT转发</a>
               </li>
             
             <div class="clearfix"></div>

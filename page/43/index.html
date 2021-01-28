@@ -196,6 +196,102 @@
             
 
   
+    <article id="post-Yarn不能给某些机器分配任务-解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2017/07/06/Yarn%E4%B8%8D%E8%83%BD%E7%BB%99%E6%9F%90%E4%BA%9B%E6%9C%BA%E5%99%A8%E5%88%86%E9%85%8D%E4%BB%BB%E5%8A%A1-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" target="_blank">Yarn不能给某些机器分配任务-解决方案</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2017/07/06/Yarn%E4%B8%8D%E8%83%BD%E7%BB%99%E6%9F%90%E4%BA%9B%E6%9C%BA%E5%99%A8%E5%88%86%E9%85%8D%E4%BB%BB%E5%8A%A1-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="archive-article-date">
+        <time datetime="2017-07-06T10:53:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h6 id="YARN健康检测"><a href="#YARN健康检测" class="headerlink" title="YARN健康检测"></a>YARN健康检测</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NodeManager 还提供了检测磁盘好坏的机制。</span><br><span class="line"></span><br><span class="line">检测的磁盘目录主要是 yarn.nodemanager.local-dirs 和 yarn.nodemanager.log-dirs 参数指定的目录，这两个目录分别用于存储应用程序运行的中间结果，比如MapReduce作业中Map Task的中间输出结果）和日志文件存放目录列表。这两个参数都可以配置多个目录，多个目录之间使用逗号分隔。如果这两个参数配置的目录不可用的比例达到一定的设置，则认为该节点不健康。</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2017/07/06/Yarn%E4%B8%8D%E8%83%BD%E7%BB%99%E6%9F%90%E4%BA%9B%E6%9C%BA%E5%99%A8%E5%88%86%E9%85%8D%E4%BB%BB%E5%8A%A1-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YARN</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">NodeManager</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2017/07/06/Yarn%E4%B8%8D%E8%83%BD%E7%BB%99%E6%9F%90%E4%BA%9B%E6%9C%BA%E5%99%A8%E5%88%86%E9%85%8D%E4%BB%BB%E5%8A%A1-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-NTP服务器-部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1039,100 +1135,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2017/06/24/%E8%80%81%E7%94%B7%E5%AD%A9-Day9%E4%B9%8Bcrontab%E7%B2%BE%E8%AE%B2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-RAID5工作原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/06/23/RAID5%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" target="_blank">RAID5工作原理</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2017/06/23/RAID5%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="archive-article-date">
-        <time datetime="2017-06-23T06:16:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>RAID 5是一种存储性能、数据安全和存储成本兼顾的存储解决方案。RAID 5不对存储的数据进行备份，而是把数据和相对应的奇偶校验信息存储到组成RAID 5的各个磁盘上，并且奇偶校验信息和相对应的数据分别存储于不同的磁盘上。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2017/06/23/RAID5%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">RAID5</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/06/23/RAID5%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">展开全文 >></a>
     </p>
     
 
@@ -5691,6 +5693,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">副本集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">NAT转发</a>
               </li>
             
             <div class="clearfix"></div>
