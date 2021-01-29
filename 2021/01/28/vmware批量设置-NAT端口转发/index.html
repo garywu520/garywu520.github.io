@@ -18,7 +18,7 @@
 <meta property="og:description" content="1. reg注册表文件-配置NAT端口转发新建文件nat.reg，增加如下内容">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-01-28T01:40:22.000Z">
-<meta property="article:modified_time" content="2021-01-28T02:01:59.103Z">
+<meta property="article:modified_time" content="2021-01-28T12:16:09.836Z">
 <meta property="article:author" content="GaryWu">
 <meta property="article:tag" content="虚拟机">
 <meta property="article:tag" content="vmware">
@@ -222,7 +222,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">175字</span>
+      <span class="post-count">130字</span>
     </span>
   </span>
 
@@ -247,8 +247,7 @@
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\VMware, Inc.\VMnetLib\VMnetConfig\vmnet8\NAT\TCPForward]</span><br><span class="line">&quot;2222&quot;=&quot;192.168.100.11:22&quot;</span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\VMware, Inc.\VMnetLib\VMnetConfig\vmnet8\NAT\TCPForward]</span><br><span class="line">&quot;8080&quot;=&quot;192.168.100.11:8080&quot;</span><br></pre></td></tr></table></figure>
 <p>需要添加的端口转发条目记录追加到此文件即可</p>
-<h5 id="2-刷新注册表并重载服务"><a href="#2-刷新注册表并重载服务" class="headerlink" title="2. 刷新注册表并重载服务"></a>2. 刷新注册表并重载服务</h5><p>创建bat脚本flush.bat</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">taskkill /im explorer.exe /f</span><br><span class="line">ping -n 2 127.0.0.1 &amp;gt; nul</span><br><span class="line">start c:\windows\explorer.exe</span><br><span class="line"></span><br><span class="line">::重启NAT服务</span><br><span class="line">net stop &quot;VMware NAT Service&quot;</span><br><span class="line">timeout /t 3 /nobreak &gt; nul</span><br><span class="line">net start &quot;VMware NAT Service&quot;</span><br><span class="line">::重启DHCP服务</span><br><span class="line">net stop &quot;VMware DHCP Service&quot;</span><br><span class="line">timeout /t 3 /nobreak &gt; nul</span><br><span class="line">net start &quot;VMware DHCP Service&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="2-NAT配置"><a href="#2-NAT配置" class="headerlink" title="2. NAT配置"></a>2. NAT配置</h5><p>vmware NAT配置中，随便编辑一条测试条目，然后应用。reg添加的其他业务条目都会重新生效。</p>
 
     
 
