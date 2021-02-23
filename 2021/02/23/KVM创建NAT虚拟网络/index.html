@@ -18,7 +18,7 @@
 <meta property="og:description" content="1.配置桥接设备1NAT配置为了方便，虚拟设备直接使用(Bridge的)br0 关于创建桥接设备，可参考“ KVM部署 ”第四部分">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-02-23T09:48:50.000Z">
-<meta property="article:modified_time" content="2021-02-23T09:56:03.961Z">
+<meta property="article:modified_time" content="2021-02-23T10:09:37.656Z">
 <meta property="article:author" content="GaryWu">
 <meta property="article:tag" content="NAT">
 <meta property="article:tag" content="KVM">
@@ -222,7 +222,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">709字</span>
+      <span class="post-count">742字</span>
     </span>
   </span>
 
@@ -265,8 +265,11 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">virsh list --all</span><br><span class="line">virsh edit centos7</span><br><span class="line"><span class="meta">#</span><span class="bash">检索<span class="string">&quot;interface&quot;</span>关键字</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#这是bridge配置</span><br><span class="line">&lt;interface type&#x3D;&#39;bridge&#39;&gt;</span><br><span class="line">      &lt;mac address&#x3D;&#39;52:54:00:0e:aa:5a&#39;&#x2F;&gt;</span><br><span class="line">      &lt;source bridge&#x3D;&#39;br0&#39;&#x2F;&gt;</span><br><span class="line">      &lt;model type&#x3D;&#39;virtio&#39;&#x2F;&gt;</span><br><span class="line">      &lt;address type&#x3D;&#39;pci&#39; domain&#x3D;&#39;0x0000&#39; bus&#x3D;&#39;0x00&#39; slot&#x3D;&#39;0x03&#39; function&#x3D;&#39;0x0&#39;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;interface&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#改为NAT配置</span><br><span class="line">&lt;interface type&#x3D;&#39;network&#39;&gt;</span><br><span class="line">      &lt;mac address&#x3D;&#39;52:54:00:0e:aa:5a&#39;&#x2F;&gt;</span><br><span class="line">      &lt;source network&#x3D;&#39;nat&#39;&#x2F;&gt;</span><br><span class="line">      &lt;model type&#x3D;&#39;virtio&#39;&#x2F;&gt;</span><br><span class="line">      &lt;address type&#x3D;&#39;pci&#39; domain&#x3D;&#39;0x0000&#39; bus&#x3D;&#39;0x00&#39; slot&#x3D;&#39;0x03&#39; function&#x3D;&#39;0x0&#39;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;interface&gt;</span><br></pre></td></tr></table></figure>
-<h5 id="7-重启虚拟机验证IP地址获取情况"><a href="#7-重启虚拟机验证IP地址获取情况" class="headerlink" title="7. 重启虚拟机验证IP地址获取情况"></a>7. 重启虚拟机验证IP地址获取情况</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">virsh list --all</span><br><span class="line">virsh reboot centos7</span><br><span class="line"></span><br><span class="line">#查看nat虚拟网络DHCP地址获取情况</span><br><span class="line">virsh net-dhcp-leases nat</span><br></pre></td></tr></table></figure>
-<p>注：如果虚拟机没有获取到NAT网络IP，尝试重启nat虚拟网络或重启宿主机</p>
+<h5 id="7-dnsmasq"><a href="#7-dnsmasq" class="headerlink" title="7. dnsmasq"></a>7. dnsmasq</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#KVM NAT网络模式DHCP服务依靠dnsmasq实现DHCP功能，所以把dnsmasq配置为自启动</span><br><span class="line">systemctl enable dnsmasq</span><br><span class="line">systemctl start dnsmasq</span><br><span class="line">systemctl status dnsmasq</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="8-验证IP地址获取情况"><a href="#8-验证IP地址获取情况" class="headerlink" title="8. 验证IP地址获取情况"></a>8. 验证IP地址获取情况</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">virsh list --all</span><br><span class="line">virsh reboot centos7</span><br><span class="line"></span><br><span class="line">#查看nat虚拟网络DHCP地址获取情况</span><br><span class="line">virsh net-dhcp-leases nat</span><br></pre></td></tr></table></figure>
+<p>注：如果虚拟机没有获取到NAT网络IP，尝试命令systemctl restart network 或 重启nat虚拟网络或重启宿主机</p>
 
     
 
