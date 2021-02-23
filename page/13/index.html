@@ -196,6 +196,120 @@
             
 
   
+    <article id="post-binlog2sql之MySQL快速恢复实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/04/03/binlog2sql%E4%B9%8BMySQL%E5%BF%AB%E9%80%9F%E6%81%A2%E5%A4%8D%E5%AE%9E%E6%88%98/" target="_blank">binlog2sql之MySQL数据闪回实战</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/04/03/binlog2sql%E4%B9%8BMySQL%E5%BF%AB%E9%80%9F%E6%81%A2%E5%A4%8D%E5%AE%9E%E6%88%98/" class="archive-article-date">
+        <time datetime="2019-04-03T03:04:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>MySQL闪回特性最早由阿里彭立勋开发，彭在2012年给官方提交了一个patch，并对<a target="_blank" rel="noopener" href="http://www.penglixun.com/tech/database/mysql_flashback_feature.html">闪回设计思路</a>做了说明。但是因为种种原因，业内安装这个patch的团队至今还是少数，真正应用到线上的更是少之又少。</p>
+<p>而binlog2sql则是借鉴的这种思路，它由美团点评DBA团队(上海)出品，多次在线上环境做快速回滚。</p>
+</blockquote>
+<h5 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h5><p>某天，同事A误删了大批线上用户MySQL表的数据……</p>
+<p>他急忙找到公司DBA请求帮助，“客服电话已被打爆，大量用户投诉无法登陆，领导非常恼火。请问多久能恢复数据？”DBA一脸懵逼，沉默十秒后，伸出一根手指。“你的意思是一分钟就能恢复？太好了。”小明终于有些放松，露出了一丝笑容。“不，我们中有个人将会离开公司……” DBA沉痛的说道。</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://github.com/wuyanteng/binlog2sql/blob/master/example/mysql-flashback-priciple-and-practice.md">GitHub MySQL闪回</a></p>
+    
+    <a class="article-more-a" href="/2019/04/03/binlog2sql%E4%B9%8BMySQL%E5%BF%AB%E9%80%9F%E6%81%A2%E5%A4%8D%E5%AE%9E%E6%88%98/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">binlog</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">binlog2sql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">row</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据闪回</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/04/03/binlog2sql%E4%B9%8BMySQL%E5%BF%AB%E9%80%9F%E6%81%A2%E5%A4%8D%E5%AE%9E%E6%88%98/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-binlog分析工具之binlog2sql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1203,111 +1317,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/03/13/Mars-Hadoop-Sqoop-Job/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mars-hadoop-sqoop导出实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/03/13/Mars-hadoop-sqoop%E5%AF%BC%E5%87%BA%E5%AE%9E%E6%88%98/" target="_blank">Mars-hadoop sqoop导出实战</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/03/13/Mars-hadoop-sqoop%E5%AF%BC%E5%87%BA%E5%AE%9E%E6%88%98/" class="archive-article-date">
-        <time datetime="2019-03-13T07:38:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-13</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="一、可能的数据处理架构"><a href="#一、可能的数据处理架构" class="headerlink" title="一、可能的数据处理架构"></a>一、可能的数据处理架构</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sqoop import -&gt;Hive&#x2F;HDFS -&gt;MR Job&#x2F;Spark Job&#x2F;Streaming Job&#x2F;ML Job&#x2F;SQL -&gt; Result Data</span><br></pre></td></tr></table></figure>
-<h5 id="二、Sqoop导出通用参数"><a href="#二、Sqoop导出通用参数" class="headerlink" title="二、Sqoop导出通用参数"></a>二、Sqoop导出通用参数</h5><ul>
-<li>–connect 连接关系型数据库</li>
-<li>–username 关系型数据库用户</li>
-<li>–password/-P  关系型数据库密码</li>
-</ul>
-    
-    <a class="article-more-a" href="/2019/03/13/Mars-hadoop-sqoop%E5%AF%BC%E5%87%BA%E5%AE%9E%E6%88%98/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hdfs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">sqoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/03/13/Mars-hadoop-sqoop%E5%AF%BC%E5%87%BA%E5%AE%9E%E6%88%98/">展开全文 >></a>
     </p>
     
 
@@ -5886,6 +5895,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">qemu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">KVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Bridge</a>
               </li>
             
             <div class="clearfix"></div>

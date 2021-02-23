@@ -196,6 +196,110 @@
             
 
   
+    <article id="post-ES索引删除" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/06/12/ES%E7%B4%A2%E5%BC%95%E5%88%A0%E9%99%A4/" target="_blank">ES索引删除</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/06/12/ES%E7%B4%A2%E5%BC%95%E5%88%A0%E9%99%A4/" class="archive-article-date">
+        <time datetime="2019-06-12T09:40:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>生产环境中的ES使用久了，会产生较大的历史数据，而有些数据是根本使用不到的，除了占用大量磁盘空间外，当有节点异常重启后，会导致大量的磁盘io读写，进而导致ES集群瘫痪。因此，就需要定期进行清理。</p>
+<h5 id="一、配置禁止使用通配符删除"><a href="#一、配置禁止使用通配符删除" class="headerlink" title="一、配置禁止使用通配符删除"></a>一、配置禁止使用通配符删除</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">设置禁用_all和*通配符来删除，预防数据丢失</span></span><br><span class="line">action.destructive_requires_name: true</span><br></pre></td></tr></table></figure>
+<h5 id="二、使用命令-删除索引"><a href="#二、使用命令-删除索引" class="headerlink" title="二、使用命令-删除索引"></a>二、使用命令-删除索引</h5><p>格式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">删除多个索引，中间用“,”分割</span></span><br><span class="line">curl -XDELETE http://ip:9200/index_name1,index_name2</span><br></pre></td></tr></table></figure>
+<p>删除单个索引</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -XDELETE http://ip:9200/logstash-exc-2018.01.01</span><br></pre></td></tr></table></figure>
+<h5 id="三、shell脚本自动删除ES索引脚本"><a href="#三、shell脚本自动删除ES索引脚本" class="headerlink" title="三、shell脚本自动删除ES索引脚本"></a>三、shell脚本自动删除ES索引脚本</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">IP=&#x27;xx.xx.xx.xx&#x27;</span><br><span class="line">​</span><br><span class="line"><span class="meta">#</span><span class="bash">获取索引列表到/tmp/indices.list</span></span><br><span class="line">curl -XGET http://$&#123;IP&#125;:9200/_cat/indices | grep -v .kibana|grep -v .monitoring-es|awk &#x27;&#123;print $3&#125;&#x27;&gt;/tmp/indices.list</span><br><span class="line">​</span><br><span class="line"><span class="meta">#</span><span class="bash">获取列表中的索引时间,输出格式如“2019-10-15”</span></span><br><span class="line">cat /tmp/indices.list|awk -F [-] &#x27;&#123;print $4&quot;-&quot;$5&quot;-&quot;$NF&#125;&#x27;|sort -rn|uniq &gt;/tmp/date.list</span><br><span class="line">​</span><br><span class="line"><span class="meta">#</span><span class="bash">将过期的索引名称输出到文件/tmp/delete_indices.list</span></span><br><span class="line">while read LINE</span><br><span class="line">do</span><br><span class="line"><span class="meta">   #</span><span class="bash">把索引时间转换为unix值</span></span><br><span class="line">   indices_unix=`date -d &quot;$&#123;LINE&#125;&quot; +%s`</span><br><span class="line"><span class="meta">   #</span><span class="bash">获取7天前的unix值</span></span><br><span class="line">   day7ago=`date -d &quot;7 day ago&quot; +&quot;%Y-%m-%d&quot;` </span><br><span class="line">   unix7=`date -d &quot;$&#123;day7ago&#125;&quot; +%s`</span><br><span class="line">   </span><br><span class="line"><span class="meta">   #</span><span class="bash">如果时间早于7天前，则将unix转换为<span class="string">&quot;yyyy-mm-dd&quot;</span>,并筛选索引到新的文件中</span></span><br><span class="line">   if [ $&#123;indices_unix&#125; -lt $&#123;unix7&#125; ];then</span><br><span class="line">        grep &quot;`date -d @$&#123;indices_unix&#125; +%Y-%m-%d`&quot; /tmp/indices.list &gt;&gt;/tmp/delete_indices.list        </span><br><span class="line">   fi</span><br><span class="line">done &lt; /tmp/date.list</span><br><span class="line">​</span><br><span class="line">​</span><br><span class="line"><span class="meta">#</span><span class="bash">清理过期索引</span></span><br><span class="line">while read XLINE</span><br><span class="line">do</span><br><span class="line">   curl -XDELETE http://$&#123;IP&#125;:9200/$XLINE</span><br><span class="line">done &lt; /tmp/delete_indices.list</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">elasticsearch</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">es</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">elk</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/06/12/ES%E7%B4%A2%E5%BC%95%E5%88%A0%E9%99%A4/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Json数据调用变量问题-Shell" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1139,120 +1243,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/04/03/ESXI6-7-Path%E8%A1%A5%E4%B8%81%E5%9C%A8%E7%BA%BF%E5%8D%87%E7%BA%A7/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-binlog2sql之MySQL快速恢复实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/04/03/binlog2sql%E4%B9%8BMySQL%E5%BF%AB%E9%80%9F%E6%81%A2%E5%A4%8D%E5%AE%9E%E6%88%98/" target="_blank">binlog2sql之MySQL数据闪回实战</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/04/03/binlog2sql%E4%B9%8BMySQL%E5%BF%AB%E9%80%9F%E6%81%A2%E5%A4%8D%E5%AE%9E%E6%88%98/" class="archive-article-date">
-        <time datetime="2019-04-03T03:04:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>MySQL闪回特性最早由阿里彭立勋开发，彭在2012年给官方提交了一个patch，并对<a target="_blank" rel="noopener" href="http://www.penglixun.com/tech/database/mysql_flashback_feature.html">闪回设计思路</a>做了说明。但是因为种种原因，业内安装这个patch的团队至今还是少数，真正应用到线上的更是少之又少。</p>
-<p>而binlog2sql则是借鉴的这种思路，它由美团点评DBA团队(上海)出品，多次在线上环境做快速回滚。</p>
-</blockquote>
-<h5 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h5><p>某天，同事A误删了大批线上用户MySQL表的数据……</p>
-<p>他急忙找到公司DBA请求帮助，“客服电话已被打爆，大量用户投诉无法登陆，领导非常恼火。请问多久能恢复数据？”DBA一脸懵逼，沉默十秒后，伸出一根手指。“你的意思是一分钟就能恢复？太好了。”小明终于有些放松，露出了一丝笑容。“不，我们中有个人将会离开公司……” DBA沉痛的说道。</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://github.com/wuyanteng/binlog2sql/blob/master/example/mysql-flashback-priciple-and-practice.md">GitHub MySQL闪回</a></p>
-    
-    <a class="article-more-a" href="/2019/04/03/binlog2sql%E4%B9%8BMySQL%E5%BF%AB%E9%80%9F%E6%81%A2%E5%A4%8D%E5%AE%9E%E6%88%98/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">binlog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">binlog2sql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">row</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据闪回</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/04/03/binlog2sql%E4%B9%8BMySQL%E5%BF%AB%E9%80%9F%E6%81%A2%E5%A4%8D%E5%AE%9E%E6%88%98/">展开全文 >></a>
     </p>
     
 
@@ -5831,6 +5821,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">qemu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">KVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Bridge</a>
               </li>
             
             <div class="clearfix"></div>
