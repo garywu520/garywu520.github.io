@@ -196,6 +196,112 @@
             
 
   
+    <article id="post-openssl自签ECC-V3证书" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/12/openssl%E8%87%AA%E7%AD%BEECC-V3%E8%AF%81%E4%B9%A6/" target="_blank">openssl自签ECC V3证书</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/12/openssl%E8%87%AA%E7%AD%BEECC-V3%E8%AF%81%E4%B9%A6/" class="archive-article-date">
+        <time datetime="2019-11-12T10:29:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>前提：为支持更强的加密，建议升级openssl到最新版</p>
+<h5 id="1-生成CA根证书"><a href="#1-生成CA根证书" class="headerlink" title="1. 生成CA根证书"></a>1. 生成CA根证书</h5><p>首先要准备一个配置文件和一个目录，稍后需要用第3版的证书[支持DNS域名和IP，浏览器可以校验证书里面的DNS是不是和网站实际的域名一样]</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">serial 文件是openssl管理颁发序号的,index.txt是对newcerts下面新签发的证书的一个简单索引</span></span><br><span class="line">mkdir ssl &amp;&amp; cd ssl</span><br><span class="line">touch index.txt</span><br><span class="line">echo 01 &gt; serial</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2019/11/12/openssl%E8%87%AA%E7%AD%BEECC-V3%E8%AF%81%E4%B9%A6/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">openssl</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssl</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">eccdsa</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ECC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/12/openssl%E8%87%AA%E7%AD%BEECC-V3%E8%AF%81%E4%B9%A6/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-nginx代理websocket配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1100,126 +1206,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/10/14/Bash-5-0%E7%BC%96%E8%AF%91/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-OpenResty-Lua实现WAF应用防火墙" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/10/12/OpenResty-Lua%E5%AE%9E%E7%8E%B0WAF%E5%BA%94%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99/" target="_blank">OpenResty+Lua实现WAF应用防火墙</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/10/12/OpenResty-Lua%E5%AE%9E%E7%8E%B0WAF%E5%BA%94%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99/" class="archive-article-date">
-        <time datetime="2019-10-12T09:24:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="一、OpenResty概览"><a href="#一、OpenResty概览" class="headerlink" title="一、OpenResty概览"></a>一、OpenResty概览</h5><p>OpenResty是一个基于Lua扩展Nginx实现的可伸缩Web平台，其内部集成了大量精良的Lua库、第三方模块以及大多数依赖项。用于方便的部署能够处理超高并发、扩展性极高的动态Web应用。</p>
-<p>OpenResty的目标是让你的Web服务直接跑在Nginx服务内部，充分利用Nginx的非阻塞I/O模型，不仅仅对HTTP客户端请求，甚至于对后端诸如MySQL、PostgreSQL、Memcache以及Redis等都进行一致的高性能响应。</p>
-<h5 id="二、安装依赖库"><a href="#二、安装依赖库" class="headerlink" title="二、安装依赖库"></a>二、安装依赖库</h5><ul>
-<li><p>安装pcre依赖库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz</span><br><span class="line">tar -zxf pcre-8.43.tar.gz</span><br><span class="line">cd pcre-8.43</span><br><span class="line">./configure &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure></li>
-<li><p>安装zlib依赖库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y zlib zlib-devel</span><br></pre></td></tr></table></figure></li>
-<li><p>安装ssl依赖库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/10/12/OpenResty-Lua%E5%AE%9E%E7%8E%B0WAF%E5%BA%94%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OpenResty</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Lua</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WAF</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">防火墙</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">应用防火墙</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Iptables</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/12/OpenResty-Lua%E5%AE%9E%E7%8E%B0WAF%E5%BA%94%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99/">展开全文 >></a>
     </p>
     
 
@@ -5782,6 +5768,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">NAT转发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CentOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">半虚拟化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">libvirt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">qemu</a>
               </li>
             
             <div class="clearfix"></div>

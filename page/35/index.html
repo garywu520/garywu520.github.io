@@ -196,6 +196,180 @@
             
 
   
+    <article id="post-Redis-Cluster集群部署-实战1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2017/11/07/Redis-Cluster%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2-%E5%AE%9E%E6%88%981/" target="_blank">Redis Cluster集群部署-实战1</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2017/11/07/Redis-Cluster%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2-%E5%AE%9E%E6%88%981/" class="archive-article-date">
+        <time datetime="2017-11-07T06:44:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>环境</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">OS: CentOS 7</span><br><span class="line">每台机器启用两个redis实例：</span><br><span class="line">Redis21：10.0.10.21 7021</span><br><span class="line">Redis22：10.0.10.22 7022</span><br><span class="line">Redis23：10.0.10.23 7023</span><br><span class="line">Redis21：10.0.10.21 7024</span><br><span class="line">Redis22：10.0.10.22 7025</span><br><span class="line">Redis23：10.0.10.23 7026</span><br><span class="line"></span><br><span class="line">Redis30：10.0.10.24 7027</span><br><span class="line">Redis30：10.0.10.24 7028</span><br><span class="line"></span><br><span class="line">Redis部署方式：编译</span><br><span class="line">Redis版本：官网最新稳定版 redis-stable.tar.gz</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>安装编译工具</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(1) 安装GCC编译工具</span><br><span class="line">    yum install -y gcc g++ gcc-c++ make tcl</span><br><span class="line">(2) 关闭firewall</span><br><span class="line">    systemctl stop firewalld.service &amp;&amp; systemctl disable firewalld.service</span><br></pre></td></tr></table></figure>
+<h4 id="Redis集群部署"><a href="#Redis集群部署" class="headerlink" title="Redis集群部署"></a>Redis集群部署</h4><blockquote>
+<p>编译安装redis【全节点部署】</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar xzf redis-stable.tar.gz</span><br><span class="line">cd redis-stable</span><br><span class="line">make</span><br><span class="line">make PREFIX&#x3D;&#x2F;usr&#x2F;local&#x2F;redis install</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>配置redis【全节点部署】</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;usr&#x2F;local&#x2F;redis&#x2F;etc -p     #创建配置文件目录</span><br><span class="line">cp &#x2F;root&#x2F;redis-stable&#x2F;redis.conf &#x2F;usr&#x2F;local&#x2F;redis&#x2F;etc&#x2F;   #拷贝默认redis配置文件</span><br><span class="line">cd &#x2F;usr&#x2F;bin&#x2F; &amp;&amp; ln -s &#x2F;usr&#x2F;local&#x2F;redis&#x2F;bin&#x2F;redis* .&#x2F;    #配置环境变量</span><br><span class="line">mkdir &#x2F;var&#x2F;log&#x2F;redis -p    #创建redis日志目录</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>创建redis配置文件【每节点操作】</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注：待会要创建redis集群，而配置文件不需要配置主从关系。所以每个节点配置基本一致。除了监听的IP和端口不同。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;redis&#x2F;etc</span><br><span class="line">mv redis.conf redis.conf.bak</span><br><span class="line">vim redis-site.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">##是否以守护进程方式运行</span><br><span class="line">daemonize no</span><br><span class="line"></span><br><span class="line">pidfile &#x2F;var&#x2F;run&#x2F;redis-site.pid</span><br><span class="line"></span><br><span class="line">port 7022</span><br><span class="line">#高并发环境下你需要一个高backlog值来避免慢客户端连接问题</span><br><span class="line">tcp-backlog 511 </span><br><span class="line"></span><br><span class="line">bind 10.0.10.22</span><br><span class="line">#客户端空闲关闭时间</span><br><span class="line">timeout 0</span><br><span class="line">#设置SO_KEEPALIVE选项来向空闲连接的客户端发送ACK</span><br><span class="line">tcp-keepalive 0</span><br><span class="line">#指定日志记录级别</span><br><span class="line">loglevel notice</span><br><span class="line">#指明日志文件名</span><br><span class="line">logfile &quot;&#x2F;var&#x2F;log&#x2F;redis&#x2F;redis.log&quot;</span><br><span class="line">#redis日志记录到系统日志</span><br><span class="line">## syslog-enabled no</span><br><span class="line">#redis日志在系统日志中的标识</span><br><span class="line">## syslog-ident redis</span><br><span class="line">#指定数据库个数</span><br><span class="line">databases 16</span><br><span class="line">#指定rdb快照频率</span><br><span class="line">#save &quot;&quot;</span><br><span class="line">save 900 1</span><br><span class="line">save 300 10</span><br><span class="line">save 60 100000</span><br><span class="line">#默认如果开启RDB快照(至少一条save指令)并且最新的后台保存失败，Redis将会停止接受写操作</span><br><span class="line">stop-writes-on-bgsave-error yes </span><br><span class="line">#指定存储至本地数据库时是否压缩数据，默认为yes</span><br><span class="line">rdbcompression yes</span><br><span class="line">#生成的关闭校验的RDB文件有一个0的校验和，它将告诉加载代码跳过检查</span><br><span class="line">rdbchecksum yes </span><br><span class="line">#指定本地数据库文件名，默认值为dump.rdb</span><br><span class="line">dbfilename dump.rdb</span><br><span class="line">#指定本地数据库存放目录</span><br><span class="line">dir .&#x2F;</span><br><span class="line">#设置当本机为slav服务时，设置master服务的IP地址及端口，在Redis启动时，它会自动从master进行数据同步</span><br><span class="line">#slaveof x.x.x.x 6379</span><br><span class="line">#设置Redis连接密码，如果配置了连接密码，客户端在连接Redis时需要通过AUTH &lt;password&gt;命令提供密码，默认关闭</span><br><span class="line">## masterauth &lt;master-password&gt;</span><br><span class="line"></span><br><span class="line"># 主从同步。通过 slaveof 指令来实现Redis实例的备份</span><br><span class="line">slave-serve-stale-data yes </span><br><span class="line"># 从Redis2.6默认所有的slave为只读</span><br><span class="line">slave-read-only yes </span><br><span class="line"># 在slave套接字发送SYNC之后禁用 TCP_NODELAY </span><br><span class="line">repl-diskless-sync no</span><br><span class="line">#客户端最大连接数</span><br><span class="line">#maxclients 10000</span><br><span class="line">##指定Redis最大内存限制</span><br><span class="line">maxmemory 40gb</span><br><span class="line">#指定是否在每次更新操作后进行日志记录</span><br><span class="line">appendonly no</span><br><span class="line">#指定更新日志文件名，默认为appendonly.aof</span><br><span class="line">appendfilename &quot;appendonly.aof&quot;</span><br><span class="line">#指定更新日志条件</span><br><span class="line">## appendfsync always</span><br><span class="line">appendfsync everysec</span><br><span class="line">## appendfsync no</span><br><span class="line">#当hash只有少量的entry时，并且最大的entry所占空间没有超过指定的限#制时，会用一种节省内存的 数据结构来编码。可以通过下面的指令来设定限制</span><br><span class="line">hash-max-ziplist-entries 512</span><br><span class="line">hash-max-ziplist-value 64</span><br><span class="line"># 与hash似，数据元素较少的list，可以用另一种方式来编码从而节省大量空间。</span><br><span class="line"># # 这种特殊的方式只有在符合下面限制时才可以用</span><br><span class="line">list-max-ziplist-entries 512</span><br><span class="line">list-max-ziplist-value 64</span><br><span class="line">#重建hash表的时候如果内存不足 如果此值设置为no则延时，如果为yes则尽快释放内存</span><br><span class="line">activerehashing yes</span><br><span class="line">#一个任务可以使用的cpu数目</span><br><span class="line">hz 10</span><br><span class="line">#当一个子进程重写AOF文件时，如果启用下面的选项，则文件每生成32M数据会被同步。为了增量式写入硬盘并且避免大的延迟高峰这个指令是非常有用的</span><br><span class="line">aof-rewrite-incremental-fsync yes</span><br><span class="line"></span><br><span class="line">#发送个slave的命令缓存大小</span><br><span class="line">repl-backlog-size 10gb</span><br><span class="line"></span><br><span class="line">#单次会话允许最大量</span><br><span class="line">#client-output-buffer-limit normal 0 0 0</span><br><span class="line">#client-output-buffer-limit pubsub 32mb 8mb 60</span><br><span class="line">#client-output-buffer-limit slave 256mb 64mb 60</span><br><span class="line">#集群配置</span><br><span class="line">cluster-enabled yes    #开启集群</span><br><span class="line">cluster-config-file nodes.conf   #保存节点配置，自动创建，自动更新</span><br><span class="line">cluster-node-timeout 5000    #集群超时时间</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>启动服务【每节点操作】</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> #分别启动服务</span><br><span class="line">nohup redis-server &#x2F;usr&#x2F;local&#x2F;redis&#x2F;etc&#x2F;redis.conf 2&gt;&#x2F;dev&#x2F;null &amp;  </span><br><span class="line">nohup redis-server &#x2F;usr&#x2F;local&#x2F;redis&#x2F;etc&#x2F;redis-site.conf 2&gt;&#x2F;dev&#x2F;null &amp;   </span><br><span class="line"></span><br><span class="line">#查看进程和端口</span><br><span class="line">ps -ef |grep redis</span><br><span class="line"></span><br><span class="line">#查看log信息</span><br><span class="line">[root@localhost ~]# tailf &#x2F;var&#x2F;log&#x2F;redis&#x2F;redis.log</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>解决log错误</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">报错：</span><br><span class="line">13395:M 07 Nov 02:31:59.980 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add &#39;vm.overcommit_memory &#x3D; 1&#39; to &#x2F;etc&#x2F;sysctl.conf and then reboot or run the command &#39;sysctl vm.overcommit_memory&#x3D;1&#39; for this to take effect.</span><br><span class="line">13395:M 07 Nov 02:31:59.980 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command &#39;echo never &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled&#39; as root, and add it to your &#x2F;etc&#x2F;rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.</span><br><span class="line">2060:M 07 Nov 03:06:16.211 # WARNING: The TCP backlog setting of 511 cannot be enforced because &#x2F;proc&#x2F;sys&#x2F;net&#x2F;core&#x2F;somaxconn is set to the lower value of 128.</span><br></pre></td></tr></table></figure>
+<p>解决方法(纯属翻译)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;vm.overcommit_memory &#x3D; 1&quot; &gt;&gt;&#x2F;etc&#x2F;sysctl.conf</span><br><span class="line">sysctl vm.overcommit_memory&#x3D;1</span><br><span class="line">echo &quot;1024&quot; &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;core&#x2F;somaxconn</span><br><span class="line">echo &quot;never&quot; &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled</span><br><span class="line"></span><br><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;rc.d&#x2F;rc.local &lt;&lt; EOF</span><br><span class="line">echo &quot;1024&quot; &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;core&#x2F;somaxconn</span><br><span class="line"></span><br><span class="line">#禁用THP</span><br><span class="line">if test -f &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled; then</span><br><span class="line">    echo never &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled</span><br><span class="line">fi</span><br><span class="line">if test -f &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;defrag; then</span><br><span class="line">    echo never &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;defrag</span><br><span class="line">fi</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">重启虚拟机并重启redis服务</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>重启服务【全节点】</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&#x2F;var&#x2F;log&#x2F;redis&#x2F;redis.log </span><br><span class="line"></span><br><span class="line">#分别启动服务</span><br><span class="line">nohup redis-server &#x2F;usr&#x2F;local&#x2F;redis&#x2F;etc&#x2F;redis.conf 2&gt;&#x2F;dev&#x2F;null &amp;  </span><br><span class="line">nohup redis-server &#x2F;usr&#x2F;local&#x2F;redis&#x2F;etc&#x2F;redis-site.conf 2&gt;&#x2F;dev&#x2F;null &amp; </span><br></pre></td></tr></table></figure>
+<h4 id="Redis集群创建"><a href="#Redis集群创建" class="headerlink" title="Redis集群创建"></a>Redis集群创建</h4><blockquote>
+<p>安装ruby【所有节点】</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">yum -y install ruby ruby-devel rubygems rpm-build</span><br><span class="line">#安装RVM(升级ruby为2.4.0)</span><br><span class="line">curl -sSL https:&#x2F;&#x2F;rvm.io&#x2F;mpapis.asc | gpg --import -</span><br><span class="line">curl -L get.rvm.io | bash -s stable</span><br><span class="line">source &#x2F;etc&#x2F;profile.d&#x2F;rvm.sh</span><br><span class="line">rvm reload</span><br><span class="line">rvm requirements run</span><br><span class="line">rvm install 2.4.0</span><br><span class="line">#设置默认ruby版本</span><br><span class="line">rvm list</span><br><span class="line">rvm use 2.4.0 --default</span><br><span class="line">ruby --version</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#安装redis模块（否则后面横向扩展redis节点会不成功）</span><br><span class="line">gem install redis</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>创建集群【只在10.0.10.21上面创建即可】</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;root&#x2F;redis-stable&#x2F;src  #进入源码目录</span><br><span class="line">.&#x2F;redis-trib.rb create --replicas 1 \</span><br><span class="line">10.0.10.21:7021 \</span><br><span class="line">10.0.10.22:7022 \</span><br><span class="line">10.0.10.23:7023 \</span><br><span class="line">10.0.10.21:7024 \</span><br><span class="line">10.0.10.22:7025 \</span><br><span class="line">10.0.10.23:7026 </span><br><span class="line"></span><br><span class="line">#注：上面的6个节点中，前3个节点被配置成了master，而其他的则为slave从节点--可以通过cluster info查看。</span><br><span class="line">注意：这个主从并未在配置文件中做，而是通过专属redis集群管理工具来创建的。</span><br><span class="line"></span><br><span class="line">根据提示，交互输入: yes</span><br><span class="line">[OK] All nodes agree about slots configuration.</span><br><span class="line">&gt;&gt;&gt; Check for open slots...</span><br><span class="line">&gt;&gt;&gt; Check slots coverage...</span><br><span class="line">[OK] All 16384 slots covered.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>集群验证</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# redis-cli -h 10.0.10.22 -p 7022  #登陆任意一台redis集群节点</span><br><span class="line">10.0.10.22:7022&gt; cluster nodes   #查看集群</span><br><span class="line">22d8c2b425a200c923b81f2682219733f44d9977 10.0.10.21:7024@17024 slave 779eb8b2d6a932d535cfbb1574e4f7c4eb34b2b0 0 1510054584000 4 connected</span><br><span class="line">aa54c9b2b8c191fe3536a63816ba6179ae8e993a 10.0.10.21:7021@17021 master - 0 1510054585000 1 connected 0-5460</span><br><span class="line">779eb8b2d6a932d535cfbb1574e4f7c4eb34b2b0 10.0.10.22:7022@17022 myself,master - 0 1510054585000 2 connected 5461-10922</span><br><span class="line">00687f86b61031950ee38ca02968676ebc9e08e2 10.0.10.22:7025@17025 slave aa54c9b2b8c191fe3536a63816ba6179ae8e993a 0 1510054585551 5 connected</span><br><span class="line">1e3ede5d80592aab56066559f079ba3f877dbf56 10.0.10.23:7023@17023 master - 0 1510054584048 3 connected 10923-16383</span><br><span class="line">e5ea2d992183903068695b553fff8016cbe678dd 10.0.10.23:7026@17026 slave 1e3ede5d80592aab56066559f079ba3f877dbf56 0 1510054584000 6 connected</span><br></pre></td></tr></table></figure>
+<h4 id="横向扩容-向集群中添加节点"><a href="#横向扩容-向集群中添加节点" class="headerlink" title="横向扩容-向集群中添加节点"></a>横向扩容-向集群中添加节点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">准备工作：</span><br><span class="line">【重要】拷贝源码文件到&#x2F;usr&#x2F;local&#x2F;redis&#x2F;目录下，为了以后节点增加删除</span><br><span class="line">cp -a &#x2F;root&#x2F;redis-stable &#x2F;usr&#x2F;local&#x2F;redis&#x2F;</span><br><span class="line"></span><br><span class="line">Redis30：10.0.10.24 7027</span><br><span class="line">Redis30：10.0.10.24 7028</span><br><span class="line">在Redis30节点启动两个Redis实例，确保服务启动。</span><br><span class="line"></span><br><span class="line">[root@localhost etc]# ps -ef |grep redis</span><br><span class="line">root      2064  2047  0 04:55 pts&#x2F;0    00:00:06 redis-server 10.0.10.30:7027 [cluster]</span><br><span class="line">root     15365 14614  0 06:33 pts&#x2F;0    00:00:00 redis-server 10.0.10.30:7028 [cluster]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">向集群中添加节点</span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;redis&#x2F;redis-stable&#x2F;src&#x2F;    #切换到新拷贝的源码目录</span><br><span class="line"></span><br><span class="line">#添加主节点</span><br><span class="line">.&#x2F;redis-trib.rb add-node 10.0.10.24:7027 10.0.10.22:7022</span><br><span class="line">注：10.0.10.24:7027为新增主节点，10.0.10.22:7022为已存在的任意节点</span><br><span class="line"></span><br><span class="line">#添加从节点</span><br><span class="line">.&#x2F;redis-trib.rb add-node --slave --master-id 03ccad2ba5dd1e062464bc7590400441fafb63f2 10.0.10.24:7028 10.0.10.22:7022</span><br><span class="line"></span><br><span class="line">--slave，表示添加的是从节点</span><br><span class="line">--master-id 03ccad2ba5dd1e062464bc7590400441fafb63f2,主节点的node id，在这里是前面新添加的7027的node id</span><br><span class="line">10.0.10.24:7028 新节点</span><br><span class="line">10.0.10.22:7022 集群任一个旧节点</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>重新分配slots</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">新增加的主节点是没有slots的,所以需要重新分配，主节点如果没有slots的话，存取数据就都不会被选中。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;redis&#x2F;redis-stable&#x2F;src&#x2F;    #切换到新拷贝的源码目录</span><br><span class="line">.&#x2F;redis-trib.rb reshard 10.0.10.24:7024  #10.0.10.24:7024为新加的主节点</span><br><span class="line">以下为交互输入部分</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#你想移动多少个slots？</span><br><span class="line">How many slots do you want to move (from 1 to 16384)? 1000 </span><br><span class="line"></span><br><span class="line">#谁来接收这些指定多的slots？</span><br><span class="line">What is the receiving node ID? 03ccad2ba5dd1e062464bc7590400441fafb63f2 &#x2F;&#x2F;新节点node id  </span><br><span class="line"></span><br><span class="line">Please enter all the source node IDs.  </span><br><span class="line"> Type &#39;all&#39; to use all the nodes as source nodes for the hash slots.  </span><br><span class="line"> Type &#39;done&#39; once you entered all the source nodes IDs.  </span><br><span class="line">Source node #1:all   &#x2F;&#x2F;表示全部节点重新洗牌  </span><br><span class="line">Do you want to proceed with the proposed reshard plan (yes&#x2F;no)? yes   &#x2F;&#x2F;确认重新分配slots</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看集群情况</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;redis-trib.rb check 10.0.10.24:7024   #后边输入任意节点即可</span><br></pre></td></tr></table></figure>
+<h4 id="从集群中删除节点"><a href="#从集群中删除节点" class="headerlink" title="从集群中删除节点"></a>从集群中删除节点</h4><blockquote>
+<p>删除从节点</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">格式：.&#x2F;redis-trib.rb del-node 从节点ip:port  &#39;从节点ID&#39;</span><br><span class="line"></span><br><span class="line">.&#x2F;redis-trib.rb del-node 10.0.10.24:7025 &#39;a86c1a2d62fec9a51d6657a0b424730d820b8e65&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost src]# .&#x2F;redis-trib.rb del-node 10.0.10.24:7025 &#39;a86c1a2d62fec9a51d6657a0b424730d820b8e65&#39;</span><br><span class="line">&gt;&gt;&gt; Removing node a86c1a2d62fec9a51d6657a0b424730d820b8e65 from cluster 10.0.10.24:7025</span><br><span class="line">&gt;&gt;&gt; Sending CLUSTER FORGET messages to the cluster...</span><br><span class="line">&gt;&gt;&gt; SHUTDOWN the node.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>删除主节点</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果主节点有slot，需要先去掉分配的slot，然后在删除主节点</span><br></pre></td></tr></table></figure>
+<p>删除其中一个master节点的slots (以删除10.0.0.24:7024主节点为例)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;redis-trib.rb check 10.0.10.24:7024  #查看24的slots数量，假如是6040</span><br><span class="line">.&#x2F;redis-trib.rb reshard 10.0.10.24:7024</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#被删除master的所有slot数量</span><br><span class="line">How many slots do you want to move (from 1 to 16384)? 6040  </span><br><span class="line">#接收10.0.0.24:7024节点slot的master </span><br><span class="line">What is the receiving node ID? 5d8ef5a7fbd72ac586bef04fa6de8a88c0671052 </span><br><span class="line"> </span><br><span class="line">Please enter all the source node IDs.  </span><br><span class="line"> Type &#39;all&#39; to use all the nodes as source nodes for the hash slots.  </span><br><span class="line"> Type &#39;done&#39; once you entered all the source nodes IDs.</span><br><span class="line"> </span><br><span class="line">#复制粘贴被删除master的node-id，此处为“10.0.0.24:7024”的node id</span><br><span class="line">Source node #1:03ccad2ba5dd1e062464bc7590400441fafb63f2     </span><br><span class="line">Source node #2:done    #输入done已完成</span><br><span class="line">  </span><br><span class="line">Do you want to proceed with the proposed reshard plan (yes&#x2F;no)? yes   &#x2F;&#x2F;重新确认slots变更操作</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">删除了主节点的master slots，这样就可以删除主节点了，这样就回到了没添加节点的状态</span><br><span class="line">[root@localhost src]# .&#x2F;redis-trib.rb del-node 10.0.10.24:7024 &#39;3f80334052a981e729377ec55415d0c20b51895c&#39;</span><br><span class="line">&gt;&gt;&gt; Removing node 3f80334052a981e729377ec55415d0c20b51895c from cluster 10.0.10.24:7024</span><br><span class="line">&gt;&gt;&gt; Sending CLUSTER FORGET messages to the cluster...</span><br><span class="line">&gt;&gt;&gt; SHUTDOWN the node.</span><br><span class="line"></span><br><span class="line">最后使用已存在集群中的节点来查看集群状态：</span><br><span class="line">.&#x2F;redis-trib.rb check 10.0.10.22:7022</span><br></pre></td></tr></table></figure>
+<h4 id="如果主节点有从节点，在删除主节点之前，需要改变从节点的master"><a href="#如果主节点有从节点，在删除主节点之前，需要改变从节点的master" class="headerlink" title="如果主节点有从节点，在删除主节点之前，需要改变从节点的master"></a>如果主节点有从节点，在删除主节点之前，需要改变从节点的master</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">以此为例</span><br><span class="line">[root@localhost src]# .&#x2F;redis-trib.rb check 10.0.10.22:7022</span><br><span class="line">&gt;&gt;&gt; Performing Cluster Check (using node 10.0.10.22:7022)</span><br><span class="line">M: 779eb8b2d6a932d535cfbb1574e4f7c4eb34b2b0 10.0.10.22:7022</span><br><span class="line">   slots:7004-14687 (7684 slots) master</span><br><span class="line">   1 additional replica(s)</span><br><span class="line">S: 22d8c2b425a200c923b81f2682219733f44d9977 10.0.10.21:7024</span><br><span class="line">   slots: (0 slots) slave</span><br><span class="line">   replicates 779eb8b2d6a932d535cfbb1574e4f7c4eb34b2b0</span><br><span class="line">M: aa54c9b2b8c191fe3536a63816ba6179ae8e993a 10.0.10.21:7021</span><br><span class="line">   slots:0-7003,14688-15379 (7696 slots) master</span><br><span class="line">   1 additional replica(s)</span><br><span class="line">S: 00687f86b61031950ee38ca02968676ebc9e08e2 10.0.10.22:7025</span><br><span class="line">   slots: (0 slots) slave</span><br><span class="line">   replicates aa54c9b2b8c191fe3536a63816ba6179ae8e993a</span><br><span class="line">M: 1e3ede5d80592aab56066559f079ba3f877dbf56 10.0.10.23:7023</span><br><span class="line">   slots:15380-16383 (1004 slots) master</span><br><span class="line">   1 additional replica(s)</span><br><span class="line">S: e5ea2d992183903068695b553fff8016cbe678dd 10.0.10.23:7026</span><br><span class="line">   slots: (0 slots) slave</span><br><span class="line">   replicates 1e3ede5d80592aab56066559f079ba3f877dbf56</span><br><span class="line">[OK] All nodes agree about slots configuration.</span><br><span class="line">&gt;&gt;&gt; Check for open slots...</span><br><span class="line">&gt;&gt;&gt; Check slots coverage...</span><br><span class="line">[OK] All 16384 slots covered.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">计划删除10.0.10.23:7023这个主节点，先改变10.0.10.23:7026的从节点</span><br><span class="line">将10.0.10.23:7026加入新的master</span><br><span class="line"></span><br><span class="line">[root@localhost src]# redis-cli -h 10.0.10.23 -p 7026</span><br><span class="line">10.0.10.23:7026&gt; </span><br><span class="line">10.0.10.23:7026&gt; cluster replicate aa54c9b2b8c191fe3536a63816ba6179ae8e993a   &#x2F;&#x2F;新master id</span><br><span class="line">OK</span><br><span class="line">10.0.10.23:7026&gt; quit</span><br><span class="line"></span><br><span class="line">#删除master 主节点</span><br><span class="line">.&#x2F;redis-trib.rb del-node 10.0.10.23:7023 &#39;1e3ede5d80592aab56066559f079ba3f877dbf56&#39;</span><br><span class="line">错误提示：[ERR] Node 10.0.10.23:7023 is not empty! Reshard data away and try again.</span><br><span class="line"></span><br><span class="line">#删除该master的slots后再删除master节点</span><br><span class="line">.&#x2F;redis-trib.rb reshard 10.0.10.23:7023</span><br><span class="line"></span><br><span class="line">#再次删除master 主节点</span><br><span class="line">.&#x2F;redis-trib.rb del-node 10.0.10.23:7023 &#39;1e3ede5d80592aab56066559f079ba3f877dbf56&#39;</span><br></pre></td></tr></table></figure>
+
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis集群</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">cluster</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2017/11/07/Redis-Cluster%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2-%E5%AE%9E%E6%88%981/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-DNS加密代理之shadowDNS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1147,109 +1321,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2017/10/21/zabbix-%E7%B2%BE%E8%AE%B2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-saltstack-jinja2模板-进阶3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/10/19/saltstack-jinja2%E6%A8%A1%E6%9D%BF-%E8%BF%9B%E9%98%B63/" target="_blank">saltstack-jinja2模板-进阶3</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2017/10/19/saltstack-jinja2%E6%A8%A1%E6%9D%BF-%E8%BF%9B%E9%98%B63/" class="archive-article-date">
-        <time datetime="2017-10-19T08:28:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-19</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>什么是Jinja2</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Jinja2 是一个 Python 的功能齐全的模板引擎。</span><br><span class="line">它有完整的 unicode 支持，一个可选的集成沙箱执行环境，被广泛使用，以 BSD 许可证授权。</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2017/10/19/saltstack-jinja2%E6%A8%A1%E6%9D%BF-%E8%BF%9B%E9%98%B63/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">saltstack</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jinja2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/10/19/saltstack-jinja2%E6%A8%A1%E6%9D%BF-%E8%BF%9B%E9%98%B63/">展开全文 >></a>
     </p>
     
 
@@ -5812,6 +5883,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">NAT转发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CentOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">半虚拟化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">libvirt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">qemu</a>
               </li>
             
             <div class="clearfix"></div>

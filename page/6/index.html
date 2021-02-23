@@ -196,6 +196,107 @@
             
 
   
+    <article id="post-Maven私服部署-Docker安装nexus3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/12/10/Maven%E7%A7%81%E6%9C%8D%E9%83%A8%E7%BD%B2-Docker%E5%AE%89%E8%A3%85nexus3/" target="_blank">Maven私服部署-Docker安装nexus3</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/12/10/Maven%E7%A7%81%E6%9C%8D%E9%83%A8%E7%BD%B2-Docker%E5%AE%89%E8%A3%85nexus3/" class="archive-article-date">
+        <time datetime="2019-12-10T08:37:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="1-拉取nexus3镜像"><a href="#1-拉取nexus3镜像" class="headerlink" title="1. 拉取nexus3镜像"></a>1. 拉取nexus3镜像</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker search nexus3</span><br><span class="line">docker pull sonatype/nexus3</span><br><span class="line">docker images</span><br></pre></td></tr></table></figure>
+<h5 id="2-运行nexus容器"><a href="#2-运行nexus容器" class="headerlink" title="2. 运行nexus容器"></a>2. 运行nexus容器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -id --privileged=true --name=nexus3 --restart=always -p 18081:8081 -v /data/A/nexus:/data/A/nexus sonatype/nexus3:latest</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2019/12/10/Maven%E7%A7%81%E6%9C%8D%E9%83%A8%E7%BD%B2-Docker%E5%AE%89%E8%A3%85nexus3/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">maven</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nexus3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/12/10/Maven%E7%A7%81%E6%9C%8D%E9%83%A8%E7%BD%B2-Docker%E5%AE%89%E8%A3%85nexus3/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Docker容器应用的LOG日志收集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1079,112 +1180,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/11/15/%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84DoT-DNS/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-openssl自签ECC-V3证书" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/11/12/openssl%E8%87%AA%E7%AD%BEECC-V3%E8%AF%81%E4%B9%A6/" target="_blank">openssl自签ECC V3证书</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/11/12/openssl%E8%87%AA%E7%AD%BEECC-V3%E8%AF%81%E4%B9%A6/" class="archive-article-date">
-        <time datetime="2019-11-12T10:29:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>前提：为支持更强的加密，建议升级openssl到最新版</p>
-<h5 id="1-生成CA根证书"><a href="#1-生成CA根证书" class="headerlink" title="1. 生成CA根证书"></a>1. 生成CA根证书</h5><p>首先要准备一个配置文件和一个目录，稍后需要用第3版的证书[支持DNS域名和IP，浏览器可以校验证书里面的DNS是不是和网站实际的域名一样]</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">serial 文件是openssl管理颁发序号的,index.txt是对newcerts下面新签发的证书的一个简单索引</span></span><br><span class="line">mkdir ssl &amp;&amp; cd ssl</span><br><span class="line">touch index.txt</span><br><span class="line">echo 01 &gt; serial</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/11/12/openssl%E8%87%AA%E7%AD%BEECC-V3%E8%AF%81%E4%B9%A6/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">openssl</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssl</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">eccdsa</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ECC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/11/12/openssl%E8%87%AA%E7%AD%BEECC-V3%E8%AF%81%E4%B9%A6/">展开全文 >></a>
     </p>
     
 
@@ -5747,6 +5742,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">NAT转发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CentOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">半虚拟化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">libvirt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">qemu</a>
               </li>
             
             <div class="clearfix"></div>
