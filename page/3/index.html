@@ -196,6 +196,108 @@
             
 
   
+    <article id="post-zabbix历史数据清理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/08/14/zabbix%E5%8E%86%E5%8F%B2%E6%95%B0%E6%8D%AE%E6%B8%85%E7%90%86/" target="_blank">zabbix历史数据清理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/14/zabbix%E5%8E%86%E5%8F%B2%E6%95%B0%E6%8D%AE%E6%B8%85%E7%90%86/" class="archive-article-date">
+        <time datetime="2020-08-14T14:25:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>停止zabbix-server服务</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">停止zabbix-server服务是停止向数据库写入数据，因为在数据清理优化过程中，mysql会锁表。</span></span><br><span class="line">systemctl stop zabbix-server</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="1-时间戳转换"><a href="#1-时间戳转换" class="headerlink" title="1.  时间戳转换"></a>1.  时间戳转换</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">取60天之前的时间戳</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> date -d $(date -d <span class="string">&quot;-60 day&quot;</span> +%Y%m%d) +%s</span></span><br><span class="line">1592150400</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2020/08/14/zabbix%E5%8E%86%E5%8F%B2%E6%95%B0%E6%8D%AE%E6%B8%85%E7%90%86/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">unix</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/08/14/zabbix%E5%8E%86%E5%8F%B2%E6%95%B0%E6%8D%AE%E6%B8%85%E7%90%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-openwrt安装配置supervisor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1110,107 +1212,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/04/13/Linux%E5%85%B1%E4%BA%AB%E5%BA%93%E6%96%87%E4%BB%B6%E6%B3%A8%E5%85%A5-%E9%98%B2%E5%BE%A1%E4%B8%8E%E6%B8%85%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-openwrt进程启动项" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/08/openwrt%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E9%A1%B9/" target="_blank">openwrt进程启动项</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/08/openwrt%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E9%A1%B9/" class="archive-article-date">
-        <time datetime="2020-04-08T02:30:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p> openwrt是基于linux内核的路由操作系统，经过裁剪，因此与普通linux系统文件结构有所不同。</p>
-<p>接下来，说说在openwrt里面添加自启动项</p>
-    
-    <a class="article-more-a" href="/2020/04/08/openwrt%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E9%A1%B9/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">openwrt</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">启动项</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">进程管理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">软路由</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/08/openwrt%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E9%A1%B9/">展开全文 >></a>
     </p>
     
 
@@ -5797,6 +5798,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Bridge</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Publish-over-SSH</a>
               </li>
             
             <div class="clearfix"></div>
