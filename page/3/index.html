@@ -196,6 +196,86 @@
             
 
   
+    <article id="post-openwrt云编译" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/08/15/openwrt%E4%BA%91%E7%BC%96%E8%AF%91/" target="_blank">openwrt云编译</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/15/openwrt%E4%BA%91%E7%BC%96%E8%AF%91/" class="archive-article-date">
+        <time datetime="2020-08-15T04:15:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="1-Fork-Lede源码"><a href="#1-Fork-Lede源码" class="headerlink" title="1. Fork Lede源码"></a>1. Fork Lede源码</h5><ul>
+<li>fork lede 源码：<a target="_blank" rel="noopener" href="https://github.com/coolsnowwolf/lede">https://github.com/coolsnowwolf/lede</a></li>
+<li>fork GitHub Actions自动编译源码：<a target="_blank" rel="noopener" href="https://github.com/KFERMercer/OpenWrt-CI">https://github.com/KFERMercer/OpenWrt-CI</a></li>
+</ul>
+    
+    <a class="article-more-a" href="/2020/08/15/openwrt%E4%BA%91%E7%BC%96%E8%AF%91/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/08/15/openwrt%E4%BA%91%E7%BC%96%E8%AF%91/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-zabbix历史数据清理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1106,112 +1186,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/04/13/busybox%E4%B8%8B%E8%BD%BD%E5%8F%8A%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux共享库文件注入-防御与清理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/13/Linux%E5%85%B1%E4%BA%AB%E5%BA%93%E6%96%87%E4%BB%B6%E6%B3%A8%E5%85%A5-%E9%98%B2%E5%BE%A1%E4%B8%8E%E6%B8%85%E7%90%86/" target="_blank">Linux共享库文件注入-防御与清理</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/13/Linux%E5%85%B1%E4%BA%AB%E5%BA%93%E6%96%87%E4%BB%B6%E6%B3%A8%E5%85%A5-%E9%98%B2%E5%BE%A1%E4%B8%8E%E6%B8%85%E7%90%86/" class="archive-article-date">
-        <time datetime="2020-04-13T10:11:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="一-何为共享库？"><a href="#一-何为共享库？" class="headerlink" title="一. 何为共享库？"></a>一. 何为共享库？</h5><p> .so 文件在可执行程序运行之前就会预先加载，Linux 进程经常使用这些共享库。这种技术可以重写系统的库函数，只需要在预加载的链接库中重新定义相同名称的库函数，程序调用库函数时，重新定义的函数即会短路正常的库函数，这种技术可以用来重写系统中有漏洞的库函数，达到修复漏洞的目的。</p>
-<p>ldd 命令可以对任何程序文件显示其共享库，如下面的：linux-vdso.so.1</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@test ~]# ldd /bin/date</span><br><span class="line">	linux-vdso.so.1 =&gt;  (0x00007ffea6320000)</span><br><span class="line">	libc.so.6 =&gt; /lib64/libc.so.6 (0x00007f2b2694a000)</span><br><span class="line">	/lib64/ld-linux-x86-64.so.2 (0x00007f2b26d17000)</span><br><span class="line">	</span><br><span class="line">[root@test ~]# ldd /bin/cat</span><br><span class="line">	linux-vdso.so.1 =&gt;  (0x00007ffdd356e000)</span><br><span class="line">	libc.so.6 =&gt; /lib64/libc.so.6 (0x00007fb1ac29f000)</span><br><span class="line">	/lib64/ld-linux-x86-64.so.2 (0x00007fb1ac66c000)</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2020/04/13/Linux%E5%85%B1%E4%BA%AB%E5%BA%93%E6%96%87%E4%BB%B6%E6%B3%A8%E5%85%A5-%E9%98%B2%E5%BE%A1%E4%B8%8E%E6%B8%85%E7%90%86/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">so</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">共享库</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">rookit</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">木马防御</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/13/Linux%E5%85%B1%E4%BA%AB%E5%BA%93%E6%96%87%E4%BB%B6%E6%B3%A8%E5%85%A5-%E9%98%B2%E5%BE%A1%E4%B8%8E%E6%B8%85%E7%90%86/">展开全文 >></a>
     </p>
     
 
@@ -5802,6 +5776,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Publish-over-SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">msmtp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
               </li>
             
             <div class="clearfix"></div>
