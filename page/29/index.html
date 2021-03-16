@@ -196,6 +196,126 @@
             
 
   
+    <article id="post-MySQL-MHA高可用架构与实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2018/02/03/MySQL-MHA%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%AE%9E%E7%8E%B0/" target="_blank">MySQL MHA高可用架构与实现</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2018/02/03/MySQL-MHA%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
+        <time datetime="2018-02-03T05:21:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>MHA高可用架构</p>
+</blockquote>
+<p>MHA可以解决的问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 监控所有节点状态</span><br><span class="line">2. 自动选择新的主库</span><br><span class="line">3. 对业务透明（通过VIP自动切换到新主库）</span><br><span class="line">4. 尽量保证新的主库与老的主库数据一致,即数据补偿</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2018/02/03/MySQL-MHA%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%AE%9E%E7%8E%B0/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Failover</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">binlog server</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">异步复制</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">半同步复制</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MHA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">VIP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2018/02/03/MySQL-MHA%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MySQL主从管理与维护" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1064,107 +1184,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2018/01/23/php-fpm-conf%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ssh登陆基于Google-Authenticator实现双因素认证" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/01/22/ssh%E7%99%BB%E9%99%86%E5%9F%BA%E4%BA%8EGoogle-Authenticator%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%9B%A0%E7%B4%A0%E8%AE%A4%E8%AF%81/" target="_blank">ssh登陆基于Google Authenticator实现双因素认证</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/01/22/ssh%E7%99%BB%E9%99%86%E5%9F%BA%E4%BA%8EGoogle-Authenticator%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%9B%A0%E7%B4%A0%E8%AE%A4%E8%AF%81/" class="archive-article-date">
-        <time datetime="2018-01-22T06:02:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>介绍</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">简单说，就像我们几年前去银行办卡送的口令牌，以及网易游戏中的将军令，在你使用网银或登陆游戏时会再让你输入动态口令的。</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2018/01/22/ssh%E7%99%BB%E9%99%86%E5%9F%BA%E4%BA%8EGoogle-Authenticator%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%9B%A0%E7%B4%A0%E8%AE%A4%E8%AF%81/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">chrony</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Google Authenticator</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/01/22/ssh%E7%99%BB%E9%99%86%E5%9F%BA%E4%BA%8EGoogle-Authenticator%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%9B%A0%E7%B4%A0%E8%AE%A4%E8%AF%81/">展开全文 >></a>
     </p>
     
 
@@ -5783,6 +5802,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">UTF8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SIGHUP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SIGINT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">SIGUSR1</a>
               </li>
             
             <div class="clearfix"></div>

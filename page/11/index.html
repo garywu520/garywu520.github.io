@@ -196,6 +196,102 @@
             
 
   
+    <article id="post-使用supervisor管理Tomcat进程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/08/07/%E4%BD%BF%E7%94%A8supervisor%E7%AE%A1%E7%90%86Tomcat%E8%BF%9B%E7%A8%8B/" target="_blank">使用supervisor管理Tomcat进程</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/08/07/%E4%BD%BF%E7%94%A8supervisor%E7%AE%A1%E7%90%86Tomcat%E8%BF%9B%E7%A8%8B/" class="archive-article-date">
+        <time datetime="2019-08-07T10:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>使用 supervisord 监控管理的进程必须以 nodaemon 启动，而 tomcat 的 startup.sh 脚本是daemon方式的，现在不能用startup.sh形式，所以要用catalina.sh，且在后面加 run。</p>
+    
+    <a class="article-more-a" href="/2019/08/07/%E4%BD%BF%E7%94%A8supervisor%E7%AE%A1%E7%90%86Tomcat%E8%BF%9B%E7%A8%8B/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">supervisor</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/08/07/%E4%BD%BF%E7%94%A8supervisor%E7%AE%A1%E7%90%86Tomcat%E8%BF%9B%E7%A8%8B/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Tomcat多实例部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1133,119 +1229,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/07/15/shell%E5%88%A0%E9%99%A4HDFS%E5%87%A0%E5%A4%A9%E5%89%8D%E7%9A%84%E6%95%B0%E6%8D%AE/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-logstash错误解决-a-plugin-had-an-unrecoverable-error" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/06/28/logstash%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3-a-plugin-had-an-unrecoverable-error/" target="_blank">logstash错误解决-a plugin had an unrecoverable error</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/06/28/logstash%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3-a-plugin-had-an-unrecoverable-error/" class="archive-article-date">
-        <time datetime="2019-06-28T06:34:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-28</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>这几天线上的logstash进程运行过程中，自动异常退出，log无任何输出。前台启动logstash，经过跟踪，错误提示如下：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A plugin had an unrecoverable error. Will restart this plugin.</span><br><span class="line">    Plugin &lt;LogStash::Inputs::File path=&gt;[<span class="string">&quot;/xx/xx/xx/xx/*&quot;</span>, <span class="string">&quot;/xx/xx/xx/xx/*&quot;</span>], snicedb_path=&gt;<span class="string">&quot;/xx/xx/xx/xx/xx.db&quot;</span> ,codec=&gt;&lt;LogStash::Codecs::Plain charset=&gt;<span class="string">&quot;UTF-8&quot;</span>&gt;, stat_interval=&gt;<span class="number">1</span>, discover_interval=&gt;<span class="number">15</span>, sincedb_write_interval=&gt;<span class="number">15</span>, start_position=&gt;<span class="string">&quot;end&quot;</span>, delimiter=&gt;<span class="string">&quot;\n&quot;</span>&gt;</span><br><span class="line">    <span class="symbol">Error:</span> Unknown error - 没有那个文件或目录 &#123;<span class="symbol">:level=&gt;</span><span class="symbol">:error</span>&#125;</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/06/28/logstash%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3-a-plugin-had-an-unrecoverable-error/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ELK</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">logstash</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Plugin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YAML</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Ruby</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Gem镜像</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/06/28/logstash%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3-a-plugin-had-an-unrecoverable-error/">展开全文 >></a>
     </p>
     
 
@@ -5864,6 +5847,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">UTF8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SIGHUP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SIGINT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">SIGUSR1</a>
               </li>
             
             <div class="clearfix"></div>

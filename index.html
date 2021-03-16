@@ -196,6 +196,116 @@
             
 
   
+    <article id="post-supervisor之kill信号" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/03/16/supervisor%E4%B9%8Bkill%E4%BF%A1%E5%8F%B7/" target="_blank">supervisor之kill信号</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/03/16/supervisor%E4%B9%8Bkill%E4%BF%A1%E5%8F%B7/" class="archive-article-date">
+        <time datetime="2021-03-16T09:11:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>supervisor支持的信号：TERM，HUP，INT，QUIT，KILL，USR1或USR2中的任何一个，分别对应内核级信号：SIGTERM，SIGHUP，SIGINT，SIGQUIT，SIGKILL，SIGUSR1，SIGUSR2</p>
+<p>其中，USR1信号将导致以下步骤的发生：</p>
+<ul>
+<li>停止接受新的连接</li>
+<li>等待当前连接停止</li>
+<li>重新载入配置文件，重新打开日志文件，重启服务器，从而实现相对平滑的不关机的更改。</li>
+</ul>
+    
+    <a class="article-more-a" href="/2021/03/16/supervisor%E4%B9%8Bkill%E4%BF%A1%E5%8F%B7/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">supervisor</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">kill</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SIGHUP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SIGINT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">SIGUSR1</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/03/16/supervisor%E4%B9%8Bkill%E4%BF%A1%E5%8F%B7/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux或MAC终端编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1068,114 +1178,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2021/01/28/vmware%E6%89%B9%E9%87%8F%E8%AE%BE%E7%BD%AE-NAT%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-快速部署基于TLS的TUN-VPN隧道" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/12/%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E5%9F%BA%E4%BA%8ETLS%E7%9A%84TUN-VPN%E9%9A%A7%E9%81%93/" target="_blank">快速部署基于TLS算法的TUN VPN隧道</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/12/12/%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E5%9F%BA%E4%BA%8ETLS%E7%9A%84TUN-VPN%E9%9A%A7%E9%81%93/" class="archive-article-date">
-        <time datetime="2020-12-12T12:30:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>快速部署基于AEAD加密算法的TUN VPN隧道</p>
-<blockquote>
-<p>github release：<a target="_blank" rel="noopener" href="https://github.com/ginuerzh/gost/releases">https://github.com/ginuerzh/gost/releases</a></p>
-</blockquote>
-<p>版本：≥2.11.1</p>
-    
-    <a class="article-more-a" href="/2020/12/12/%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E5%9F%BA%E4%BA%8ETLS%E7%9A%84TUN-VPN%E9%9A%A7%E9%81%93/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">TLS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">openvpn</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">TUN</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">TAP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">route</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/12/%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E5%9F%BA%E4%BA%8ETLS%E7%9A%84TUN-VPN%E9%9A%A7%E9%81%93/">展开全文 >></a>
     </p>
     
 
@@ -5794,6 +5796,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">UTF8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SIGHUP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SIGINT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">SIGUSR1</a>
               </li>
             
             <div class="clearfix"></div>
