@@ -196,6 +196,114 @@
             
 
   
+    <article id="post-shell删除HDFS几天前的数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/07/15/shell%E5%88%A0%E9%99%A4HDFS%E5%87%A0%E5%A4%A9%E5%89%8D%E7%9A%84%E6%95%B0%E6%8D%AE/" target="_blank">shell删除HDFS几天前的数据</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/07/15/shell%E5%88%A0%E9%99%A4HDFS%E5%87%A0%E5%A4%A9%E5%89%8D%E7%9A%84%E6%95%B0%E6%8D%AE/" class="archive-article-date">
+        <time datetime="2019-07-15T08:44:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-15</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="Shell脚本使用"><a href="#Shell脚本使用" class="headerlink" title="Shell脚本使用"></a>Shell脚本使用</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh clean_hdfs_logs.sh [hdfs_user]</span><br></pre></td></tr></table></figure>
+<h5 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h5><p>cat clean_hdfs_logs.sh</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">判断传参个数[即输入hdfs用户]</span></span><br><span class="line">if [ $# != 1 ];then</span><br><span class="line">   echo &quot;USAGE: sh $0 [hdfs_user]&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">Hadoop_LogDir=/tmp/logs/$1/logs</span><br><span class="line">File=/home/$1/logs.log</span><br><span class="line">DATE=`date +%F`</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">清理老数据</span></span><br><span class="line">rm -f $File</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">获取最新数据</span></span><br><span class="line">sudo -u $1 hadoop fs -ls $Hadoop_LogDir &gt;&gt;$File</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">筛选1天前的可删除子目录</span></span><br><span class="line">INFO=`egrep -v &quot;$DATE&quot; $File|awk &#x27;&#123;print $NF&#125;&#x27;`</span><br><span class="line"></span><br><span class="line">for i in $INFO</span><br><span class="line">do</span><br><span class="line">  sudo -u $1 hadoop fs -rm -r $i</span><br><span class="line"><span class="meta">  #</span><span class="bash">sudo -u <span class="variable">$1</span> hadoop fs -rm -r -skipTrash <span class="variable">$i</span></span></span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hdfs</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">su</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sudo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/07/15/shell%E5%88%A0%E9%99%A4HDFS%E5%87%A0%E5%A4%A9%E5%89%8D%E7%9A%84%E6%95%B0%E6%8D%AE/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-logstash错误解决-a-plugin-had-an-unrecoverable-error" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1124,115 +1232,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/06/10/Json%E6%95%B0%E6%8D%AE%E8%B0%83%E7%94%A8%E5%8F%98%E9%87%8F%E9%97%AE%E9%A2%98-Shell/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-UDP抓包工具tcpdump" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/06/05/UDP%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7tcpdump/" target="_blank">UDP抓包工具tcpdump</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/06/05/UDP%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7tcpdump/" class="archive-article-date">
-        <time datetime="2019-06-05T04:11:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>Vultr.com 提供的VPS一直是GFW打压的重灾区，Vultr提供的VPS 无论哪个区域节点，TCP协议基本都被阻断；唯一相对较好的方法是使用UDP，这是因为UDP特性是基于无连接协议。但是每逢“重大节日”，都会被GFW特殊照顾，GFW对付UDP协议的方法就是Qos, 即定时不定时的将UDP包给丢弃。</p>
-<h5 id="关于测试工具"><a href="#关于测试工具" class="headerlink" title="关于测试工具"></a>关于测试工具</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">可使用TCPdump工具进行查看数据包流向情况</span><br><span class="line"></span><br><span class="line">VPS网络-服务端：</span><br><span class="line"><span class="meta">$</span><span class="bash"> tcpdump host 1.10.18.222</span>  </span><br><span class="line">[查看VPS网络接收或发送到1.10.18.222主机的UDP数据包] </span><br><span class="line"></span><br><span class="line">本地网络-客户端：</span><br><span class="line"><span class="meta">$</span><span class="bash"> tcpdump -i eth0 port 1024 and dst host <span class="string">&quot;xx.xx.xx.xx&quot;</span></span>  </span><br><span class="line">[查看本地网络通过eth0端口发送到xx.xx.xx.xx主机1024端口的数据包]</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/06/05/UDP%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7tcpdump/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">udp</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tcpdump</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">udp抓包</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">udp代理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GFW</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/06/05/UDP%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7tcpdump/">展开全文 >></a>
     </p>
     
 
@@ -5863,6 +5862,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">SIGUSR1</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">supervisor-manage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">cesi</a>
               </li>
             
             <div class="clearfix"></div>
