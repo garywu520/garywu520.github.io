@@ -196,6 +196,113 @@
             
 
   
+    <article id="post-KVM部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/02/23/KVM%E9%83%A8%E7%BD%B2/" target="_blank">KVM部署</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/02/23/KVM%E9%83%A8%E7%BD%B2/" class="archive-article-date">
+        <time datetime="2021-02-23T08:25:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="一、环境监测"><a href="#一、环境监测" class="headerlink" title="一、环境监测"></a>一、环境监测</h5><p>KVM基于X86虚拟化扩展技术的虚拟机软件，所以需要CPU支持 Intel VT</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo | egrep &#x27;vmx|svm&#x27;</span><br></pre></td></tr></table></figure>
+<p>如果有返回信息，这说明当前CPU支持并且开启了虚拟化扩展</p>
+<br>
+    
+    <a class="article-more-a" href="/2021/02/23/KVM%E9%83%A8%E7%BD%B2/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">KVM虚拟化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CentOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">半虚拟化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">libvirt</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">qemu</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/02/23/KVM%E9%83%A8%E7%BD%B2/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vmware批量设置-NAT端口转发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1078,106 +1185,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/11/09/Android-IOS%E8%AE%BE%E5%A4%87%E6%B5%8B%E8%AF%95%E9%9B%86%E4%B8%AD%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0ATXServer2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MySQL-Monitor可视化监控" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/10/31/MySQL-Monitor%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9B%91%E6%8E%A7/" target="_blank">MySQL Monitor可视化监控</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/10/31/MySQL-Monitor%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9B%91%E6%8E%A7/" class="archive-article-date">
-        <time datetime="2020-10-31T12:56:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-31</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="一、环境"><a href="#一、环境" class="headerlink" title="一、环境"></a>一、环境</h5><ul>
-<li>github项目：<a target="_blank" rel="noopener" href="https://github.com/hcymysql/mysql_monitor">https://github.com/hcymysql/mysql_monitor</a></li>
-<li>已安装MySQL和Nginx</li>
-</ul>
-<h5 id="二、安装环境并下载源码"><a href="#二、安装环境并下载源码" class="headerlink" title="二、安装环境并下载源码"></a>二、安装环境并下载源码</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yum install -y httpd php php-mysqlnd</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yum install -y python-simplejson</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> php -m |grep mysqlnd</span></span><br><span class="line">mysqlnd</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2020/10/31/MySQL-Monitor%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9B%91%E6%8E%A7/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">监控</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">monitor</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/10/31/MySQL-Monitor%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9B%91%E6%8E%A7/">展开全文 >></a>
     </p>
     
 
@@ -5816,6 +5823,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">cesi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">systemd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">systemctl</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">钩子</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">服务依赖</a>
               </li>
             
             <div class="clearfix"></div>
