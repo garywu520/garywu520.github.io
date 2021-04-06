@@ -196,6 +196,116 @@
             
 
   
+    <article id="post-查看kafka消费者group列表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/02/27/%E6%9F%A5%E7%9C%8Bkafka%E6%B6%88%E8%B4%B9%E8%80%85group%E5%88%97%E8%A1%A8/" target="_blank">查看kafka消费者group列表</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/02/27/%E6%9F%A5%E7%9C%8Bkafka%E6%B6%88%E8%B4%B9%E8%80%85group%E5%88%97%E8%A1%A8/" class="archive-article-date">
+        <time datetime="2019-02-27T10:26:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-27</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="查看KAFKA消费者组列表–consumer-groups"><a href="#查看KAFKA消费者组列表–consumer-groups" class="headerlink" title="查看KAFKA消费者组列表–consumer groups"></a>查看KAFKA消费者组列表–consumer groups</h4><h5 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;kafka-consumer-groups.sh --zookeeper 127.0.0.1:2181 --list</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h5><p>有的生产环境可能使用的早期0.8.2的版本，可以通过zookeeper查看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;zkCli.sh -server 127.0.0.1:2181</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">列出的就是consumer groups了</span><br><span class="line"></span><br><span class="line">[zk: 127.0.0.1:2181(CONNECTED) 6] ls &#x2F;consumers&#x2F;   </span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这条命令可以看到此组下有哪些topic</span><br><span class="line"></span><br><span class="line">[zk: 127.0.0.1:2181(CONNECTED) 6] ls &#x2F;consumers&#x2F;consumer_groupname&#x2F;owners  </span><br></pre></td></tr></table></figure>
+
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kafka</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">zookeeper</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">consumer</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/02/27/%E6%9F%A5%E7%9C%8Bkafka%E6%B6%88%E8%B4%B9%E8%80%85group%E5%88%97%E8%A1%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CDH-找不到MySQL-JDBC驱动程序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1116,148 +1226,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/01/24/linux%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8dd%E5%91%BD%E4%BB%A4%E5%85%8B%E9%9A%86%E4%B8%8E%E6%81%A2%E5%A4%8D/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-netflix流媒体解锁" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/01/11/netflix%E6%B5%81%E5%AA%92%E4%BD%93%E8%A7%A3%E9%94%81/" target="_blank">Netflix流媒体解锁</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/01/11/netflix%E6%B5%81%E5%AA%92%E4%BD%93%E8%A7%A3%E9%94%81/" class="archive-article-date">
-        <time datetime="2019-01-11T10:46:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><img src="https://raw.githubusercontent.com/wuyanteng/wuyanteng.github.io/master/images/Netflix.jpg" alt="Netflix"></p>
-<h5 id="提供NetFlix、TVB、BBC-iplayer、Pandora、蘋果動、巴哈姆特·動畫瘋等流媒体解锁服务，畅享4K高清画质。"><a href="#提供NetFlix、TVB、BBC-iplayer、Pandora、蘋果動、巴哈姆特·動畫瘋等流媒体解锁服务，畅享4K高清画质。" class="headerlink" title="提供NetFlix、TVB、BBC iplayer、Pandora、蘋果動、巴哈姆特·動畫瘋等流媒体解锁服务，畅享4K高清画质。"></a>提供NetFlix、TVB、BBC iplayer、Pandora、蘋果動、巴哈姆特·動畫瘋等流媒体解锁服务，畅享4K高清画质。</h5><h5 id="TG群组：https-t-me-happy-dns"><a href="#TG群组：https-t-me-happy-dns" class="headerlink" title="TG群组：https://t.me/happy_dns"></a>TG群组：<a target="_blank" rel="noopener" href="https://t.me/happy_dns">https://t.me/happy_dns</a></h5>
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Netflix</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">telegram</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tg</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Netflix群组</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Netflix解锁</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Netflix DNS解锁</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Pandora</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">流媒体</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">TVB</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">苹果动</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">BBC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">bbc iplayer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">巴哈姆特</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">动画疯</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HBO</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/01/11/netflix%E6%B5%81%E5%AA%92%E4%BD%93%E8%A7%A3%E9%94%81/">展开全文 >></a>
     </p>
     
 

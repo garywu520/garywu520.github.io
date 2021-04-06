@@ -196,6 +196,104 @@
             
 
   
+    <article id="w-docker日志限制与docker日志清理" class="article article-type-w  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/02/07/docker%E6%97%A5%E5%BF%97%E9%99%90%E5%88%B6%E4%B8%8Edocker%E6%97%A5%E5%BF%97%E6%B8%85%E7%90%86/" target="_blank">docker日志限制与docker日志清理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/02/07/docker%E6%97%A5%E5%BF%97%E9%99%90%E5%88%B6%E4%B8%8Edocker%E6%97%A5%E5%BF%97%E6%B8%85%E7%90%86/" class="archive-article-date">
+        <time datetime="2020-02-07T02:50:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>环境中日志产生量太大导致磁盘被爆, 很大原因是因为docker没有限制日志大小造成的。</p>
+<h5 id="1-限制docker容器log大小"><a href="#1-限制docker容器log大小" class="headerlink" title="1. 限制docker容器log大小"></a>1. 限制docker容器log大小</h5><p>vim  /etc/docker/daemon.json [此文件没有则创建]</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">增加log-opts参数</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;log-driver&quot;:&quot;json-file&quot;,</span><br><span class="line">  &quot;log-opts&quot;: &#123;&quot;max-size&quot;:&quot;500m&quot;, &quot;max-file&quot;:&quot;3&quot;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>max-size=500m，意味着一个容器日志大小上限是500M， </p>
+</li>
+<li><p>max-file=3，意味着一个容器有三个日志，分别是id+.json、id+1.json、id+2.json</p>
+    
+    <a class="article-more-a" href="/2020/02/07/docker%E6%97%A5%E5%BF%97%E9%99%90%E5%88%B6%E4%B8%8Edocker%E6%97%A5%E5%BF%97%E6%B8%85%E7%90%86/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">docker日志</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">docker日志清理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/02/07/docker%E6%97%A5%E5%BF%97%E9%99%90%E5%88%B6%E4%B8%8Edocker%E6%97%A5%E5%BF%97%E6%B8%85%E7%90%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CTOP-docker容器运行状态TOP工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1107,110 +1205,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/12/12/%E7%BB%99zookeeper%E6%B7%BB%E5%8A%A0%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%81/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-使用阿里云免费的Docker私有仓库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/12/11/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E5%85%8D%E8%B4%B9%E7%9A%84Docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/" target="_blank">使用阿里云免费的Docker私有仓库</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/12/11/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E5%85%8D%E8%B4%B9%E7%9A%84Docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/" class="archive-article-date">
-        <time datetime="2019-12-11T07:30:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>貌似只要购买了ECC云服务器，就可以免费开通这个服务。</p>
-<h5 id="1-访问-阿里云容器镜像服务"><a href="#1-访问-阿里云容器镜像服务" class="headerlink" title="1. 访问 阿里云容器镜像服务"></a>1. 访问 阿里云容器镜像服务</h5><p>链接：<a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-hongkong/instances/repositories">https://cr.console.aliyun.com/cn-hongkong/instances/repositories</a></p>
-<p>首先要设置一个叫做Registry密码，这个密码用来推送/拉取Docker镜像使用</p>
-<h5 id="2-创建私有镜像仓库"><a href="#2-创建私有镜像仓库" class="headerlink" title="2. 创建私有镜像仓库"></a>2. 创建私有镜像仓库</h5><p>默认实例 —&gt; 镜像仓库 —&gt; 创建镜像仓库</p>
-<p>可以选择镜像仓库的地域，这里开通的是香港节点的私有仓库</p>
-    
-    <a class="article-more-a" href="/2019/12/11/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E5%85%8D%E8%B4%B9%E7%9A%84Docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">阿里云</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">镜像仓库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/11/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E5%85%8D%E8%B4%B9%E7%9A%84Docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/">展开全文 >></a>
     </p>
     
 
