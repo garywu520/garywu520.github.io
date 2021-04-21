@@ -196,6 +196,129 @@
             
 
   
+    <article id="post-通过ssh和expect监控RouterOS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2018/04/10/%E9%80%9A%E8%BF%87ssh%E5%92%8Cexpect%E7%9B%91%E6%8E%A7RouterOS/" target="_blank">通过ssh和expect监控RouterOS</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2018/04/10/%E9%80%9A%E8%BF%87ssh%E5%92%8Cexpect%E7%9B%91%E6%8E%A7RouterOS/" class="archive-article-date">
+        <time datetime="2018-04-10T04:25:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-10</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><strong>意义</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可通过这种方式稍加变通下，就可以很方便的获取RouterOS所有想要的信息，甚至是定时备份。</span><br></pre></td></tr></table></figure>
+<p><strong>脚本逻辑：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(1)ssh通过expect免交互方式登录RouterOS, 并远程执行命令</span><br><span class="line">(2)将命令结果输出到文件，将数据分析后接入zabbix</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2018/04/10/%E9%80%9A%E8%BF%87ssh%E5%92%8Cexpect%E7%9B%91%E6%8E%A7RouterOS/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RouterOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">expect</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ros</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">免交互</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">交互</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2018/04/10/%E9%80%9A%E8%BF%87ssh%E5%92%8Cexpect%E7%9B%91%E6%8E%A7RouterOS/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux下route路由配置梳理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1081,114 +1204,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2018/03/22/mysql%E4%BB%8E%E5%BA%93%E8%87%AA%E5%8A%A8%E6%B8%85%E7%90%86relay-log/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-问题汇总-openstack可用域availablitiy-zone配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/03/22/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB-openstack%E5%8F%AF%E7%94%A8%E5%9F%9Favailablitiy-zone%E9%85%8D%E7%BD%AE/" target="_blank">问题汇总:openstack可用域availablitiy_zone配置</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/03/22/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB-openstack%E5%8F%AF%E7%94%A8%E5%9F%9Favailablitiy-zone%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-        <time datetime="2018-03-22T02:40:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h4 id="什么是availablitiy-zone-可用域"><a href="#什么是availablitiy-zone-可用域" class="headerlink" title="什么是availablitiy_zone(可用域)"></a>什么是availablitiy_zone(可用域)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Availability Zones 通常是对 computes 节点上的资源在小的区域内进行逻辑上的分组和隔离。</span><br><span class="line"></span><br><span class="line">例如在同一个数据中心，我们可以将 Availability Zones 规划到不同的机房，或者在同一机房的几个相邻的机架，从而保障如果某个 Availability Zone 的节点发生故障（如供电系统或网络），而不影响其他的 Availability Zones 上节点运行的虚拟机，通过这种划分来提高 OpenStack 的可用性。目前 OpenStack 默认的安装是把所有的 computes 节点划分到 nova 的 Availability Zone 上，但我们可以通过对 nova.conf 文件的配置来定义不同的 Availability zones。</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2018/03/22/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB-openstack%E5%8F%AF%E7%94%A8%E5%9F%9Favailablitiy-zone%E9%85%8D%E7%BD%AE/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">可用域</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">availablitiy_zone</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">aggregate host</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nova schedule</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">az</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/03/22/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB-openstack%E5%8F%AF%E7%94%A8%E5%9F%9Favailablitiy-zone%E9%85%8D%E7%BD%AE/">展开全文 >></a>
     </p>
     
 
@@ -5843,6 +5858,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">服务依赖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RDS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">percona</a>
               </li>
             
             <div class="clearfix"></div>
