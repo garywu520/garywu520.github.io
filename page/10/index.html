@@ -196,6 +196,95 @@
             
 
   
+    <article id="post-nmap端口扫描" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/09/20/nmap%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/" target="_blank">nmap端口扫描</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/09/20/nmap%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/" class="archive-article-date">
+        <time datetime="2019-09-20T10:25:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="1-应用场景"><a href="#1-应用场景" class="headerlink" title="1.应用场景"></a>1.应用场景</h5><p>如果有台服务器，开放了一些端口，尤其是SSH端口，忘记设置了多少端口号的时候，又不想重启服务器，则需要对其进行端口扫描</p>
+<h5 id="2-工具-nmap"><a href="#2-工具-nmap" class="headerlink" title="2. 工具: nmap"></a>2. 工具: nmap</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nmap</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2019/09/20/nmap%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">nmap</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/09/20/nmap%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Redis主从-sentinel哨兵-理论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1116,112 +1205,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/08/21/nginx%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%9C%8D%E5%8A%A1/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-shell脚本监控TraceRoute" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/08/15/shell%E8%84%9A%E6%9C%AC%E7%9B%91%E6%8E%A7TraceRoute/" target="_blank">shell脚本监控TraceRoute</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/08/15/shell%E8%84%9A%E6%9C%AC%E7%9B%91%E6%8E%A7TraceRoute/" class="archive-article-date">
-        <time datetime="2019-08-15T06:28:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="shell脚本逻辑："><a href="#shell脚本逻辑：" class="headerlink" title="shell脚本逻辑："></a>shell脚本逻辑：</h5><ul>
-<li>不能以 trace命令返回值作为成功或失败的依据，不可达的地址返回值也是0</li>
-<li>取文本的最后一跳信息，当最后一跳包含$IP，则视为Trace正常。若$IP的检索结果等于0，则视为Trace失败。</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">!/bin/env bash</span><br><span class="line">IP=xx.xx.xx.xx</span><br><span class="line">FILE=/tmp/besttrace.txt</span><br><span class="line">EMAIL=xxx@xx.com</span><br><span class="line"></span><br><span class="line">/sbin/besttrace -q 1 $IP &gt;$FILE</span><br><span class="line">NUM=`grep &quot;$IP&quot; $FILE|awk NR==2|wc -l`</span><br><span class="line">if [ $NUM -lt 1 ];then</span><br><span class="line">   INFO=`cat $FILE`</span><br><span class="line"><span class="meta">   #</span><span class="bash">发送告警邮件</span> </span><br><span class="line">   echo -e &quot;邮件发自$HOSTNAME\n详情如下:\n\n$INFO&quot;|mail -s &quot;TraceRoute告警&quot; $EMAIL</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MTR</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">traceroute</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">besttrace</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/08/15/shell%E8%84%9A%E6%9C%AC%E7%9B%91%E6%8E%A7TraceRoute/">展开全文 >></a>
     </p>
     
 
@@ -5884,6 +5867,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">percona</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python3.7.7</a>
               </li>
             
             <div class="clearfix"></div>
