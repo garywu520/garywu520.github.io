@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://garywu520.github.io">
-  <title>Archives | Gary Wu</title>
+  <title>基于AEAD加密来建立TUN VPN | Gary Wu</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="GaryWu_Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gary Wu">
-<meta property="og:url" content="https://garywu520.github.io/archives/index.html">
+  <meta name="description" content="基于AEAD加密建立稳定TUN&#x2F;TAP VPN，实现异地内网互联  一、工具 GOST (Release) OpenVPN  二、架构模式 第1部分部署：美国  — 北京 实现AEAD加密互联 第2部分部署：HOME到北京 通过OVPN实现内网互联">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于AEAD加密来建立TUN VPN">
+<meta property="og:url" content="https://garywu520.github.io/2021/05/28/%E5%9F%BA%E4%BA%8EAEAD%E5%8A%A0%E5%AF%86%E6%9D%A5%E5%BB%BA%E7%AB%8BTUN-VPN/index.html">
 <meta property="og:site_name" content="Gary Wu">
-<meta property="og:description" content="GaryWu_Blog">
+<meta property="og:description" content="基于AEAD加密建立稳定TUN&#x2F;TAP VPN，实现异地内网互联  一、工具 GOST (Release) OpenVPN  二、架构模式 第1部分部署：美国  — 北京 实现AEAD加密互联 第2部分部署：HOME到北京 通过OVPN实现内网互联">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-05-28T06:07:30.000Z">
+<meta property="article:modified_time" content="2021-05-28T06:16:06.480Z">
 <meta property="article:author" content="GaryWu">
+<meta property="article:tag" content="openvpn">
+<meta property="article:tag" content="vpn">
+<meta property="article:tag" content="gost">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Gary Wu" type="application/atom+xml">
@@ -189,41 +194,150 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-基于AEAD加密来建立TUN-VPN" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/05/28/%E5%9F%BA%E4%BA%8EAEAD%E5%8A%A0%E5%AF%86%E6%9D%A5%E5%BB%BA%E7%AB%8BTUN-VPN/" class="archive-article-date">
-        <time datetime="2021-05-28T06:07:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-28</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/05/28/%E5%9F%BA%E4%BA%8EAEAD%E5%8A%A0%E5%AF%86%E6%9D%A5%E5%BB%BA%E7%AB%8BTUN-VPN/" target="_blank">基于AEAD加密来建立TUN VPN</a>
   
+    <h1 class="article-title" itemprop="name">
+      基于AEAD加密来建立TUN VPN
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+<a href="/2021/05/28/%E5%9F%BA%E4%BA%8EAEAD%E5%8A%A0%E5%AF%86%E6%9D%A5%E5%BB%BA%E7%AB%8BTUN-VPN/" class="archive-article-date">
+        <time datetime="2021-05-28T06:07:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-28</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">5分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>基于AEAD加密建立稳定TUN/TAP VPN，实现异地内网互联</p>
+</blockquote>
+<h5 id="一、工具"><a href="#一、工具" class="headerlink" title="一、工具"></a>一、工具</h5><ul>
+<li>GOST (<a target="_blank" rel="noopener" href="https://github.com/ginuerzh/gost/releases">Release</a>)</li>
+<li>OpenVPN</li>
+</ul>
+<h5 id="二、架构模式"><a href="#二、架构模式" class="headerlink" title="二、架构模式"></a>二、架构模式</h5><ul>
+<li>第1部分部署：美国  — 北京 实现AEAD加密互联</li>
+<li>第2部分部署：HOME到北京 通过OVPN实现内网互联</li>
+</ul>
+<a id="more"></a>
+
+<h5 id="三、第1部分部署"><a href="#三、第1部分部署" class="headerlink" title="三、第1部分部署"></a>三、第1部分部署</h5><h5 id="1-服务端（US）"><a href="#1-服务端（US）" class="headerlink" title="1. 服务端（US）"></a>1. 服务端（US）</h5><ul>
+<li>kernel</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#IP转发</span><br><span class="line">net.ipv4.ip_forward&#x3D;1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>iptables</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#开放TUN1 VPN[注：默认允许转发]</span><br><span class="line">iptables -A INPUT -p udp --dport 8881 -j ACCEPT      </span><br><span class="line">iptables -A OUTPUT -p udp --sport 8881 -j ACCEPT</span><br><span class="line">iptables -t nat -A POSTROUTING -s 172.16.100.0&#x2F;24 ! -o tun1 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动</li>
+</ul>
+<p>cat cat tun1_vpn.conf </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#使用UDP</span><br><span class="line">[program:tun1_vpn]</span><br><span class="line">command&#x3D;&#x2F;usr&#x2F;bin&#x2F;gost -obfs4-distBias -L&#x3D;&quot;tun:&#x2F;&#x2F;AEAD_CHACHA20_POLY1305:password@:8881?name&#x3D;tun1&amp;tcp&#x3D;false&amp;net&#x3D;172.16.100.1&#x2F;24&quot;</span><br><span class="line">stdout_logfile&#x3D;&#x2F;var&#x2F;log&#x2F;tun1.log</span><br><span class="line">stderr_logfile&#x3D;&#x2F;var&#x2F;log&#x2F;tun1.log</span><br><span class="line">username&#x3D;nobody</span><br><span class="line">autostart&#x3D;true</span><br><span class="line">autorestart&#x3D;true</span><br><span class="line">startsecs&#x3D;5</span><br><span class="line">priority&#x3D;1</span><br><span class="line">stopasgroup&#x3D;true</span><br><span class="line">killasgroup&#x3D;true</span><br></pre></td></tr></table></figure>
+<br>
+
+<h5 id="2-客户端（BJ）"><a href="#2-客户端（BJ）" class="headerlink" title="2. 客户端（BJ）"></a>2. 客户端（BJ）</h5><p>cat cat tun1_local.conf </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[program:tun1_local]</span><br><span class="line">command&#x3D;&#x2F;usr&#x2F;bin&#x2F;gost -obfs4-distBias -L&#x3D;&quot;tun:&#x2F;&#x2F;AEAD_CHACHA20_POLY1305:password@:8881&#x2F;xx.xx.xx.xx:8881?name&#x3D;tun1&amp;tcp&#x3D;false&amp;net&#x3D;172.16.100.2&#x2F;24&amp;gw&#x3D;172.16.100.1&amp;route&#x3D;10.0.0.0&#x2F;8&quot;</span><br><span class="line">stdout_logfile&#x3D;&#x2F;var&#x2F;log&#x2F;tun1.log</span><br><span class="line">stderr_logfile&#x3D;&#x2F;var&#x2F;log&#x2F;tun1.log</span><br><span class="line">username&#x3D;nobody</span><br><span class="line">autostart&#x3D;true</span><br><span class="line">autorestart&#x3D;true</span><br><span class="line">startsecs&#x3D;5</span><br><span class="line">priority&#x3D;1</span><br><span class="line">stopasgroup&#x3D;true</span><br><span class="line">killasgroup&#x3D;true</span><br></pre></td></tr></table></figure>
+<h5 id="3-BJ测试"><a href="#3-BJ测试" class="headerlink" title="3.BJ测试"></a>3.BJ测试</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ping 172.16.100.1</span><br><span class="line">ping 10.0.1.10</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="四、第2部分部署"><a href="#四、第2部分部署" class="headerlink" title="四、第2部分部署"></a>四、第2部分部署</h5><h5 id="1-内核开启转发功能"><a href="#1-内核开启转发功能" class="headerlink" title="1.内核开启转发功能"></a>1.内核开启转发功能</h5><p>cat /etc/sysctl.conf</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.ip_forward = 1</span><br></pre></td></tr></table></figure>
+<p>sysctl -p</p>
+<h5 id="2-编译安装OpenVPN"><a href="#2-编译安装OpenVPN" class="headerlink" title="2.编译安装OpenVPN"></a>2.编译安装OpenVPN</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装依赖</span></span><br><span class="line">yum install -y openssl openssl-devel lzo lzo-devel pam pam-devel automake pkgconfig gcc gcc++</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">下载openvpn-2.4.7.tar.gz</span></span><br><span class="line">wget https://swupdate.openvpn.org/community/releases/openvpn-2.4.7.tar.gz</span><br><span class="line">tar -zxvf openvpn-2.4.7.tar.gz &amp;&amp; cd openvpn-2.4.7</span><br><span class="line">./configure --prefix=/usr/local/openvpn</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="3-创建OpenVPN工作目录"><a href="#3-创建OpenVPN工作目录" class="headerlink" title="3.  创建OpenVPN工作目录"></a>3.  创建OpenVPN工作目录</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/openvpn</span><br><span class="line">cp -r /root/openvpn-2.4.7/sample/ /etc/openvpn/</span><br><span class="line">cp /etc/openvpn/sample/sample-config-files/server.conf /etc/openvpn/</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="4-下载最新EasyRsa3工具"><a href="#4-下载最新EasyRsa3工具" class="headerlink" title="4. 下载最新EasyRsa3工具"></a>4. 下载最新EasyRsa3工具</h5><p>Github 项目: <a target="_blank" rel="noopener" href="https://github.com/OpenVPN/easy-rsa">https://github.com/OpenVPN/easy-rsa</a> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">本工具用来制作ca证书、服务端及客户端证书使用</span></span><br><span class="line"></span><br><span class="line">git clone https://github.com/OpenVPN/easy-rsa.git</span><br><span class="line">mv easy-rsa /etc/openvpn/</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/openvpn/easy-rsa/easyrsa3/</span><br><span class="line">cp vars.example vars</span><br><span class="line">chmod +x vars</span><br></pre></td></tr></table></figure>
+<p>cat vars</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">set_var EASYRSA_REQ_COUNTRY     &quot;BJ-K&quot;</span><br><span class="line">set_var EASYRSA_REQ_PROVINCE    &quot;BJ-K&quot;</span><br><span class="line">set_var EASYRSA_REQ_CITY        &quot;BJ-K&quot;</span><br><span class="line">set_var EASYRSA_REQ_ORG         &quot;BJ-K Team Co&quot;</span><br><span class="line">set_var EASYRSA_REQ_EMAIL       &quot;BJ-K.com&quot;</span><br><span class="line">set_var EASYRSA_REQ_OU          &quot;Dev Team&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="5-创建服务端证书及key"><a href="#5-创建服务端证书及key" class="headerlink" title="5. 创建服务端证书及key"></a>5. 创建服务端证书及key</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/openvpn/easy-rsa/easyrsa3</span><br><span class="line"><span class="meta">#</span><span class="bash">初始化</span></span><br><span class="line">./easyrsa init-pki</span><br><span class="line"><span class="meta">#</span><span class="bash">创建根证书</span></span><br><span class="line">./easyrsa build-ca</span><br><span class="line"><span class="meta">#</span><span class="bash">注：根据提示输入服务器CA的PEM密码和Common name</span></span><br><span class="line"><span class="meta">#</span><span class="bash">CA密码为: xxxxxx</span></span><br><span class="line"><span class="meta">#</span><span class="bash">common name为：BJ</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">创建服务端证书</span></span><br><span class="line">./easyrsa gen-req server nopass</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">签约服务端证书</span></span><br><span class="line"> ./easyrsa sign server server</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span><span class="bash">创建Diffle-Hellman</span></span><br><span class="line"> ./easyrsa gen-dh</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">拷贝配置文件</span></span><br><span class="line">cp /etc/openvpn/easy-rsa/easyrsa3/pki/ca.crt /etc/openvpn/</span><br><span class="line">cp /etc/openvpn/easy-rsa/easyrsa3/pki/issued/server.crt /etc/openvpn/</span><br><span class="line">cp /etc/openvpn/easy-rsa/easyrsa3/pki/private/server.key /etc/openvpn/</span><br><span class="line">cp /etc/openvpn/easy-rsa/easyrsa3/pki/dh.pem /etc/openvpn/</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="6-配置OpenVPN服务"><a href="#6-配置OpenVPN服务" class="headerlink" title="6.  配置OpenVPN服务"></a>6.  配置OpenVPN服务</h5><p>生成ta.key文件 — 注：客户端连接同样需要该文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/openvpn/</span><br><span class="line">/usr/local/openvpn/sbin/openvpn --genkey --secret ta.key</span><br></pre></td></tr></table></figure>
+<p>配置/etc/openvpn/server.conf</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">local 0.0.0.0</span><br><span class="line">port 21033</span><br><span class="line">proto tcp</span><br><span class="line">dev tun</span><br><span class="line">ca /etc/openvpn/ca.crt</span><br><span class="line">cert /etc/openvpn/server.crt</span><br><span class="line">key /etc/openvpn/server.key</span><br><span class="line">dh /etc/openvpn/dh.pem</span><br><span class="line">server 172.200.200.0 255.255.255.0</span><br><span class="line">ifconfig-pool-persist ipp.txt</span><br><span class="line">tls-auth /etc/openvpn/ta.key 0</span><br><span class="line">client-to-client</span><br><span class="line">keepalive 10 120</span><br><span class="line">cipher AES-256-GCM</span><br><span class="line">user openvpn</span><br><span class="line">group openvpn</span><br><span class="line">persist-key</span><br><span class="line">persist-tun</span><br><span class="line">status /var/log/openvpn/openvpn.log</span><br><span class="line">verb 3</span><br><span class="line"><span class="meta">#</span><span class="bash">crl-verify /etc/openvpn/easy-rsa/easyrsa3/pki/crl.pem</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /var/log/openvpn/</span><br><span class="line">useradd -M -s /sbin/nologin openvpn</span><br><span class="line">chown -R openvpn.openvpn /var/log/openvpn</span><br><span class="line">chown -R openvpn.openvpn /etc/openvpn</span><br></pre></td></tr></table></figure>
+<p>supervisor启动管理</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[program:bj_ovpn]</span><br><span class="line">command=/usr/local/openvpn/sbin/openvpn --config /etc/openvpn/server.conf</span><br><span class="line">stdout_logfile=/var/log/openvpn/openvpn.log</span><br><span class="line">stderr_logfile=/var/log/openvpn/openvpn.log</span><br><span class="line">autostart=true</span><br><span class="line">autorestart=true</span><br><span class="line">startsecs=5</span><br><span class="line">priority=1</span><br><span class="line">stopasgroup=true</span><br><span class="line">killasgroup=true</span><br></pre></td></tr></table></figure>
+<br>
+
+<h5 id="7-OVPN客户端-配置文件"><a href="#7-OVPN客户端-配置文件" class="headerlink" title="7. OVPN客户端-配置文件"></a>7. OVPN客户端-配置文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">client</span><br><span class="line">dev tun</span><br><span class="line">proto tcp</span><br><span class="line">remote xx.xx.xx.xx 21033</span><br><span class="line">resolv-retry infinite</span><br><span class="line">nobind</span><br><span class="line">persist-key</span><br><span class="line">persist-tun</span><br><span class="line">auth-nocache</span><br><span class="line">ca .&#x2F;ca.crt</span><br><span class="line">cert .&#x2F;xxx.crt</span><br><span class="line">key .&#x2F;xxx.key</span><br><span class="line">cipher AES-256-GCM</span><br><span class="line">tls-auth .&#x2F;ta.key 1</span><br><span class="line">remote-cert-tls server</span><br><span class="line">#US目标路由</span><br><span class="line">route 10.0.0.0 255.0.0.0</span><br><span class="line">verb 3</span><br></pre></td></tr></table></figure>
+<br>
+
+<h5 id="故障解决"><a href="#故障解决" class="headerlink" title="故障解决"></a>故障解决</h5><p>如果服务器向客户端push了子网路由，仍然无法访问远程服务器内网其他机器的话，需要在OpenVPN服务器添加一条Iptables NAT策略</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">OpenVPN子网转发</span></span><br><span class="line"><span class="meta">#</span><span class="bash">--------------- OVPN -----------------------------<span class="comment">#</span></span></span><br><span class="line">iptables -A INPUT -p tcp --dport 21033 -j ACCEPT      </span><br><span class="line">iptables -A OUTPUT -p tcp --sport 21033 -j ACCEPT</span><br><span class="line">iptables -t nat -A POSTROUTING -s 172.200.200.0/24 ! -o eth0 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          GaryWu
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://garywu520.github.io/2021/05/28/基于AEAD加密来建立TUN-VPN/" title="基于AEAD加密来建立TUN VPN" target="_blank">https://garywu520.github.io/2021/05/28/基于AEAD加密来建立TUN-VPN/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -243,510 +357,107 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://garywu520.github.io/2021/05/28/%E5%9F%BA%E4%BA%8EAEAD%E5%8A%A0%E5%AF%86%E6%9D%A5%E5%BB%BA%E7%AB%8BTUN-VPN/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/05/10/%E5%AE%89%E8%A3%85python3-7-7/" class="archive-article-date">
-        <time datetime="2021-05-10T08:42:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-10</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2021/05/10/%E5%AE%89%E8%A3%85python3-7-7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">安装python3.7.7</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/05/10/%E5%AE%89%E8%A3%85python3-7-7/" target="_blank">安装python3.7.7</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">env</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python3.7.7</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/04/21/%E9%98%BF%E9%87%8C%E4%BA%91RDS%E5%85%A8%E5%A4%87%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%88%B0%E6%9C%AC%E5%9C%B0MySQL/" class="archive-article-date">
-        <time datetime="2021-04-21T10:23:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-21</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/04/21/%E9%98%BF%E9%87%8C%E4%BA%91RDS%E5%85%A8%E5%A4%87%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%88%B0%E6%9C%AC%E5%9C%B0MySQL/" target="_blank">阿里云RDS全备数据导入到本地MySQL</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">innobackupex</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">xtrabackup</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">阿里云</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RDS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">percona</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/04/06/%E4%BD%BF%E7%94%A8awk%E7%AD%9B%E9%80%89%E6%97%B6%E9%97%B4%E6%AE%B5%E7%9A%84%E6%97%A5%E5%BF%97/" class="archive-article-date">
-        <time datetime="2021-04-06T06:42:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-06</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/04/06/%E4%BD%BF%E7%94%A8awk%E7%AD%9B%E9%80%89%E6%97%B6%E9%97%B4%E6%AE%B5%E7%9A%84%E6%97%A5%E5%BF%97/" target="_blank">使用awk筛选时间段的日志</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">egrep</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sed</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">awk</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/03/22/%E8%BF%8E%E6%8E%A5systemd%E6%94%BE%E5%BC%83supervisor/" class="archive-article-date">
-        <time datetime="2021-03-22T12:27:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/03/22/%E8%BF%8E%E6%8E%A5systemd%E6%94%BE%E5%BC%83supervisor/" target="_blank">迎接systemd放弃supervisor</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">supervisor</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">systemd</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">systemctl</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">钩子</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">服务依赖</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/03/19/supervisor%E9%9B%86%E4%B8%AD%E5%8C%96%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-supervisor-monitor/" class="archive-article-date">
-        <time datetime="2021-03-19T02:56:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/03/19/supervisor%E9%9B%86%E4%B8%AD%E5%8C%96%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-supervisor-monitor/" target="_blank">supervisor集中化管理工具:supervisor-monitor</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">supervisor</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">supervisor-manage</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">cesi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/03/16/supervisor%E4%B9%8Bkill%E4%BF%A1%E5%8F%B7/" class="archive-article-date">
-        <time datetime="2021-03-16T09:11:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/03/16/supervisor%E4%B9%8Bkill%E4%BF%A1%E5%8F%B7/" target="_blank">supervisor之kill信号</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">supervisor</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">kill</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SIGHUP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SIGINT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">SIGUSR1</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/03/15/Linux%E6%88%96MAC%E7%BB%88%E7%AB%AF%E7%BC%96%E7%A0%81/" class="archive-article-date">
-        <time datetime="2021-03-15T10:07:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/03/15/Linux%E6%88%96MAC%E7%BB%88%E7%AB%AF%E7%BC%96%E7%A0%81/" target="_blank">Linux或MAC终端编码</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">terminal</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Mac</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">UTF8</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/03/15/supervisor%E5%A4%9A%E4%B8%AAenv%E5%8F%98%E9%87%8F/" class="archive-article-date">
-        <time datetime="2021-03-15T02:05:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/03/15/supervisor%E5%A4%9A%E4%B8%AAenv%E5%8F%98%E9%87%8F/" target="_blank">supervisor多个env变量</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">supervisor</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">env</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">环境变量</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/03/12/Python3%E5%AE%89%E8%A3%85supervisor/" class="archive-article-date">
-        <time datetime="2021-03-12T03:49:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-12</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/03/12/Python3%E5%AE%89%E8%A3%85supervisor/" target="_blank">Python3安装supervisor</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">supervisor</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">python3</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/49/">49</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -775,8 +486,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
