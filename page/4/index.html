@@ -196,6 +196,98 @@
             
 
   
+    <article id="post-supervisor启动mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/10/supervisor%E5%90%AF%E5%8A%A8mysql/" target="_blank">supervisor启动mysql</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/10/supervisor%E5%90%AF%E5%8A%A8mysql/" class="archive-article-date">
+        <time datetime="2020-09-10T03:29:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-10</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>supervisor管理启动mysql</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[program:mysqld_3307]</span><br><span class="line">command=/bin/pidproxy /data/mysql_3307_v5.6.28/mysqld_3307.pid /usr/local/mysql-5.6.28/bin/mysqld_safe --defaults-file=/etc/my_3307.cnf --pid-file=/data/mysql_3307_v5.6.28/mysqld_3307.pid</span><br><span class="line">stdout_logfile=/var/log/mysqld_3307.log</span><br><span class="line">stderr_logfile=/var/log/mysqld_3307.log</span><br><span class="line">user=mysql</span><br><span class="line">autostart=true</span><br><span class="line">autorestart=true</span><br><span class="line">startsecs=5</span><br><span class="line">priority=1</span><br><span class="line">stopasgroup=true</span><br><span class="line">killasgroup=true</span><br></pre></td></tr></table></figure>
+<p>pidproxy命令隶属于supervisor包</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">supervisor</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/10/supervisor%E5%90%AF%E5%8A%A8mysql/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ESXI双网卡openwrt配置并扩容" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1085,110 +1177,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/04/16/%E7%94%9F%E6%88%90%E8%87%AA%E7%AD%BE%E5%90%8DSSL%E8%AF%81%E4%B9%A6-shell%E8%84%9A%E6%9C%AC/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-strace命令-追踪指定pid进程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/14/strace%E5%91%BD%E4%BB%A4-%E8%BF%BD%E8%B8%AA%E6%8C%87%E5%AE%9Apid%E8%BF%9B%E7%A8%8B/" target="_blank">strace命令-追踪指定pid进程</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/14/strace%E5%91%BD%E4%BB%A4-%E8%BF%BD%E8%B8%AA%E6%8C%87%E5%AE%9Apid%E8%BF%9B%E7%A8%8B/" class="archive-article-date">
-        <time datetime="2020-04-14T07:41:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">适用场景：生产环境中，人为定位到某个业务某个进程可能存在问题时,就需要使用strace命令，对指定进程进行跟踪与调试，查找出罪魁祸首。</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>官网：<a target="_blank" rel="noopener" href="https://strace.io/">https://strace.io/</a></p>
-<p>最新版下载：<a target="_blank" rel="noopener" href="https://strace.io/files/5.6/">https://strace.io/files/5.6/</a></p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2020/04/14/strace%E5%91%BD%E4%BB%A4-%E8%BF%BD%E8%B8%AA%E6%8C%87%E5%AE%9Apid%E8%BF%9B%E7%A8%8B/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ps</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">strace</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pid</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/14/strace%E5%91%BD%E4%BB%A4-%E8%BF%BD%E8%B8%AA%E6%8C%87%E5%AE%9Apid%E8%BF%9B%E7%A8%8B/">展开全文 >></a>
     </p>
     
 
@@ -5855,6 +5843,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python3.7.7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">x509</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">证书链错误</a>
               </li>
             
             <div class="clearfix"></div>

@@ -196,6 +196,121 @@
             
 
   
+    <article id="post-ESXI-vm磁盘精简置备转换为厚置备" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/03/20/ESXI-vm%E7%A3%81%E7%9B%98%E7%B2%BE%E7%AE%80%E7%BD%AE%E5%A4%87%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%8E%9A%E7%BD%AE%E5%A4%87/" target="_blank">ESXI vm磁盘精简置备转换为厚置备</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/03/20/ESXI-vm%E7%A3%81%E7%9B%98%E7%B2%BE%E7%AE%80%E7%BD%AE%E5%A4%87%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%8E%9A%E7%BD%AE%E5%A4%87/" class="archive-article-date">
+        <time datetime="2019-03-20T07:33:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h5><ul>
+<li>关闭vm虚拟机电源</li>
+<li>移除快照</li>
+<li>要转换的vm磁盘类型为精简置备</li>
+</ul>
+<h5 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h5><ul>
+<li><p>浏览要扩充vm的虚拟磁盘文件夹，找到并选中xxx.vmdk文件</p>
+</li>
+<li><p>右键xxx.vmdk文件，选择“扩充磁盘” 。此过程花费时间较长，需要耐心等待…</p>
+<p>注：此操作会将磁盘类型从精简置备变更为厚置备磁盘，此时扩充的虚拟磁盘将占据最初为其置备的整个数据存储空间。</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/wuyanteng/wuyanteng.github.io/master/images/esxi%E7%BD%AE%E5%A4%87%E8%BD%AC%E6%8D%A2.png" alt="置备转换"></p>
+<p>关于磁盘置备类型，参考：<a target="_blank" rel="noopener" href="https://wuyanteng.github.io/2019/03/20/ESXI%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%A3%81%E7%9B%98%E7%BD%AE%E5%A4%87/#more">ESXI虚拟机磁盘置备</a></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ESXI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">vm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">精简置备</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">厚置备</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/03/20/ESXI-vm%E7%A3%81%E7%9B%98%E7%B2%BE%E7%AE%80%E7%BD%AE%E5%A4%87%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%8E%9A%E7%BD%AE%E5%A4%87/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ESXI虚拟机磁盘置备" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1123,108 +1238,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/03/08/sz%E6%88%96rz%E4%B8%8B%E8%BD%BD%E4%B9%B1%E7%A0%81%E4%B8%AD%E6%96%AD%E9%97%AE%E9%A2%98/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-shell递归检索所有空目录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/03/08/shell%E9%80%92%E5%BD%92%E6%A3%80%E7%B4%A2%E6%89%80%E6%9C%89%E7%A9%BA%E7%9B%AE%E5%BD%95/" target="_blank">shell递归检索所有空目录</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/03/08/shell%E9%80%92%E5%BD%92%E6%A3%80%E7%B4%A2%E6%89%80%E6%9C%89%E7%A9%BA%E7%9B%AE%E5%BD%95/" class="archive-article-date">
-        <time datetime="2019-03-08T02:41:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>shell脚本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@hostname ~]$ cat scan.sh </span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">function read_dir &#123;        #定义一个函数，名称为read_dir</span><br><span class="line">  for file in &#96;ls -R $1&#96;   #通过ls -R来遍历目录 </span><br><span class="line">  do</span><br><span class="line">    if [ -d $1&quot;&#x2F;&quot;$file ];then   #如果它是一个目录,则进行文件统计  </span><br><span class="line">       NUM&#x3D;&#96;ls $1&quot;&#x2F;&quot;$file|wc -l&#96;  </span><br><span class="line">       if [ $NUM -eq 0 ];then   #如果文件统计结果为0则说明是空目录，就追加到文件</span><br><span class="line">          echo $1&quot;&#x2F;&quot;$file &gt;&gt;scan_dir.log</span><br><span class="line">       fi</span><br><span class="line">       read_dir $1&quot;&#x2F;&quot;$file      #读取路径，继续目录递归</span><br><span class="line">    fi</span><br><span class="line">  done</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">read_dir $1</span><br></pre></td></tr></table></figure>
-<p>脚本执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time sh scan.sh [PATH...]</span><br></pre></td></tr></table></figure>
-<p>其他递归需求，可随意变通实现</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">shell脚本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">递归目录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/03/08/shell%E9%80%92%E5%BD%92%E6%A3%80%E7%B4%A2%E6%89%80%E6%9C%89%E7%A9%BA%E7%9B%AE%E5%BD%95/">展开全文 >></a>
     </p>
     
 
@@ -5891,6 +5904,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python3.7.7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">x509</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">证书链错误</a>
               </li>
             
             <div class="clearfix"></div>
