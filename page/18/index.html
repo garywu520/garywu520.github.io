@@ -196,105 +196,6 @@
             
 
   
-    <article id="post-统计Redis集群上比较大的key" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/01/03/%E7%BB%9F%E8%AE%A1Redis%E9%9B%86%E7%BE%A4%E4%B8%8A%E6%AF%94%E8%BE%83%E5%A4%A7%E7%9A%84key/" target="_blank">统计Redis集群上比较大的key</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/01/03/%E7%BB%9F%E8%AE%A1Redis%E9%9B%86%E7%BE%A4%E4%B8%8A%E6%AF%94%E8%BE%83%E5%A4%A7%E7%9A%84key/" class="archive-article-date">
-        <time datetime="2019-01-03T04:12:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-03</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对redis中的key进行采样，寻找较大的keys。是用的是scan方式，不用担心会阻塞redis很长时间不能处理其他的请求。执行的结果可以用于分析redis的内存的只用状态，每种类型key的平均大小。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h server_ip -p 6381 --bigkeys &gt;&gt; redis_bigkeys.log</span><br></pre></td></tr></table></figure>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">key 统计</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">redis_cli</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/01/03/%E7%BB%9F%E8%AE%A1Redis%E9%9B%86%E7%BE%A4%E4%B8%8A%E6%AF%94%E8%BE%83%E5%A4%A7%E7%9A%84key/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Dell硬件管理-OMSA部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1259,6 +1160,117 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2018/12/06/KAFKA%E5%8A%A8%E6%80%81%E5%A2%9E%E5%8A%A0Topic%E5%89%AF%E6%9C%ACReplication/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-KAFKA扩容节点和分区迁移-CDH" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2018/12/06/KAFKA%E6%89%A9%E5%AE%B9%E8%8A%82%E7%82%B9%E5%92%8C%E5%88%86%E5%8C%BA%E8%BF%81%E7%A7%BB-CDH/" target="_blank">KAFKA扩容节点和分区迁移-CDH</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2018/12/06/KAFKA%E6%89%A9%E5%AE%B9%E8%8A%82%E7%82%B9%E5%92%8C%E5%88%86%E5%8C%BA%E8%BF%81%E7%A7%BB-CDH/" class="archive-article-date">
+        <time datetime="2018-12-06T09:12:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">由于服务器老化原因，需要迁移CDH KAFKA集群中的一台服务器，上面运行有KAFKA服务，假设broker id为536</span><br><span class="line">假设老化服务器IP地址是10.0.0.200</span><br></pre></td></tr></table></figure>
+<h4 id="CDH新增KAFKA节点"><a href="#CDH新增KAFKA节点" class="headerlink" title="CDH新增KAFKA节点"></a>CDH新增KAFKA节点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1)通过CDH 管理界面在KAFKA集群上新增一个KAFKA角色,并启动KAFKA服务,假设broker id为577 。</span><br><span class="line">(2)停用并删除集群中10.0.0.200上的KAFKA角色</span><br><span class="line">(3)查看现有KAFKA集群节点的 Kafka broker id，假设为(535,577)</span><br></pre></td></tr></table></figure>
+<p>CDH新增KAFKA节点后，若出现启动错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">请检查如下配置：</span><br><span class="line">     （1）JDK版本是否与其他KAFKA节点版本一致，不一致则需要升级</span><br><span class="line">      (2) 若启动日志扔报错，需要检查CDH管理页面，新增kafka节点的配置是否与其他正常节点一致，尤其是参数Java Heap Size of Broker in Megabytes这两个参数，如果设置为0，则会导致启动KAFKA服务失败。</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2018/12/06/KAFKA%E6%89%A9%E5%AE%B9%E8%8A%82%E7%82%B9%E5%92%8C%E5%88%86%E5%8C%BA%E8%BF%81%E7%A7%BB-CDH/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Topic</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CDH</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">KAFKA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">分区热迁移</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2018/12/06/KAFKA%E6%89%A9%E5%AE%B9%E8%8A%82%E7%82%B9%E5%92%8C%E5%88%86%E5%8C%BA%E8%BF%81%E7%A7%BB-CDH/">展开全文 >></a>
     </p>
     
 
@@ -5157,18 +5169,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">批量kill进程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TUN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TAP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">route</a>
               </li>
              
               <li class="article-tag-list-item">
