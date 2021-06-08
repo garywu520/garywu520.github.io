@@ -196,6 +196,117 @@
             
 
   
+    <article id="post-cobbler-ks参数-详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2017/09/01/cobbler-ks%E5%8F%82%E6%95%B0-%E8%AF%A6%E8%A7%A3/" target="_blank">cobbler ks参数-详解</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2017/09/01/cobbler-ks%E5%8F%82%E6%95%B0-%E8%AF%A6%E8%A7%A3/" class="archive-article-date">
+        <time datetime="2017-09-01T06:17:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>kickstart文件结构介绍：</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1) 命令部分：配置系统的属性及安装中的各种必要设置信息</span><br><span class="line">2) %packages部分：设定需要安装的软件包及包组，Anaconda会自动解决依赖关系</span><br><span class="line">3) 脚本部分：用于定制系统，分为%pre部分在安装前运行，%post在安装后运行</span><br><span class="line">    %pre 部分脚本作为一个bash shell脚本执行，在Kickstart文件解析后执行；</span><br><span class="line">    %post 解析器默认为bash，可以自定义，缺省为chroot状态，也可指定非chroot状态；</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2017/09/01/cobbler-ks%E5%8F%82%E6%95%B0-%E8%AF%A6%E8%A7%A3/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">自动化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">cobbler</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">kickstart</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ks</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">系统批量安装</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2017/09/01/cobbler-ks%E5%8F%82%E6%95%B0-%E8%AF%A6%E8%A7%A3/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-nginx优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1166,105 +1277,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2017/08/24/%E5%85%B3%E4%BA%8EDNS%E9%9B%86%E7%BE%A4%E5%B9%B6%E5%8F%91%E4%BC%98%E5%8C%96-%E7%93%B6%E9%A2%88%E7%BB%93%E8%AE%BA/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MySQL故障处理之匿名登陆问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/08/22/MySQL%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E4%B9%8B%E5%8C%BF%E5%90%8D%E7%99%BB%E9%99%86%E9%97%AE%E9%A2%98/" target="_blank">mysql故障处理之匿名登陆问题</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2017/08/22/MySQL%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E4%B9%8B%E5%8C%BF%E5%90%8D%E7%99%BB%E9%99%86%E9%97%AE%E9%A2%98/" class="archive-article-date">
-        <time datetime="2017-08-22T10:33:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>mysql创建数据库的时候出现了ERROR 1044 (42000): Access denied的错误。</p>
-<p>原因：因为mysql数据库的user表里，存在用户名为空的账户即匿名账户，导致登录的时候是虽然用的是root，但实际是匿名登录的，通过错误提示里的‘’@’localhost’可以看出来。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2017/08/22/MySQL%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E4%B9%8B%E5%8C%BF%E5%90%8D%E7%99%BB%E9%99%86%E9%97%AE%E9%A2%98/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Error1044</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/08/22/MySQL%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E4%B9%8B%E5%8C%BF%E5%90%8D%E7%99%BB%E9%99%86%E9%97%AE%E9%A2%98/">展开全文 >></a>
     </p>
     
 
@@ -5943,6 +5955,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">权限</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">job</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">权限管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Role-based</a>
               </li>
             
             <div class="clearfix"></div>
