@@ -196,6 +196,116 @@
             
 
   
+    <article id="post-Tomcat多实例部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/08/07/Tomcat%E5%A4%9A%E5%AE%9E%E4%BE%8B%E9%83%A8%E7%BD%B2/" target="_blank">Tomcat多实例部署</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/08/07/Tomcat%E5%A4%9A%E5%AE%9E%E4%BE%8B%E9%83%A8%E7%BD%B2/" class="archive-article-date">
+        <time datetime="2019-08-07T06:09:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="首先了解下Tomcat服务启动所需端口号"><a href="#首先了解下Tomcat服务启动所需端口号" class="headerlink" title="首先了解下Tomcat服务启动所需端口号"></a>首先了解下Tomcat服务启动所需端口号</h5><ul>
+<li><strong>Server Port：</strong>该端口用于监听关闭tomcat的shutdown命令，默认端口:8005</li>
+<li><strong>Connector Port:</strong>  该端口用于监听HTTP的请求，默认端口：8080</li>
+<li><strong>AJP Port:</strong> 该端口用于监听AJP(Apache JServ Protocal)协议上的请求，通常用于整合HTTP服务器，默认端口: 8009【用不到可注释】</li>
+<li><strong>Redirect Port:</strong> 重定向端口，出现在Connector配置中。默认端口：8443</li>
+</ul>
+<p>​       作用：当用户用http请求某个资源，而该资源本身又被设置了必须要https方式访问，此时Tomcat会自动重定向到这个redirectPort设置的https端口。</p>
+    
+    <a class="article-more-a" href="/2019/08/07/Tomcat%E5%A4%9A%E5%AE%9E%E4%BE%8B%E9%83%A8%E7%BD%B2/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tomcat8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tomcat多实例</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jdk</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/08/07/Tomcat%E5%A4%9A%E5%AE%9E%E4%BE%8B%E9%83%A8%E7%BD%B2/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Tomcat-将项目打包成war包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1136,119 +1246,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/06/28/logstash%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3-a-plugin-had-an-unrecoverable-error/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-rootkit入侵渗透防御" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/06/25/rootkit%E5%85%A5%E4%BE%B5%E6%B8%97%E9%80%8F%E9%98%B2%E5%BE%A1/" target="_blank">rootkit入侵渗透防御</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/06/25/rootkit%E5%85%A5%E4%BE%B5%E6%B8%97%E9%80%8F%E9%98%B2%E5%BE%A1/" class="archive-article-date">
-        <time datetime="2019-06-25T08:34:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-25</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>在常规的 “入侵/渗透” 检测工作中，Rootkit通常非常的隐秘、令用户不易察觉，所以，我们要用 chkrootkit 来定时监测系统，预防linux被rootkit程序入侵。</p>
-<p><strong>Rootkit Hunter (Rootkit 猎人)-项目地址：</strong><a target="_blank" rel="noopener" href="http://rkhunter.sourceforge.net/">http://rkhunter.sourceforge.net/</a></p>
-    
-    <a class="article-more-a" href="/2019/06/25/rootkit%E5%85%A5%E4%BE%B5%E6%B8%97%E9%80%8F%E9%98%B2%E5%BE%A1/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">rootkit</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">chkrootkit</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">rkhunter</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">rootkit hunter</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">入侵</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">防御</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/06/25/rootkit%E5%85%A5%E4%BE%B5%E6%B8%97%E9%80%8F%E9%98%B2%E5%BE%A1/">展开全文 >></a>
     </p>
     
 
@@ -5927,6 +5924,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Role-based</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">redirect-gateway</a>
               </li>
             
             <div class="clearfix"></div>

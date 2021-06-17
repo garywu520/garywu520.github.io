@@ -196,6 +196,113 @@
             
 
   
+    <article id="post-ntp漏洞修复" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2017/10/16/ntp%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/" target="_blank">ntp漏洞修复</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2017/10/16/ntp%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/" class="archive-article-date">
+        <time datetime="2017-10-16T07:50:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>CVE-2013-5211漏洞说明:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CVE-2013-5211最早公布是2014年1月10日，由于NTP本身不会验证发送者的源ip地址。这就类似于DNS解析器使用的DRDoS（分布式反射型拒绝服务攻击）。</span><br><span class="line"></span><br><span class="line">攻击者HACK发送了一个伪造报文发送给NTP服务器Server A，将数据包中的源ip地址改成了受害者Client A的ip地址。NTP服务器Server A会响应这个请求，相对于初始请求，响应包发送的字节数是一个被放大的量，导致受害者Client A被dos攻击。</span><br><span class="line"></span><br><span class="line">最高的两个消息类型：REQ_MON_GETLIST 和REQ_MON_GETLIST_1，通过高达3660和5500的一个因素分别放大原始请求。</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2017/10/16/ntp%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">肉鸡</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ntp漏洞</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">漏洞修复</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">补丁升级</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2017/10/16/ntp%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SaltStack部署for-CentOS7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1119,113 +1226,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2017/09/23/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Redis-Cluster集群部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/09/20/Redis-Cluster%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/" target="_blank">redis-Cluster集群部署</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2017/09/20/Redis-Cluster%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-        <time datetime="2017-09-20T11:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h4 id="redis原理"><a href="#redis原理" class="headerlink" title="redis原理"></a>redis原理</h4><blockquote>
-<p>redis简介</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REmote DIctionary Server(Redis) 是一个由SalvatoreSanfilippo写的key-value存储系统。是一个高性能的key-value数据库。</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2017/09/20/Redis-Cluster%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ruby</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">redis cluster</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/09/20/Redis-Cluster%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">展开全文 >></a>
     </p>
     
 
@@ -5904,6 +5904,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Role-based</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">redirect-gateway</a>
               </li>
             
             <div class="clearfix"></div>
