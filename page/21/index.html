@@ -196,6 +196,115 @@
             
 
   
+    <article id="post-查看和释放swap内存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2018/10/12/%E6%9F%A5%E7%9C%8B%E5%92%8C%E9%87%8A%E6%94%BEswap%E5%86%85%E5%AD%98/" target="_blank">查看和释放swap内存</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2018/10/12/%E6%9F%A5%E7%9C%8B%E5%92%8C%E9%87%8A%E6%94%BEswap%E5%86%85%E5%AD%98/" class="archive-article-date">
+        <time datetime="2018-10-12T02:09:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="关于内存耗尽总结"><a href="#关于内存耗尽总结" class="headerlink" title="关于内存耗尽总结"></a>关于内存耗尽总结</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">要达到释放缓存的目的，我们首先需要了解下关键的配置文件&#x2F;proc&#x2F;sys&#x2F;vm&#x2F;drop_caches。这个文件中记录了缓存释放的参数，默认值为0，也就是不释放缓存。他的值可以为0~3之间的任意数字，代表着不同的含义：</span><br><span class="line"></span><br><span class="line">0 – 不释放</span><br><span class="line">1 – 释放页缓存</span><br><span class="line">2 – 释放dentries和inodes</span><br><span class="line">3 – 释放所有缓存</span><br><span class="line"></span><br><span class="line">知道了参数后，我们就可以根据我们的需要，使用下面的指令来进行操作。</span><br></pre></td></tr></table></figure>
+<h4 id="swap磁盘占用过高原因分析"><a href="#swap磁盘占用过高原因分析" class="headerlink" title="swap磁盘占用过高原因分析"></a>swap磁盘占用过高原因分析</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">通过此命令查看内存被哪些进程占用（单位是MByte）</span><br><span class="line"></span><br><span class="line">for i in &#96;cd &#x2F;proc;ls |grep &quot;^[0-9]&quot;|awk &#39; $0 &gt;100&#39;&#96; ;do awk &#39;&#x2F;Swap:&#x2F;&#123;a&#x3D;a+$2&#125;END&#123;print &#39;&quot;$i&quot;&#39;,a&#x2F;1024&quot;M&quot;&#125;&#39; &#x2F;proc&#x2F;$i&#x2F;smaps ;done 2&gt;&amp;1 |sort -k2nr |head</span><br><span class="line"></span><br><span class="line">注：以上结果输出PID与内存占用大小，通过PID可以找到对应进程</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2018/10/12/%E6%9F%A5%E7%9C%8B%E5%92%8C%E9%87%8A%E6%94%BEswap%E5%86%85%E5%AD%98/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cache</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">swap</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">swapon</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">swapoff</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">交换分区</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2018/10/12/%E6%9F%A5%E7%9C%8B%E5%92%8C%E9%87%8A%E6%94%BEswap%E5%86%85%E5%AD%98/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ESXI安装openstack注意事项" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1101,106 +1210,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2018/08/31/shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%B5%8C%E5%85%A5ssh%E6%97%A0%E5%AF%86%E9%92%A5%E7%99%BB%E9%99%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-rsync限速实例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/08/31/rsync%E9%99%90%E9%80%9F%E5%AE%9E%E4%BE%8B/" target="_blank">rsync限速实例</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/08/31/rsync%E9%99%90%E9%80%9F%E5%AE%9E%E4%BE%8B/" class="archive-article-date">
-        <time datetime="2018-08-31T03:54:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h4 id="场景介绍"><a href="#场景介绍" class="headerlink" title="场景介绍"></a>场景介绍</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">生产环境有这样的需求，需要跨机房传输TB级文件，但又不想其带宽占用的太厉害而影响了其他业务，这时候就需要使用rsync的限速功能了，简单扯下</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2018/08/31/rsync%E9%99%90%E9%80%9F%E5%AE%9E%E4%BE%8B/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">rsync</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">rsync限速</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">bwlimit</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/08/31/rsync%E9%99%90%E9%80%9F%E5%AE%9E%E4%BE%8B/">展开全文 >></a>
     </p>
     
 
@@ -5883,6 +5892,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">redirect-gateway</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数据库导入</a>
               </li>
             
             <div class="clearfix"></div>
