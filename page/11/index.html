@@ -196,6 +196,111 @@
             
 
   
+    <article id="post-redis-key过期时间" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/09/17/redis-key%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4/" target="_blank">redis key过期时间</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/09/17/redis-key%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4/" class="archive-article-date">
+        <time datetime="2019-09-17T06:50:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>有时候我们并不希望redis的key一直存在。例如缓存，验证码等数据，我们希望它们能在一定时间内自动的被销毁。redis提供了一些命令，能够让我们对key设置过期时间，并且让key过期之后被自动删除。</p>
+<h5 id="一、设置-更新Key过期时间"><a href="#一、设置-更新Key过期时间" class="headerlink" title="一、设置/更新Key过期时间"></a>一、设置/更新Key过期时间</h5><ul>
+<li><p>秒级</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">redis&gt;</span><span class="bash"> EXPIRE keyname <span class="string">&quot;seconds&quot;</span></span></span><br><span class="line"></span><br><span class="line">接口描述：设置一个key在当前时间&quot;seconds&quot;(秒)之后过期。返回1代表设置成功，返回0代表key不存在或者无法设置过期时间。</span><br></pre></td></tr></table></figure></li>
+<li><p>毫秒级</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">redis&gt;</span><span class="bash"> PEXPIRE keyname <span class="string">&quot;milliseconds&quot;</span></span></span><br><span class="line"></span><br><span class="line">接口描述：设置一个key在当前时间&quot;milliseconds&quot;(毫秒)之后过期。返回1代表设置成功，返回0代表key不存在或者无法设置过期时间。</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2019/09/17/redis-key%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">expire</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">过期时间</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/09/17/redis-key%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-redis-参数动态配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1096,104 +1201,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/08/12/supervisor%E9%83%A8%E7%BD%B2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-supervisor管理二进制程序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/08/08/supervisor%E7%AE%A1%E7%90%86%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%A8%8B%E5%BA%8F/" target="_blank">supervisor管理二进制程序</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/08/08/supervisor%E7%AE%A1%E7%90%86%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%A8%8B%E5%BA%8F/" class="archive-article-date">
-        <time datetime="2019-08-08T06:57:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>有时候需要使用supervisor管理二进制程序，区别是需要进入到相关目录才能运行，这时候就需要directory来指定工作目录了。</p>
-<p>cat  /etc/supervisor.conf</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[program:app1]</span><br><span class="line">directory=/usr/local/auto/app1</span><br><span class="line">command=/usr/local/auto/app1/Server</span><br><span class="line">stdout_logfile=/usr/local/auto/app1/app1.log</span><br><span class="line">stderr_logfile=/usr/local/auto/app1/app1.log</span><br><span class="line">autostart=true</span><br><span class="line">autorestart=true</span><br><span class="line">startsecs=5</span><br><span class="line">priority=1</span><br><span class="line">stopasgroup=true</span><br><span class="line">killasgroup=true</span><br></pre></td></tr></table></figure>
-<p>stderr_logfile=/usr/local/auto/app1/app1.log </p>
-<p>这个错误输出，可以帮助你解决启动错误的问题 </p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">supervisor</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二进制</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/08/08/supervisor%E7%AE%A1%E7%90%86%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%A8%8B%E5%BA%8F/">展开全文 >></a>
     </p>
     
 
@@ -5896,6 +5903,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">XTLS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">youtube</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">YouTube download</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">video download</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">macOS</a>
               </li>
             
             <div class="clearfix"></div>

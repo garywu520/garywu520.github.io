@@ -196,6 +196,110 @@
             
 
   
+    <article id="post-linux导入自签名CA" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2018/03/01/linux%E5%AF%BC%E5%85%A5%E8%87%AA%E7%AD%BE%E5%90%8DCA/" target="_blank">linux导入自签名CA</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2018/03/01/linux%E5%AF%BC%E5%85%A5%E8%87%AA%E7%AD%BE%E5%90%8DCA/" class="archive-article-date">
+        <time datetime="2018-03-01T10:51:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="CentOS导入CA"><a href="#CentOS导入CA" class="headerlink" title="CentOS导入CA"></a>CentOS导入CA</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(1) yum install -y ca-certificates</span><br><span class="line"></span><br><span class="line">(2)上传根证书到&#x2F;etc&#x2F;pki&#x2F;ca-trust&#x2F;source&#x2F;anchors目录中</span><br><span class="line"></span><br><span class="line">(3) 最后执行：update-ca-trust</span><br></pre></td></tr></table></figure>
+<p>注意事项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果根证书是以*.pem结尾，需要转换成crt，然后再执行上述步骤。命令如下：</span><br><span class="line"></span><br><span class="line">openssl x509 -in ca.pem -inform PEM -out ca.crt</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssl</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ca</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">证书导入</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">证书信任</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">自签名证书</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2018/03/01/linux%E5%AF%BC%E5%85%A5%E8%87%AA%E7%AD%BE%E5%90%8DCA/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-记一次线上服务器频繁宕机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1127,109 +1231,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2018/02/13/MySQL%E6%96%B0%E5%A2%9E%E4%BB%8E%E5%BA%93-%E6%95%B0%E6%8D%AE%E9%87%8FT%E7%BA%A7/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-zabbix自定义shell实现邮件告警" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/02/11/zabbix%E8%87%AA%E5%AE%9A%E4%B9%89shell%E5%AE%9E%E7%8E%B0%E9%82%AE%E4%BB%B6%E5%91%8A%E8%AD%A6/" target="_blank">zabbix自定义shell实现邮件告警</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/02/11/zabbix%E8%87%AA%E5%AE%9A%E4%B9%89shell%E5%AE%9E%E7%8E%B0%E9%82%AE%E4%BB%B6%E5%91%8A%E8%AD%A6/" class="archive-article-date">
-        <time datetime="2018-02-11T08:59:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h4 id="安装postfix"><a href="#安装postfix" class="headerlink" title="安装postfix"></a>安装postfix</h4><p>参考: <a target="_blank" rel="noopener" href="https://wuyanteng.github.io/2018/02/09/postfix%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/">Postfix邮件发送服务</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注: 如果postfix安装后没有mail命令,则需要安装mailx</span><br></pre></td></tr></table></figure>
-<p>邮件发送测试</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;aaa&quot;|mail -s &#39;aaa&#39; xxxx@qq.com</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2018/02/11/zabbix%E8%87%AA%E5%AE%9A%E4%B9%89shell%E5%AE%9E%E7%8E%B0%E9%82%AE%E4%BB%B6%E5%91%8A%E8%AD%A6/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mailx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/02/11/zabbix%E8%87%AA%E5%AE%9A%E4%B9%89shell%E5%AE%9E%E7%8E%B0%E9%82%AE%E4%BB%B6%E5%91%8A%E8%AD%A6/">展开全文 >></a>
     </p>
     
 
@@ -5932,6 +5933,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">XTLS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">youtube</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">YouTube download</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">video download</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">macOS</a>
               </li>
             
             <div class="clearfix"></div>
