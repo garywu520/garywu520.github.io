@@ -18,7 +18,7 @@
 <meta property="og:description" content="1.Download the ImageFrom: Telegram Group 2. Mac install tools12345# To un-gzip .gz filesbrew install gzip# To convert images brew install qemu">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-12-13T11:42:17.000Z">
-<meta property="article:modified_time" content="2021-12-13T11:44:00.180Z">
+<meta property="article:modified_time" content="2021-12-13T11:45:45.982Z">
 <meta property="article:author" content="GaryWu">
 <meta property="article:tag" content="vmdk">
 <meta property="article:tag" content="img to vmdk">
@@ -221,7 +221,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">185字</span>
+      <span class="post-count">192字</span>
     </span>
   </span>
 
@@ -256,6 +256,9 @@
 
 <h5 id="5-Fix-Unsupported-or-invalid-disk-type-2-for-‘scsi0-0’"><a href="#5-Fix-Unsupported-or-invalid-disk-type-2-for-‘scsi0-0’" class="headerlink" title="5. Fix Unsupported or invalid disk type 2 for ‘scsi0:0’"></a>5. Fix Unsupported or invalid disk type 2 for ‘scsi0:0’</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#磁盘格式转换为thin</span><br><span class="line">ssh root@esxi</span><br><span class="line">cd &#x2F;vmfs&#x2F;volumes&#x2F;datastore1&#x2F;</span><br><span class="line">vmkfstools -i &#39;openwrt-19.07.4-x86-64-combined.vmdk&#39; openwrt-converted.vmdk -d thin</span><br></pre></td></tr></table></figure>
 <p>Done! Now we can create and boot a VM with adding openwrt-converted.vmdk as the primary disk. Enjoy it!</p>
+<br>
+
+<p>注：内容来自网络</p>
 
     
 
