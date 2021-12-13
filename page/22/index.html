@@ -196,6 +196,106 @@
             
 
   
+    <article id="post-编译安装openssl" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2018/09/07/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85openssl/" target="_blank">编译安装openssl</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2018/09/07/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85openssl/" class="archive-article-date">
+        <time datetime="2018-09-07T12:40:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">本文主要记录openssl编译安装以及lib库的正确加载问题</span><br><span class="line"></span><br><span class="line">注：如果之前有yum或apt安装过openssl，建议卸载干净再继续。不建议手动删除老版本文件，否则后果可能很严重。</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2018/09/07/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85openssl/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">openssl</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">libssl</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">libcrypto</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2018/09/07/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85openssl/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-certbot免费证书申请" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1144,102 +1244,6 @@
 
 
   
-    <article id="post-mysql用户远程登录失败" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/07/25/mysql%E7%94%A8%E6%88%B7%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/" target="_blank">mysql用户远程登录失败--Host is not allowed to connect to this MySQL server</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/07/25/mysql%E7%94%A8%E6%88%B7%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/" class="archive-article-date">
-        <time datetime="2018-07-25T02:13:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-25</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h4 id="故障描述"><a href="#故障描述" class="headerlink" title="故障描述"></a>故障描述</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql远程登录失败，错误如下：</span><br><span class="line">Host &#39;X.X.X.X&#39; is not allowed to connect to this MySQL server.</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2018/07/25/mysql%E7%94%A8%E6%88%B7%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">root远程登录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/07/25/mysql%E7%94%A8%E6%88%B7%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/21/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/23/">Next &amp;raquo;</a>
@@ -1936,15 +1940,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Git服务器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -5929,6 +5925,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">macOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">img to vmdk</a>
               </li>
             
             <div class="clearfix"></div>

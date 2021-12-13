@@ -196,6 +196,108 @@
             
 
   
+    <article id="post-Docker镜像加速" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/08/06/Docker%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/" target="_blank">Docker镜像加速</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/08/06/Docker%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/" class="archive-article-date">
+        <time datetime="2019-08-06T10:43:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>配置镜像加速器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/docker</span><br></pre></td></tr></table></figure>
+<p>cat /etc/docker/daemon.json</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;https://dockerhub.azk8s.cn&quot;,</span><br><span class="line">    &quot;https://reg-mirror.qiniu.com&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">容器</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">docker-compass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/08/06/Docker%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-shell以其他用户执行命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1147,110 +1249,6 @@
 
 
   
-    <article id="post-ES索引删除" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/06/12/ES%E7%B4%A2%E5%BC%95%E5%88%A0%E9%99%A4/" target="_blank">ES索引删除</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/06/12/ES%E7%B4%A2%E5%BC%95%E5%88%A0%E9%99%A4/" class="archive-article-date">
-        <time datetime="2019-06-12T09:40:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>生产环境中的ES使用久了，会产生较大的历史数据，而有些数据是根本使用不到的，除了占用大量磁盘空间外，当有节点异常重启后，会导致大量的磁盘io读写，进而导致ES集群瘫痪。因此，就需要定期进行清理。</p>
-<h5 id="一、配置禁止使用通配符删除"><a href="#一、配置禁止使用通配符删除" class="headerlink" title="一、配置禁止使用通配符删除"></a>一、配置禁止使用通配符删除</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">设置禁用_all和*通配符来删除，预防数据丢失</span></span><br><span class="line">action.destructive_requires_name: true</span><br></pre></td></tr></table></figure>
-<h5 id="二、使用命令-删除索引"><a href="#二、使用命令-删除索引" class="headerlink" title="二、使用命令-删除索引"></a>二、使用命令-删除索引</h5><p>格式：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">删除多个索引，中间用“,”分割</span></span><br><span class="line">curl -XDELETE http://ip:9200/index_name1,index_name2</span><br></pre></td></tr></table></figure>
-<p>删除单个索引</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -XDELETE http://ip:9200/logstash-exc-2018.01.01</span><br></pre></td></tr></table></figure>
-<h5 id="三、shell脚本自动删除ES索引脚本"><a href="#三、shell脚本自动删除ES索引脚本" class="headerlink" title="三、shell脚本自动删除ES索引脚本"></a>三、shell脚本自动删除ES索引脚本</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">IP=&#x27;xx.xx.xx.xx&#x27;</span><br><span class="line">​</span><br><span class="line"><span class="meta">#</span><span class="bash">获取索引列表到/tmp/indices.list</span></span><br><span class="line">curl -XGET http://$&#123;IP&#125;:9200/_cat/indices | grep -v .kibana|grep -v .monitoring-es|awk &#x27;&#123;print $3&#125;&#x27;&gt;/tmp/indices.list</span><br><span class="line">​</span><br><span class="line"><span class="meta">#</span><span class="bash">获取列表中的索引时间,输出格式如“2019-10-15”</span></span><br><span class="line">cat /tmp/indices.list|awk -F [-] &#x27;&#123;print $4&quot;-&quot;$5&quot;-&quot;$NF&#125;&#x27;|sort -rn|uniq &gt;/tmp/date.list</span><br><span class="line">​</span><br><span class="line"><span class="meta">#</span><span class="bash">将过期的索引名称输出到文件/tmp/delete_indices.list</span></span><br><span class="line">while read LINE</span><br><span class="line">do</span><br><span class="line"><span class="meta">   #</span><span class="bash">把索引时间转换为unix值</span></span><br><span class="line">   indices_unix=`date -d &quot;$&#123;LINE&#125;&quot; +%s`</span><br><span class="line"><span class="meta">   #</span><span class="bash">获取7天前的unix值</span></span><br><span class="line">   day7ago=`date -d &quot;7 day ago&quot; +&quot;%Y-%m-%d&quot;` </span><br><span class="line">   unix7=`date -d &quot;$&#123;day7ago&#125;&quot; +%s`</span><br><span class="line">   </span><br><span class="line"><span class="meta">   #</span><span class="bash">如果时间早于7天前，则将unix转换为<span class="string">&quot;yyyy-mm-dd&quot;</span>,并筛选索引到新的文件中</span></span><br><span class="line">   if [ $&#123;indices_unix&#125; -lt $&#123;unix7&#125; ];then</span><br><span class="line">        grep &quot;`date -d @$&#123;indices_unix&#125; +%Y-%m-%d`&quot; /tmp/indices.list &gt;&gt;/tmp/delete_indices.list        </span><br><span class="line">   fi</span><br><span class="line">done &lt; /tmp/date.list</span><br><span class="line">​</span><br><span class="line">​</span><br><span class="line"><span class="meta">#</span><span class="bash">清理过期索引</span></span><br><span class="line">while read XLINE</span><br><span class="line">do</span><br><span class="line">   curl -XDELETE http://$&#123;IP&#125;:9200/$XLINE</span><br><span class="line">done &lt; /tmp/delete_indices.list</span><br></pre></td></tr></table></figure>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">elasticsearch</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">es</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">elk</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/06/12/ES%E7%B4%A2%E5%BC%95%E5%88%A0%E9%99%A4/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/12/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/14/">Next &amp;raquo;</a>
@@ -1947,15 +1945,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Git服务器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -5940,6 +5930,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">macOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">img to vmdk</a>
               </li>
             
             <div class="clearfix"></div>
