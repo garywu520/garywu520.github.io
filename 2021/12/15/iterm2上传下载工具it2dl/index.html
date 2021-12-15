@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="lrzsz在Mac Iterm2中饱受诟病：  配置复杂 且不支持大文件传输 最受不了的就是Mac下载文件内存爆炸  下面的方式配置超简单，并且是iterm2官方出品，传输稳定，大文件so easy，并且跳板机完美兼容。 原理: 基于SCP，超稳定文件传输。">
+  <meta name="description" content="lrzsz在Mac Iterm2中饱受诟病：  配置复杂 且不支持大文件传输 最受不了的就是Mac下载文件内存爆炸  借用iterm2的shell integration功能实现上传下载">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iterm2上传下载工具it2dl">
 <meta property="og:url" content="https://garywu520.github.io/2021/12/15/iterm2%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7it2dl/index.html">
 <meta property="og:site_name" content="Gary Wu">
-<meta property="og:description" content="lrzsz在Mac Iterm2中饱受诟病：  配置复杂 且不支持大文件传输 最受不了的就是Mac下载文件内存爆炸  下面的方式配置超简单，并且是iterm2官方出品，传输稳定，大文件so easy，并且跳板机完美兼容。 原理: 基于SCP，超稳定文件传输。">
+<meta property="og:description" content="lrzsz在Mac Iterm2中饱受诟病：  配置复杂 且不支持大文件传输 最受不了的就是Mac下载文件内存爆炸  借用iterm2的shell integration功能实现上传下载">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-12-15T02:09:31.000Z">
-<meta property="article:modified_time" content="2021-12-15T02:17:08.885Z">
+<meta property="article:modified_time" content="2021-12-15T08:56:19.165Z">
 <meta property="article:author" content="GaryWu">
 <meta property="article:tag" content="lrzsz">
 <meta property="article:tag" content="iterm2">
@@ -223,7 +223,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">247字</span>
+      <span class="post-count">257字</span>
     </span>
   </span>
 
@@ -249,15 +249,15 @@
 <li>且不支持大文件传输</li>
 <li>最受不了的就是Mac下载文件内存爆炸</li>
 </ul>
-<p>下面的方式配置超简单，并且是iterm2官方出品，传输稳定，大文件so easy，并且跳板机完美兼容。</p>
-<p>原理: 基于SCP，超稳定文件传输。</p>
+<p>借用iterm2的shell integration功能实现上传下载</p>
 <a id="more"></a>
 
 <br>
 
-<h5 id="1-Mac安装Shell-Integration"><a href="#1-Mac安装Shell-Integration" class="headerlink" title="1. Mac安装Shell Integration"></a>1. Mac安装Shell Integration</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -L https:&#x2F;&#x2F;iterm2.com&#x2F;shell_integration&#x2F;install_shell_integration.sh | bash</span><br><span class="line">curl -L https:&#x2F;&#x2F;iterm2.com&#x2F;shell_integration&#x2F;bash \</span><br><span class="line">-o ~&#x2F;.iterm2_shell_integration.bash</span><br></pre></td></tr></table></figure>
-<p>环境变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; ~&#x2F;.zshrc &lt;&lt;EOF</span><br><span class="line"></span><br><span class="line">#上传下载</span><br><span class="line">source ~&#x2F;.iterm2_shell_integration.bash</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<h5 id="1-Mac安装Shell-Integration"><a href="#1-Mac安装Shell-Integration" class="headerlink" title="1. Mac安装Shell Integration"></a>1. Mac安装Shell Integration</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 如果你的默认 shell 是 bash，请将 zsh 换成 bash</span><br><span class="line">$ curl -L https:&#x2F;&#x2F;iterm2.com&#x2F;misc&#x2F;install_shell_integration.sh | zsh</span><br></pre></td></tr></table></figure>
+<p>.zshrc 中间中写入了下面语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test -e &quot;$&#123;HOME&#125;&#x2F;.iterm2_shell_integration.zsh&quot; &amp;&amp; source &quot;$&#123;HOME&#125;&#x2F;.iterm2_shell_integration.zsh&quot;</span><br></pre></td></tr></table></figure>
+<p>在安装完 iTerm2 的 shell integration 后会在终端界面中最左侧多出一个蓝色三角形的标记。</p>
 <br>
 <br>
 
