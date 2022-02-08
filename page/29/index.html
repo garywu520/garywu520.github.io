@@ -196,6 +196,122 @@
             
 
   
+    <article id="post-gentoo-rc-update启动项管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2018/02/16/gentoo-rc-update%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%AE%A1%E7%90%86/" target="_blank">gentoo rc-update启动项自启管理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2018/02/16/gentoo-rc-update%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%AE%A1%E7%90%86/" class="archive-article-date">
+        <time datetime="2018-02-16T01:03:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Gentoo的init配置文件也&#x2F;etc&#x2F;inittab, 在该文件中前三行：</span><br><span class="line"></span><br><span class="line">id:3:initdefault:</span><br><span class="line">si::sysinit:&#x2F;sbin&#x2F;rc sysinit</span><br><span class="line">rc::bootwait:&#x2F;sbin&#x2F;rc boot</span><br><span class="line"></span><br><span class="line">第一行:指定gentoo的默认运行级别是3，接下来两行表明gentoo的runlevel首先开始于sysinit，接着是boot。Gentoo使用字符串，而非简单的数字标记运行级，有sysinit, boot, default, nonetwork, single, shutdown六个runlevel，简单明了。</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2018/02/16/gentoo-rc-update%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%AE%A1%E7%90%86/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gentoo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">rc.local</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">local.d</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">rc-update</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">自启动</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">开机自启动</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">服务自启</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2018/02/16/gentoo-rc-update%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%AE%A1%E7%90%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Shell变量自增" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1121,98 +1237,6 @@
 
 
   
-    <article id="post-查询MySQL占用空间空间排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/02/08/%E6%9F%A5%E8%AF%A2MySQL%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E7%A9%BA%E9%97%B4%E6%8E%92%E5%BA%8F/" target="_blank">查询MySQL表占用空间空间排序</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/02/08/%E6%9F%A5%E8%AF%A2MySQL%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E7%A9%BA%E9%97%B4%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-        <time datetime="2018-02-08T06:39:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个数据库运行了很久，向对其进行清理优化，如何能快速知道哪些表占用容量较大呢？</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2018/02/08/%E6%9F%A5%E8%AF%A2MySQL%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E7%A9%BA%E9%97%B4%E6%8E%92%E5%BA%8F/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/02/08/%E6%9F%A5%E8%AF%A2MySQL%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E7%A9%BA%E9%97%B4%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/28/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/30/">Next &amp;raquo;</a>
@@ -1227,7 +1251,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2021 <a href="https://garywu520.github.io/" target="_blank">GaryWu</a>
+    		&copy; 2018-2022 <a href="https://garywu520.github.io/" target="_blank">GaryWu</a>
     	</div>
       	<div class="footer-right">
 			
@@ -5910,6 +5934,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">download</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">bigsur</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">iMac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">macos</a>
               </li>
             
             <div class="clearfix"></div>

@@ -196,6 +196,106 @@
             
 
   
+    <article id="post-mysql从库自动清理relay-log" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2018/03/22/mysql%E4%BB%8E%E5%BA%93%E8%87%AA%E5%8A%A8%E6%B8%85%E7%90%86relay-log/" target="_blank">mysql从库自动清理relay_log</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2018/03/22/mysql%E4%BB%8E%E5%BA%93%E8%87%AA%E5%8A%A8%E6%B8%85%E7%90%86relay-log/" class="archive-article-date">
+        <time datetime="2018-03-22T07:10:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">生产环境部署有MySQL从库, 但一段时间后发现，SQL线程执行后的relay log一直堆积并未自动删除。</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2018/03/22/mysql%E4%BB%8E%E5%BA%93%E8%87%AA%E5%8A%A8%E6%B8%85%E7%90%86relay-log/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">mysql slave</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">relay log</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2018/03/22/mysql%E4%BB%8E%E5%BA%93%E8%87%AA%E5%8A%A8%E6%B8%85%E7%90%86relay-log/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-问题汇总-openstack可用域availablitiy-zone配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1124,110 +1224,6 @@
 
 
   
-    <article id="post-DNS故障排除与解决" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/03/13/DNS%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4%E4%B8%8E%E8%A7%A3%E5%86%B3/" target="_blank">DNS故障排除与解决</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/03/13/DNS%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4%E4%B8%8E%E8%A7%A3%E5%86%B3/" class="archive-article-date">
-        <time datetime="2018-03-13T04:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="首先要追踪DNS查询过程"><a href="#首先要追踪DNS查询过程" class="headerlink" title="首先要追踪DNS查询过程"></a>首先要追踪DNS查询过程</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig +trace www.qq.com  </span><br></pre></td></tr></table></figure>
-<p>在执行结果中，除了13个顶级域之外，其他的DNS均有可能出现数据错误的可能性，可能是他们的DNS数据刷新时间过程中出现了异常。顶级域返回错误的结果时，就需要使用“+trace”参数</p>
-<p>这个+trace参数两个功能：</p>
-<ul>
-<li>追踪DNS查询过程</li>
-<li>强制从顶级域开始查询</li>
-</ul>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DNS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bind</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unbound</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/03/13/DNS%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4%E4%B8%8E%E8%A7%A3%E5%86%B3/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/26/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/28/">Next &amp;raquo;</a>
@@ -1242,7 +1238,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2021 <a href="https://garywu520.github.io/" target="_blank">GaryWu</a>
+    		&copy; 2018-2022 <a href="https://garywu520.github.io/" target="_blank">GaryWu</a>
     	</div>
       	<div class="footer-right">
 			
@@ -5925,6 +5921,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">download</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">bigsur</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">iMac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">macos</a>
               </li>
             
             <div class="clearfix"></div>
