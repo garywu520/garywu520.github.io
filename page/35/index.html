@@ -196,117 +196,6 @@
             
 
   
-    <article id="post-Logstash收集Nginx日志" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/12/19/Logstash%E6%94%B6%E9%9B%86Nginx%E6%97%A5%E5%BF%97/" target="_blank">Logstash收集Nginx日志</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2017/12/19/Logstash%E6%94%B6%E9%9B%86Nginx%E6%97%A5%E5%BF%97/" class="archive-article-date">
-        <time datetime="2017-12-19T09:45:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-19</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>基础环境配置</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#安装</span><br><span class="line">rpm -ivh logstash-5.6.5.rpm </span><br><span class="line"></span><br><span class="line">#配置软链</span><br><span class="line">ln -s &#x2F;etc&#x2F;logstash &#x2F;usr&#x2F;share&#x2F;logstash&#x2F;config</span><br><span class="line"></span><br><span class="line">#配置</span><br><span class="line">vim &#x2F;etc&#x2F;logstash&#x2F;logstash.yml </span><br><span class="line">path.config: &#x2F;usr&#x2F;share&#x2F;logstash&#x2F;config&#x2F;conf.d     #修改path.config到这个目录</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#启动</span><br><span class="line">systemctl start logstash</span><br><span class="line">systemctl status logstash</span><br><span class="line">systemctl enable logstash</span><br><span class="line"></span><br><span class="line">#软链启动命令</span><br><span class="line">ln -s &#x2F;usr&#x2F;share&#x2F;logstash&#x2F;bin&#x2F;logstash  &#x2F;sbin  </span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2017/12/19/Logstash%E6%94%B6%E9%9B%86Nginx%E6%97%A5%E5%BF%97/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ELK</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">elasticsearch</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kibana</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">logstash</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/12/19/Logstash%E6%94%B6%E9%9B%86Nginx%E6%97%A5%E5%BF%97/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-zabbix监控https-ssl证书是否过期" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1266,9 +1155,115 @@
 
 
   
+    <article id="post-shell高级编程-进阶2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2017/12/02/shell%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B-%E8%BF%9B%E9%98%B62/" target="_blank">shell高级编程-进阶2</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2017/12/02/shell%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B-%E8%BF%9B%E9%98%B62/" class="archive-article-date">
+        <time datetime="2017-12-02T01:39:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>定义变量的三种方式</p>
+</blockquote>
+<ul>
+<li>直接赋值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如：x&#x3D;10 或 file&#x3D;&#x2F;etc&#x2F;hosts</span><br><span class="line"></span><br><span class="line">规律：脚本中能用变量的地方尽量使用变量</span><br></pre></td></tr></table></figure>
+<ul>
+<li>传参(传递参数)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$0 $1 ... $n  $#</span><br><span class="line"></span><br><span class="line">传参方式让脚本更加灵活</span><br></pre></td></tr></table></figure>
+<ul>
+<li>交互式设置变量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用read命令实现脚本交互。 </span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2017/12/02/shell%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B-%E8%BF%9B%E9%98%B62/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2017/12/02/shell%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B-%E8%BF%9B%E9%98%B62/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/34/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/36/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/34/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/36/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -5951,18 +5946,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">img to vmdk</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">iterm2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">scp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">download</a>
               </li>
              
               <li class="article-tag-list-item">
