@@ -196,6 +196,141 @@
             
 
   
+    <article id="post-Hadoop HA 2.7.3完全分布式集群部署-终极版" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2018/12/19/Hadoop%20HA%202.7.3%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2-%E7%BB%88%E6%9E%81%E7%89%88/" target="_blank">Hadoop HA 2.7.3完全分布式集群部署-终极版</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2018/12/19/Hadoop%20HA%202.7.3%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2-%E7%BB%88%E6%9E%81%E7%89%88/" class="archive-article-date">
+        <time datetime="2018-12-19T06:23:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-19</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="HDFS-NameNode-NN-HA-实现方式"><a href="#HDFS-NameNode-NN-HA-实现方式" class="headerlink" title="HDFS-NameNode(NN) HA 实现方式"></a>HDFS-NameNode(NN) HA 实现方式</h4><p>Hadoop 从2.0版本通过基于zookeeper实现了高可用 (High Availability, HA)。QJM（Qurom Journal Manager）是当前主流HDFS NameNode HA方案。故本讲也是使用QJM实现HA</p>
+<p><img src="https://raw.githubusercontent.com/wuyanteng/wuyanteng.github.io/master/images/Namenode%20HA%E6%9E%B6%E6%9E%84%E5%9B%BE.png" alt="NN HA"></p>
+<p>QJM 的基本原理：</p>
+<p>Active NameNode（ANN）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在HDFS集群中，对外提供读写服务的唯一Master节点。ANN将客户端请求过来的写操作通过EditLog写入共享存储系统（即JournalNode Cluster），为Standby NameNode及时同步数据提供支持；</span><br></pre></td></tr></table></figure>
+<p>Standby NameNode（SBN）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">与ANN相互形成热备，SBN及时从共享存储系统中读取EditLog数据并更新内存，以保证当前状态尽可能与ANN同步。当前在整个HDFS集群中最多一台处于Active状态，最多一台处于Standby状态；</span><br></pre></td></tr></table></figure>
+<p>JournalNode Cluster（JNs）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ANN与SBN之间共享Editlog的一致性存储系统，是HDFS NameNode高可用的核心组件。借助JournalNode集群ANN可以尽可能及时同步元数据到SBN。其中ANN采用Push模式将EditLog写入JN，SBN通过Pull模式从JN拉取数据，整个过程中JN不主动进行数据交换；</span><br></pre></td></tr></table></figure>
+<p>ZKFiloverController（ZKFC）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZKFailoverController以独立进程运行，对NameNode主备切换进行控制，正常情况ANN和SBN分别对应各自ZKFC进程。ZKFC主要功能：NameNode健康状况检测；借助Zookeeper实现NameNode自动选主；操作NameNode进行主从切换；</span><br></pre></td></tr></table></figure>
+<p>Zookeeper（ZK）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">为ZKFC实现自动选主功能提供统一协调服务。</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="YARN-ResourceManager-RM-HA实现方式"><a href="#YARN-ResourceManager-RM-HA实现方式" class="headerlink" title="YARN-ResourceManager(RM) HA实现方式"></a>YARN-ResourceManager(RM) HA实现方式</h4><p>ResourceManager(RM) HA 实现方式： RM 将状态信息存储在 Zookeeper 中，当 Active 故障，Standby 切换为 Active 后， 从 ZK 读取相应的作业信息，重新构建作业的内存信息，然后开始接受 NodeManager 心 跳，并接受客户端提交作业的请求等。</p>
+    
+    <a class="article-more-a" href="/2018/12/19/Hadoop%20HA%202.7.3%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2-%E7%BB%88%E6%9E%81%E7%89%88/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hdfs</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">sqoop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">yarn</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">RM HA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hbase</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2018/12/19/Hadoop%20HA%202.7.3%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2-%E7%BB%88%E6%9E%81%E7%89%88/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-nginx清理Proxy-Cache缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1167,126 +1302,9 @@
 
 
   
-    <article id="post-为CDH-CM集群配置机架感知" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/11/29/%E4%B8%BACDH-CM%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%9C%BA%E6%9E%B6%E6%84%9F%E7%9F%A5/" target="_blank">为CDH/CM集群配置机架感知</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/11/29/%E4%B8%BACDH-CM%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%9C%BA%E6%9E%B6%E6%84%9F%E7%9F%A5/" class="archive-article-date">
-        <time datetime="2018-11-29T06:40:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h4 id="什么是CDH机架感知"><a href="#什么是CDH机架感知" class="headerlink" title="什么是CDH机架感知"></a>什么是CDH机架感知</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">机架感知是一种计算不同计算节点之间距离的技术，用以在任务调度过程中尽量减少网络带宽资源的消耗，除此之外，NameNode通过机架感知，可以确定每个DataNode所属的机架ID，优化数据副本存放策略。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hadoop作为典型的大数据处理平台，为充分发挥数据本地性的优势，避免数据跨网络传输，优化集群网络带宽资源，最大程度发挥Hadoop的性能，通常会为Hadoop集群配置机架感知，要为Hadoop集群配置机架感知，需要提前知道Hadoop集群的网络拓扑结构。一般来说，配置机架感知就是将逻辑机架和物理机架一一对应。</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2018/11/29/%E4%B8%BACDH-CM%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%9C%BA%E6%9E%B6%E6%84%9F%E7%9F%A5/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CDH</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HDFS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机架感知</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Rack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/11/29/%E4%B8%BACDH-CM%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%9C%BA%E6%9E%B6%E6%84%9F%E7%9F%A5/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/18/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/20/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/18/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/20/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -5997,6 +6015,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Access-Control-Allow-Origin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Youtube</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Youtube Music</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ads</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nativefier</a>
               </li>
             
             <div class="clearfix"></div>
