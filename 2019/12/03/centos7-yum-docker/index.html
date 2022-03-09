@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Install docker-ce  1234567yum install -y yum-utils device-mapper-persistent-data lvm2yum-config-manager --add-repo https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;centos&#x2F;docker-ce.repoyum install -y docker-cesyste">
+  <meta name="description" content="Install docker-ce  123456789sudo yum install -y yum-utilssudo yum-config-manager \    --add-repo \    https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;centos&#x2F;docker-ce.reposudo yum-config-manager --enable docker-ce">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos7 yum docker">
 <meta property="og:url" content="https://garywu520.github.io/2019/12/03/centos7-yum-docker/index.html">
 <meta property="og:site_name" content="Gary Wu">
-<meta property="og:description" content="Install docker-ce  1234567yum install -y yum-utils device-mapper-persistent-data lvm2yum-config-manager --add-repo https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;centos&#x2F;docker-ce.repoyum install -y docker-cesyste">
+<meta property="og:description" content="Install docker-ce  123456789sudo yum install -y yum-utilssudo yum-config-manager \    --add-repo \    https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;centos&#x2F;docker-ce.reposudo yum-config-manager --enable docker-ce">
 <meta property="og:locale">
 <meta property="article:published_time" content="2019-12-03T05:36:48.000Z">
-<meta property="article:modified_time" content="2022-02-24T10:26:42.617Z">
+<meta property="article:modified_time" content="2022-03-09T09:50:55.582Z">
 <meta property="article:author" content="GaryWu">
 <meta property="article:tag" content="高级运维">
 <meta property="article:tag" content="docker">
@@ -224,7 +224,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">89字</span>
+      <span class="post-count">98字</span>
     </span>
   </span>
 
@@ -247,7 +247,7 @@
     <ul>
 <li>Install docker-ce</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line">yum install -y docker-ce</span><br><span class="line"></span><br><span class="line">systemctl enable docker.service</span><br><span class="line">systemctl start docker.service</span><br><span class="line">systemctl status docker.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils</span><br><span class="line">sudo yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line">sudo yum-config-manager --enable docker-ce-nightly</span><br><span class="line">sudo yum install docker-ce docker-ce-cli containerd.io</span><br><span class="line">sudo systemctl enable docker</span><br><span class="line">sudo systemctl start docker</span><br><span class="line">sudo systemctl status docker</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 
 <ul>
