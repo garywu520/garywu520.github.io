@@ -196,6 +196,114 @@
             
 
   
+    <article id="post-Tomcat访问日志格式化输出" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/08/07/Tomcat%E8%AE%BF%E9%97%AE%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA/" target="_blank">Tomcat访问日志格式化输出</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/08/07/Tomcat%E8%AE%BF%E9%97%AE%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA/" class="archive-article-date">
+        <time datetime="2019-08-07T03:17:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>Tomcat catalina.log时间格式看着很不爽，不便于日志收集与分析，现对其进行调整下</p>
+<h5 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h5><p>目前的时间格式如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">06-Jul-2019 21:12:27.444 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 857 ms</span><br></pre></td></tr></table></figure>
+<p>需要修改为</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2019-07-06 21:12:27.444 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 857 ms</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2019/08/07/Tomcat%E8%AE%BF%E9%97%AE%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tomcat8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">catalina</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">日志log</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/08/07/Tomcat%E8%AE%BF%E9%97%AE%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Tomcat8直接访问与二级目录访问" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1132,104 +1240,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/06/20/linux%E7%B3%BB%E7%BB%9F%E8%A2%AB%E9%BB%91%E7%9A%84%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-合理利用history功能-Linux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/06/20/%E5%90%88%E7%90%86%E5%88%A9%E7%94%A8history%E5%8A%9F%E8%83%BD-Linux/" target="_blank">合理利用history功能-Linux</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/06/20/%E5%90%88%E7%90%86%E5%88%A9%E7%94%A8history%E5%8A%9F%E8%83%BD-Linux/" class="archive-article-date">
-        <time datetime="2019-06-20T03:29:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Linux下通过history命令查看用户的所有历史操作记录，而这些记录存储在用户目录下的“.bash_history”文件中</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lh  .bash_history</span><br></pre></td></tr></table></figure>
-<p>默认的history命令只能看到用户历史操作记录，并不能区分用户操作命令的时间，所以就需要进行如下改动：</p>
-    
-    <a class="article-more-a" href="/2019/06/20/%E5%90%88%E7%90%86%E5%88%A9%E7%94%A8history%E5%8A%9F%E8%83%BD-Linux/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">history</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">系统安全</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/06/20/%E5%90%88%E7%90%86%E5%88%A9%E7%94%A8history%E5%8A%9F%E8%83%BD-Linux/">展开全文 >></a>
     </p>
     
 
@@ -5988,6 +5998,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nativefier</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kernel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">kernel upgrade</a>
               </li>
             
             <div class="clearfix"></div>

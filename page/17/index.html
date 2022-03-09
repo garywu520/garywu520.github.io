@@ -196,6 +196,108 @@
             
 
   
+    <article id="post-shell递归检索所有空目录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/03/08/shell%E9%80%92%E5%BD%92%E6%A3%80%E7%B4%A2%E6%89%80%E6%9C%89%E7%A9%BA%E7%9B%AE%E5%BD%95/" target="_blank">shell递归检索所有空目录</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/03/08/shell%E9%80%92%E5%BD%92%E6%A3%80%E7%B4%A2%E6%89%80%E6%9C%89%E7%A9%BA%E7%9B%AE%E5%BD%95/" class="archive-article-date">
+        <time datetime="2019-03-08T02:41:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-08</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>shell脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@hostname ~]$ cat scan.sh </span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">function read_dir &#123;        #定义一个函数，名称为read_dir</span><br><span class="line">  for file in &#96;ls -R $1&#96;   #通过ls -R来遍历目录 </span><br><span class="line">  do</span><br><span class="line">    if [ -d $1&quot;&#x2F;&quot;$file ];then   #如果它是一个目录,则进行文件统计  </span><br><span class="line">       NUM&#x3D;&#96;ls $1&quot;&#x2F;&quot;$file|wc -l&#96;  </span><br><span class="line">       if [ $NUM -eq 0 ];then   #如果文件统计结果为0则说明是空目录，就追加到文件</span><br><span class="line">          echo $1&quot;&#x2F;&quot;$file &gt;&gt;scan_dir.log</span><br><span class="line">       fi</span><br><span class="line">       read_dir $1&quot;&#x2F;&quot;$file      #读取路径，继续目录递归</span><br><span class="line">    fi</span><br><span class="line">  done</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">read_dir $1</span><br></pre></td></tr></table></figure>
+<p>脚本执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time sh scan.sh [PATH...]</span><br></pre></td></tr></table></figure>
+<p>其他递归需求，可随意变通实现</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">shell脚本</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">递归目录</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/03/08/shell%E9%80%92%E5%BD%92%E6%A3%80%E7%B4%A2%E6%89%80%E6%9C%89%E7%A9%BA%E7%9B%AE%E5%BD%95/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hadoop清空回收站" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1151,111 +1253,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/02/15/Mars-Hadoop-YARN%E7%9A%84%E4%BA%A7%E7%94%9F%E8%83%8C%E6%99%AF4/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mars-Hadoop-HDFS Shell命令3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/02/14/Mars-Hadoop-HDFS%20Shell%E5%91%BD%E4%BB%A43/" target="_blank">Mars-Hadoop-HDFS Shell命令3</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/02/14/Mars-Hadoop-HDFS%20Shell%E5%91%BD%E4%BB%A43/" class="archive-article-date">
-        <time datetime="2019-02-14T10:36:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="Web浏览HDFS文件系统"><a href="#Web浏览HDFS文件系统" class="headerlink" title="Web浏览HDFS文件系统"></a>Web浏览HDFS文件系统</h5><p><img src="https://raw.githubusercontent.com/wuyanteng/wuyanteng.github.io/master/images/hadoop_hdfs_web1.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">浏览器访问http:&#x2F;&#x2F;namenode:50070 ---&gt; Utilities ---&gt; Browse the file system</span><br><span class="line"></span><br><span class="line">默认情况下，HDFS以根为最顶级目录，与linux一样</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/02/14/Mars-Hadoop-HDFS%20Shell%E5%91%BD%E4%BB%A43/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Mars</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HDFS Shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/02/14/Mars-Hadoop-HDFS%20Shell%E5%91%BD%E4%BB%A43/">展开全文 >></a>
     </p>
     
 
@@ -6014,6 +6011,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nativefier</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kernel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">kernel upgrade</a>
               </li>
             
             <div class="clearfix"></div>
