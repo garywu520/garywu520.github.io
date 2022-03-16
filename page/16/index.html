@@ -196,6 +196,117 @@
             
 
   
+    <article id="post-mysql从库降低延迟" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/03/26/mysql%E4%BB%8E%E5%BA%93%E9%99%8D%E4%BD%8E%E5%BB%B6%E8%BF%9F/" target="_blank">mysql从库降低延迟</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/03/26/mysql%E4%BB%8E%E5%BA%93%E9%99%8D%E4%BD%8E%E5%BB%B6%E8%BF%9F/" class="archive-article-date">
+        <time datetime="2019-03-26T03:23:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="slave复制延迟较大优化"><a href="#slave复制延迟较大优化" class="headerlink" title="slave复制延迟较大优化"></a>slave复制延迟较大优化</h5><p>默认mysql从库SQL为单线程，所以从库同步执行速度相对较慢，进而导致延迟增大。在MySQL5.7版本可以通过设置逻辑时钟来实现从库多线程复制</p>
+<h5 id="查看从库复制线程状态"><a href="#查看从库复制线程状态" class="headerlink" title="查看从库复制线程状态"></a>查看从库复制线程状态</h5><p>主从环境部署完毕后，查看从库当前的线程状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show processlist;</span><br><span class="line">+--------+-------------+-----------+------+---------+-------+------------------------------</span><br><span class="line">| Id     | User        | | db   | Command | Time  | State                                   </span><br><span class="line">+--------+-------------+-----------+------+---------+-------+------------------------------</span><br><span class="line">| 148594 | system user | NULL | Connect | 22286 | Waiting for master to send event         </span><br><span class="line">| 148595 | system user | NULL | Connect |  2672 | Slave has read all relay log; waiting for</span><br><span class="line">| 150081 | root        | NULL | Query   |     0 | starting                                 </span><br><span class="line">+--------+-------------+-----------+------+---------+-------+------------------------------</span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<p>可以看到当前只有一个复制线程</p>
+    
+    <a class="article-more-a" href="/2019/03/26/mysql%E4%BB%8E%E5%BA%93%E9%99%8D%E4%BD%8E%E5%BB%B6%E8%BF%9F/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">主从复制</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">降低延迟</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql 5.7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">多线程主从复制</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/03/26/mysql%E4%BB%8E%E5%BA%93%E9%99%8D%E4%BD%8E%E5%BB%B6%E8%BF%9F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ESXI-vm磁盘精简置备转换为厚置备" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1132,112 +1243,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/03/08/Mars-Hadoop-Sqoop%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%AE%89%E8%A3%85/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-sz或rz下载乱码中断问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/03/08/sz%E6%88%96rz%E4%B8%8B%E8%BD%BD%E4%B9%B1%E7%A0%81%E4%B8%AD%E6%96%AD%E9%97%AE%E9%A2%98/" target="_blank">sz或rz下载乱码中断问题</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/03/08/sz%E6%88%96rz%E4%B8%8B%E8%BD%BD%E4%B9%B1%E7%A0%81%E4%B8%AD%E6%96%AD%E9%97%AE%E9%A2%98/" class="archive-article-date">
-        <time datetime="2019-03-08T03:37:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>有时候在ssh客户端下载文件，文件没有达到4GB上限，却下载出现乱码，以致于下载的文件不完整</p>
-<p>注：以下解决方法仅限文本文件下载</p>
-<p>解决方法-使用-a参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-a, --ascii           ASCII transfer (change CR&#x2F;LF to LF)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sz -a filename</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">lrzsz</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">sz</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">rz</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">zmodem ssh</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/03/08/sz%E6%88%96rz%E4%B8%8B%E8%BD%BD%E4%B9%B1%E7%A0%81%E4%B8%AD%E6%96%AD%E9%97%AE%E9%A2%98/">展开全文 >></a>
     </p>
     
 
@@ -6004,6 +6009,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">kernel upgrade</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">xcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
               </li>
             
             <div class="clearfix"></div>
