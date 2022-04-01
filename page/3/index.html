@@ -196,6 +196,116 @@
             
 
   
+    <article id="post-supervisor之kill信号" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/03/16/supervisor%E4%B9%8Bkill%E4%BF%A1%E5%8F%B7/" target="_blank">supervisor之kill信号</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/03/16/supervisor%E4%B9%8Bkill%E4%BF%A1%E5%8F%B7/" class="archive-article-date">
+        <time datetime="2021-03-16T09:11:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>supervisor支持的信号：TERM，HUP，INT，QUIT，KILL，USR1或USR2中的任何一个，分别对应内核级信号：SIGTERM，SIGHUP，SIGINT，SIGQUIT，SIGKILL，SIGUSR1，SIGUSR2</p>
+<p>其中，USR1信号将导致以下步骤的发生：</p>
+<ul>
+<li>停止接受新的连接</li>
+<li>等待当前连接停止</li>
+<li>重新载入配置文件，重新打开日志文件，重启服务器，从而实现相对平滑的不关机的更改。</li>
+</ul>
+    
+    <a class="article-more-a" href="/2021/03/16/supervisor%E4%B9%8Bkill%E4%BF%A1%E5%8F%B7/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">supervisor</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">kill</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SIGHUP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SIGINT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">SIGUSR1</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/03/16/supervisor%E4%B9%8Bkill%E4%BF%A1%E5%8F%B7/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux或MAC终端编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1069,106 +1179,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2021/01/28/vmware%E6%89%B9%E9%87%8F%E8%AE%BE%E7%BD%AE-NAT%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-创建挂载swap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/05/%E5%88%9B%E5%BB%BA%E6%8C%82%E8%BD%BDswap/" target="_blank">创建挂载swap</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/12/05/%E5%88%9B%E5%BB%BA%E6%8C%82%E8%BD%BDswap/" class="archive-article-date">
-        <time datetime="2020-12-05T12:03:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>linux创建挂载swap算是比较基础的内容，但往往避免不了一些坑，重新总结下</p>
-    
-    <a class="article-more-a" href="/2020/12/05/%E5%88%9B%E5%BB%BA%E6%8C%82%E8%BD%BDswap/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">swap</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">虚拟内存</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">swapon</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">swapoff</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/05/%E5%88%9B%E5%BB%BA%E6%8C%82%E8%BD%BDswap/">展开全文 >></a>
     </p>
     
 
@@ -5943,6 +5953,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">socks5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
             
             <div class="clearfix"></div>
