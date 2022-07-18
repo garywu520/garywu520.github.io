@@ -196,6 +196,111 @@
             
 
   
+    <article id="post-windows进程管理工具PM2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/21/windows%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7PM2/" target="_blank">windows进程管理工具PM2</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/21/windows%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7PM2/" class="archive-article-date">
+        <time datetime="2020-09-21T12:51:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h5><p>本来计划在windows上用Python跑supervisor来实现进程管理，但走了一圈，发下pypiwin32模块不起作用。无奈费了牛劲，找到了这个工具，即PM2. 它基于Nodejs实现。</p>
+<h5 id="2-PM2安装"><a href="#2-PM2安装" class="headerlink" title="2. PM2安装"></a>2. PM2安装</h5><ul>
+<li><p>下载：<a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.4/node-v12.18.4-win-x64.zip">Nodejs Windows Binary (.zip)</a> , 并配置环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm -v</span></span><br></pre></td></tr></table></figure></li>
+<li><p>安装pm2</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装pm2</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install pm2 -g</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install pm2-windows-startup -g</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">配置pm2工具开机启动</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pm2-startup install</span></span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2020/09/21/windows%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7PM2/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">supervisor</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pm2</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">win进程管理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/21/windows%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7PM2/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Ansible自动化管理win-2016" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1047,107 +1152,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/08/06/crt%E8%BD%ACpfx%E6%A0%BC%E5%BC%8F%E8%AF%81%E4%B9%A6/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-windows-bat备份mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/07/14/windows-bat%E5%A4%87%E4%BB%BDmysql/" target="_blank">windows bat备份mysql</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/07/14/windows-bat%E5%A4%87%E4%BB%BDmysql/" class="archive-article-date">
-        <time datetime="2020-07-14T02:48:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="1-创建如下目录结构"><a href="#1-创建如下目录结构" class="headerlink" title="1. 创建如下目录结构"></a>1. 创建如下目录结构</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">md D:\MySQL_Backup\bat</span><br><span class="line">md D:\MySQL_Backup\sql</span><br><span class="line">echo=&gt;D:\MySQL_Backup\bat\mysql_bak.bat</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D:\MySQL_Backup</span><br><span class="line">├─bat       #自动化备份脚本文件</span><br><span class="line">└─sql       #备份sql存储路径</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2020/07/14/windows-bat%E5%A4%87%E4%BB%BDmysql/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">windows</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysqldump</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">bat</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/07/14/windows-bat%E5%A4%87%E4%BB%BDmysql/">展开全文 >></a>
     </p>
     
 
@@ -5930,6 +5934,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">freeBSD</a>
               </li>
             
             <div class="clearfix"></div>

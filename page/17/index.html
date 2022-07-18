@@ -196,6 +196,110 @@
             
 
   
+    <article id="post-hadoop hdfs用户组权限" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/03/12/hadoop%20hdfs%E7%94%A8%E6%88%B7%E7%BB%84%E6%9D%83%E9%99%90/" target="_blank">hadoop hdfs用户组权限</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/03/12/hadoop%20hdfs%E7%94%A8%E6%88%B7%E7%BB%84%E6%9D%83%E9%99%90/" class="archive-article-date">
+        <time datetime="2019-03-12T03:45:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>先了解下hdfs的超级用户概念</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">超级用户即运行name node进程的用户。例如，你使用了root用户启动了name node，那么root就是超级用户。</span><br><span class="line"></span><br><span class="line">当name node开始运行时，进程自动判断谁现在是超级用户。HDFS的超级用户不一定非得是name node主机上的超级用户，也不需要所有的集群的超级用户都是一个。</span><br><span class="line"></span><br><span class="line">另外，下面我们通过手动去指定一个用户作为hadoop超级管理员用户，也具有超级管理员权限。</span><br></pre></td></tr></table></figure>
+<h5 id="开启hdfs权限检查"><a href="#开启hdfs权限检查" class="headerlink" title="开启hdfs权限检查"></a>开启hdfs权限检查</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">   &lt;name&gt;dfs.permissions.enabled&lt;/name&gt;    #启用权限检查</span><br><span class="line">   &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<p>注：修改完以上配置后，需要重启namenode hdfs服务</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html">官网配置</a></p>
+    
+    <a class="article-more-a" href="/2019/03/12/hadoop%20hdfs%E7%94%A8%E6%88%B7%E7%BB%84%E6%9D%83%E9%99%90/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hdfs</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hadoop用户</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/03/12/hadoop%20hdfs%E7%94%A8%E6%88%B7%E7%BB%84%E6%9D%83%E9%99%90/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Mars-Hadoop-Sqoop介绍及安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1145,111 +1249,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/02/21/Hadoop-HDFS%200%E5%AD%97%E8%8A%82%E7%A9%BA%E6%96%87%E4%BB%B6%E6%B8%85%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-linux误删除恢复-extundelete" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/02/19/linux%E8%AF%AF%E5%88%A0%E9%99%A4%E6%81%A2%E5%A4%8D-extundelete/" target="_blank">linux误删除恢复-extundelete</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/02/19/linux%E8%AF%AF%E5%88%A0%E9%99%A4%E6%81%A2%E5%A4%8D-extundelete/" class="archive-article-date">
-        <time datetime="2019-02-19T09:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-19</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">脚本批量更新文件名称， 缺少一个for循环导致变量没有生效，mv操作覆盖了文件。</span><br></pre></td></tr></table></figure>
-<h5 id="使用的工具"><a href="#使用的工具" class="headerlink" title="使用的工具"></a>使用的工具</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">extundelete</span><br><span class="line"></span><br><span class="line">(1)此工具适用于rm误删除或mv误删除操作恢复</span><br><span class="line">(2)已验证文件系统：Ext4</span><br><span class="line">(3)适用于大文件恢复，我这里是单压缩文件22GB</span><br><span class="line"></span><br><span class="line">注：此工具请勿安装在误删的文件所在磁盘上</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/02/19/linux%E8%AF%AF%E5%88%A0%E9%99%A4%E6%81%A2%E5%A4%8D-extundelete/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">rm恢复</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mv恢复</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">umount</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">linux文件恢复</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/02/19/linux%E8%AF%AF%E5%88%A0%E9%99%A4%E6%81%A2%E5%A4%8D-extundelete/">展开全文 >></a>
     </p>
     
 
@@ -6032,6 +6031,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">freeBSD</a>
               </li>
             
             <div class="clearfix"></div>
