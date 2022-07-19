@@ -196,6 +196,108 @@
             
 
   
+    <article id="post-docker导出导入镜像" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/08/08/docker%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5%E9%95%9C%E5%83%8F/" target="_blank">docker导出导入镜像</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/08/08/docker%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5%E9%95%9C%E5%83%8F/" class="archive-article-date">
+        <time datetime="2019-08-08T03:25:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>当基于基础镜像，配置并优化了相关环境后，重新打包制作的Docker镜像需要导出保存时，就需要导出导入操作了。</p>
+<h5 id="导出镜像"><a href="#导出镜像" class="headerlink" title="导出镜像"></a>导出镜像</h5><p>如果要导出镜像到本地文件，可以使用docker save命令. 假设要导出的新镜像名为centos_v1</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">docker save -o centos_v1.tar centos_v1</span><br></pre></td></tr></table></figure>
+<h5 id="载入镜像"><a href="#载入镜像" class="headerlink" title="载入镜像"></a>载入镜像</h5><p>可以使用docker load从导出的本地文件中再导入到本地镜像库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker load --input centos_v1.tar</span><br><span class="line">或</span><br><span class="line">docker load &lt; centos_v1.tar</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">images</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">导入导出</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/08/08/docker%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5%E9%95%9C%E5%83%8F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-使用supervisor管理Tomcat进程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1121,114 +1223,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/07/15/shell%E4%BB%A5%E5%85%B6%E4%BB%96%E7%94%A8%E6%88%B7%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-shell删除HDFS几天前的数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/07/15/shell%E5%88%A0%E9%99%A4HDFS%E5%87%A0%E5%A4%A9%E5%89%8D%E7%9A%84%E6%95%B0%E6%8D%AE/" target="_blank">shell删除HDFS几天前的数据</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/07/15/shell%E5%88%A0%E9%99%A4HDFS%E5%87%A0%E5%A4%A9%E5%89%8D%E7%9A%84%E6%95%B0%E6%8D%AE/" class="archive-article-date">
-        <time datetime="2019-07-15T08:44:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="Shell脚本使用"><a href="#Shell脚本使用" class="headerlink" title="Shell脚本使用"></a>Shell脚本使用</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh clean_hdfs_logs.sh [hdfs_user]</span><br></pre></td></tr></table></figure>
-<h5 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h5><p>cat clean_hdfs_logs.sh</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">判断传参个数[即输入hdfs用户]</span></span><br><span class="line">if [ $# != 1 ];then</span><br><span class="line">   echo &quot;USAGE: sh $0 [hdfs_user]&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">Hadoop_LogDir=/tmp/logs/$1/logs</span><br><span class="line">File=/home/$1/logs.log</span><br><span class="line">DATE=`date +%F`</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">清理老数据</span></span><br><span class="line">rm -f $File</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">获取最新数据</span></span><br><span class="line">sudo -u $1 hadoop fs -ls $Hadoop_LogDir &gt;&gt;$File</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">筛选1天前的可删除子目录</span></span><br><span class="line">INFO=`egrep -v &quot;$DATE&quot; $File|awk &#x27;&#123;print $NF&#125;&#x27;`</span><br><span class="line"></span><br><span class="line">for i in $INFO</span><br><span class="line">do</span><br><span class="line">  sudo -u $1 hadoop fs -rm -r $i</span><br><span class="line"><span class="meta">  #</span><span class="bash">sudo -u <span class="variable">$1</span> hadoop fs -rm -r -skipTrash <span class="variable">$i</span></span></span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hdfs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">su</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sudo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/07/15/shell%E5%88%A0%E9%99%A4HDFS%E5%87%A0%E5%A4%A9%E5%89%8D%E7%9A%84%E6%95%B0%E6%8D%AE/">展开全文 >></a>
     </p>
     
 
@@ -6015,6 +6009,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">freeBSD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">firewalld</a>
               </li>
             
             <div class="clearfix"></div>
