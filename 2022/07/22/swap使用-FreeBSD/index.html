@@ -6,21 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://garywu520.github.io">
-  <title>Gary Wu</title>
+  <title>swap使用-FreeBSD | Gary Wu</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <!-- <meta name="keywords" content="">
-    <meta name="description" content="GaryWu_Blog"> -->
-  
-  <meta name="description" content="GaryWu_Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gary Wu">
-<meta property="og:url" content="https://garywu520.github.io/page/46/index.html">
+  <meta name="description" content="1234567891011$ dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;&#x2F;usr&#x2F;swap0 bs&#x3D;1M count&#x3D;1024$ chmod 0600 &#x2F;usr&#x2F;swap0#立即使用swap$ mdconfig -a -t vnode -f &#x2F;usr&#x2F;swap0 -u 0$ mdconfig -l -vmd0	vnode	 2048M	&#x2F;usr&#x2F;swap0$ swapon &#x2F;dev&#x2F;md0#如何删除m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swap使用-FreeBSD">
+<meta property="og:url" content="https://garywu520.github.io/2022/07/22/swap%E4%BD%BF%E7%94%A8-FreeBSD/index.html">
 <meta property="og:site_name" content="Gary Wu">
-<meta property="og:description" content="GaryWu_Blog">
+<meta property="og:description" content="1234567891011$ dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;&#x2F;usr&#x2F;swap0 bs&#x3D;1M count&#x3D;1024$ chmod 0600 &#x2F;usr&#x2F;swap0#立即使用swap$ mdconfig -a -t vnode -f &#x2F;usr&#x2F;swap0 -u 0$ mdconfig -l -vmd0	vnode	 2048M	&#x2F;usr&#x2F;swap0$ swapon &#x2F;dev&#x2F;md0#如何删除m">
 <meta property="og:locale">
+<meta property="article:published_time" content="2022-07-22T09:55:28.000Z">
+<meta property="article:modified_time" content="2022-07-22T10:50:26.901Z">
 <meta property="article:author" content="GaryWu">
 <meta name="twitter:card" content="summary">
   
@@ -193,83 +191,170 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-Ansible自动化入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-swap使用-FreeBSD" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/07/11/Ansible%E8%87%AA%E5%8A%A8%E5%8C%96%E5%85%A5%E9%97%A8/" target="_blank">Ansible自动化入门</a>
-  
+    <h1 class="article-title" itemprop="name">
+      swap使用-FreeBSD
     </h1>
   
 
 
   
   
-<a href="/2017/07/11/Ansible%E8%87%AA%E5%8A%A8%E5%8C%96%E5%85%A5%E9%97%A8/" class="archive-article-date">
-        <time datetime="2017-07-11T10:51:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-11</time>
+<a href="/2022/07/22/swap%E4%BD%BF%E7%94%A8-FreeBSD/" class="archive-article-date">
+        <time datetime="2022-07-22T09:55:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-22</time>
 </a>
 
   
   
     
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">90字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+
 
   
   </header>
   
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<p>Ansible特性：</p>
-<ul>
-<li>ansible基于Python实现，有Paramiko、PyYAML、Jinjia2主要模块</li>
-<li>使用SSH连接主机，部署简单</li>
-<li>可以使用自定义模块，也可以使用其他语言编写模块，基于模块可以完成各种任务</li>
-</ul>
-</blockquote>
-    
-    <a class="article-more-a" href="/2017/07/11/Ansible%E8%87%AA%E5%8A%A8%E5%8C%96%E5%85%A5%E9%97%A8/#more">more >></a>
-    
-    
+    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ dd <span class="keyword">if</span>=/dev/zero of=/usr/swap0 bs=1M count=1024</span><br><span class="line">$ chmod 0600 /usr/swap0</span><br><span class="line"></span><br><span class="line"><span class="comment">#立即使用swap</span></span><br><span class="line">$ mdconfig -a -t vnode -f /usr/swap0 -u 0</span><br><span class="line">$ mdconfig -l -v</span><br><span class="line">md0	vnode	 2048M	/usr/swap0</span><br><span class="line">$ swapon /dev/md0</span><br><span class="line"></span><br><span class="line"><span class="comment">#如何删除md？</span></span><br><span class="line"><span class="comment">#mdconfig -d -u 0</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<br>
+
+<p>开机自动挂载swap</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/etc/rc.d</span><br><span class="line"></span><br><span class="line">cat &gt; auto_swap &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">#!/bin/sh</span></span><br><span class="line"><span class="string">mdconfig -a -t vnode -f /usr/swap0 -u 0 &amp;&amp; swapon /dev/md0</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">chmod +x auto_swap</span><br></pre></td></tr></table></figure>
+<br>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#验证</span></span><br><span class="line">$ swapinfo -k</span><br><span class="line">$ htop</span><br></pre></td></tr></table></figure>
+
+
 
     
 
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          GaryWu
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://garywu520.github.io/2022/07/22/swap使用-FreeBSD/" title="swap使用-FreeBSD" target="_blank">https://garywu520.github.io/2022/07/22/swap使用-FreeBSD/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
     
 
   </div>
   <div class="article-info article-info-index">
     
     
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Ansible</a>
-        		</li>
-      		
-		</ul>
-	</div>
+    
 
     
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/07/11/Ansible%E8%87%AA%E5%8A%A8%E5%8C%96%E5%85%A5%E9%97%A8/">展开全文 >></a>
-    </p>
     
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://garywu520.github.io/2022/07/22/swap%E4%BD%BF%E7%94%A8-FreeBSD/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/07/22/FreeBSD-13-1%E7%BC%96%E8%AF%91%E5%86%85%E6%A0%B8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">FreeBSD 13.1编译内核</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -290,888 +375,14 @@
 
 
 
-  
-    <article id="post-cloudera-manager群集安装报错" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/07/10/cloudera-manager%E7%BE%A4%E9%9B%86%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99/" target="_blank">cloudera manager群集安装报错</a>
-  
-    </h1>
-  
 
 
-  
-  
-<a href="/2017/07/10/cloudera-manager%E7%BE%A4%E9%9B%86%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99/" class="archive-article-date">
-        <time datetime="2017-07-10T06:06:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-10</time>
-</a>
 
-  
-  
-    
 
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>[cloudera Web第4步安装过程中报错: socket.gaierror: [Errno -2] Name or service not known</p>
-</blockquote>
-<blockquote>
-<p>CDH版本：5.2.0</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2017/07/10/cloudera-manager%E7%BE%A4%E9%9B%86%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99/#more">more >></a>
-    
-    
 
-    
 
-    
 
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CDH</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cloudera</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">socket.gaierror</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/07/10/cloudera-manager%E7%BE%A4%E9%9B%86%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-老男孩-Day11-磁盘管理与AWK数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/07/08/%E8%80%81%E7%94%B7%E5%AD%A9-Day11-%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E4%B8%8EAWK%E6%95%B0%E7%BB%84/" target="_blank">老男孩-Day11-磁盘管理与AWK数组</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2017/07/08/%E8%80%81%E7%94%B7%E5%AD%A9-Day11-%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E4%B8%8EAWK%E6%95%B0%E7%BB%84/" class="archive-article-date">
-        <time datetime="2017-07-08T01:39:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h6 id="RIAD"><a href="#RIAD" class="headerlink" title="RIAD"></a>RIAD</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">RIAD0 磁盘容量不浪费，存储性好，读写速度块。至少要有1块物理磁盘才能使用RIAD0</span><br><span class="line"></span><br><span class="line">RIAD1 镜像，磁盘容量损失50% ；只能2块盘做1个RIAD1。</span><br><span class="line">      应用场景：对数据安全性比较高的情况下使用。</span><br><span class="line"></span><br><span class="line">RIAD5 至少需要3块以上物理磁盘才能实现RIAD5. 空间利用率n-1 </span><br><span class="line">      如果任意1块硬盘坏掉，通过奇偶校验会将数据恢复。</span><br><span class="line">      </span><br><span class="line">RIAD5+Spare（空闲热备盘）</span><br><span class="line"></span><br><span class="line">RIAD10 至少需要4块硬盘</span><br><span class="line">       </span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2017/07/08/%E8%80%81%E7%94%B7%E5%AD%A9-Day11-%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E4%B8%8EAWK%E6%95%B0%E7%BB%84/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">awk数组</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">磁盘管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/07/08/%E8%80%81%E7%94%B7%E5%AD%A9-Day11-%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E4%B8%8EAWK%E6%95%B0%E7%BB%84/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Yarn不能给某些机器分配任务-解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/07/06/Yarn%E4%B8%8D%E8%83%BD%E7%BB%99%E6%9F%90%E4%BA%9B%E6%9C%BA%E5%99%A8%E5%88%86%E9%85%8D%E4%BB%BB%E5%8A%A1-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" target="_blank">Yarn不能给某些机器分配任务-解决方案</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2017/07/06/Yarn%E4%B8%8D%E8%83%BD%E7%BB%99%E6%9F%90%E4%BA%9B%E6%9C%BA%E5%99%A8%E5%88%86%E9%85%8D%E4%BB%BB%E5%8A%A1-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="archive-article-date">
-        <time datetime="2017-07-06T10:53:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h6 id="YARN健康检测"><a href="#YARN健康检测" class="headerlink" title="YARN健康检测"></a>YARN健康检测</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NodeManager 还提供了检测磁盘好坏的机制。</span><br><span class="line"></span><br><span class="line">检测的磁盘目录主要是 yarn.nodemanager.local-dirs 和 yarn.nodemanager.log-dirs 参数指定的目录，这两个目录分别用于存储应用程序运行的中间结果，比如MapReduce作业中Map Task的中间输出结果）和日志文件存放目录列表。这两个参数都可以配置多个目录，多个目录之间使用逗号分隔。如果这两个参数配置的目录不可用的比例达到一定的设置，则认为该节点不健康。</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2017/07/06/Yarn%E4%B8%8D%E8%83%BD%E7%BB%99%E6%9F%90%E4%BA%9B%E6%9C%BA%E5%99%A8%E5%88%86%E9%85%8D%E4%BB%BB%E5%8A%A1-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YARN</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">NodeManager</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/07/06/Yarn%E4%B8%8D%E8%83%BD%E7%BB%99%E6%9F%90%E4%BA%9B%E6%9C%BA%E5%99%A8%E5%88%86%E9%85%8D%E4%BB%BB%E5%8A%A1-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-NTP服务器-部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/07/06/NTP%E6%9C%8D%E5%8A%A1%E5%99%A8-%E9%83%A8%E7%BD%B2/" target="_blank">NTP服务器-部署</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2017/07/06/NTP%E6%9C%8D%E5%8A%A1%E5%99%A8-%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-        <time datetime="2017-07-06T03:44:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>环境： 共3台服务器</p>
-<p>1台为NTP主节点(10.1.2.20)，其余2台为NTP受控节点(10.1.2.21和10.1.2.22)</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2017/07/06/NTP%E6%9C%8D%E5%8A%A1%E5%99%A8-%E9%83%A8%E7%BD%B2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ntp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/07/06/NTP%E6%9C%8D%E5%8A%A1%E5%99%A8-%E9%83%A8%E7%BD%B2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CDH集群调优：内存、Vcores和DRF" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/07/05/CDH%E9%9B%86%E7%BE%A4%E8%B0%83%E4%BC%98%EF%BC%9A%E5%86%85%E5%AD%98%E3%80%81Vcores%E5%92%8CDRF/" target="_blank">CDH集群调优：内存、Vcores和DRF</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2017/07/05/CDH%E9%9B%86%E7%BE%A4%E8%B0%83%E4%BC%98%EF%BC%9A%E5%86%85%E5%AD%98%E3%80%81Vcores%E5%92%8CDRF/" class="archive-article-date">
-        <time datetime="2017-07-05T03:25:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>场景：需要将CDH动态资源池中的Vcores进行虚拟以满足Yarn跑任务的需要。</p>
-</blockquote>
-<h4 id="DRF和相关参数"><a href="#DRF和相关参数" class="headerlink" title="DRF和相关参数"></a>DRF和相关参数</h4>
-    
-    <a class="article-more-a" href="/2017/07/05/CDH%E9%9B%86%E7%BE%A4%E8%B0%83%E4%BC%98%EF%BC%9A%E5%86%85%E5%AD%98%E3%80%81Vcores%E5%92%8CDRF/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CDH</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Vcores</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DRF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/07/05/CDH%E9%9B%86%E7%BE%A4%E8%B0%83%E4%BC%98%EF%BC%9A%E5%86%85%E5%AD%98%E3%80%81Vcores%E5%92%8CDRF/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ansible基本用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/07/04/ansible%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" target="_blank">ansible基本用法</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2017/07/04/ansible%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="archive-article-date">
-        <time datetime="2017-07-04T10:55:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-04</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h4 id="ansible基本用法"><a href="#ansible基本用法" class="headerlink" title="ansible基本用法"></a>ansible基本用法</h4>
-    
-    <a class="article-more-a" href="/2017/07/04/ansible%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Ansible</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/07/04/ansible%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-切换用户错误-This-account-is-currently-not-available" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/07/01/%E5%88%87%E6%8D%A2%E7%94%A8%E6%88%B7%E9%94%99%E8%AF%AF-This-account-is-currently-not-available/" target="_blank">切换用户错误:This account is currently not available</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2017/07/01/%E5%88%87%E6%8D%A2%E7%94%A8%E6%88%B7%E9%94%99%E8%AF%AF-This-account-is-currently-not-available/" class="archive-article-date">
-        <time datetime="2017-07-01T05:24:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-01</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>切换用户报错</p>
-<p>[garywu@oldboy202 ~]$ su - apache<br>This account is currently not available.</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2017/07/01/%E5%88%87%E6%8D%A2%E7%94%A8%E6%88%B7%E9%94%99%E8%AF%AF-This-account-is-currently-not-available/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/07/01/%E5%88%87%E6%8D%A2%E7%94%A8%E6%88%B7%E9%94%99%E8%AF%AF-This-account-is-currently-not-available/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-老男孩-Day10之用户管理与磁盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/07/01/%E8%80%81%E7%94%B7%E5%AD%A9-Day10%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E4%B8%8E%E7%A3%81%E7%9B%98/" target="_blank">老男孩-Day10之用户管理与磁盘</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2017/07/01/%E8%80%81%E7%94%B7%E5%AD%A9-Day10%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E4%B8%8E%E7%A3%81%E7%9B%98/" class="archive-article-date">
-        <time datetime="2017-07-01T01:41:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-01</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;passwd    倒数第二列表示用户宿主目录；最后一列表示用户所使用的shell(即命令解释器)</span><br><span class="line">注：如果想把某个用户配置为傀儡用户（不能登录），对应用户shell需要改为&#x2F;sbin&#x2F;nologin</span><br><span class="line">&#x2F;etc&#x2F;skel   作用：该目录存放着新用户默认环境变量等配置文件。</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2017/07/01/%E8%80%81%E7%94%B7%E5%AD%A9-Day10%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E4%B8%8E%E7%A3%81%E7%9B%98/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">用户管理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">磁盘</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/07/01/%E8%80%81%E7%94%B7%E5%AD%A9-Day10%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E4%B8%8E%E7%A3%81%E7%9B%98/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Apache账号密码登陆验证-配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2017/06/29/Apache%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86%E9%AA%8C%E8%AF%81-%E9%85%8D%E7%BD%AE/" target="_blank">Apache账号密码登陆验证-配置</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2017/06/29/Apache%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86%E9%AA%8C%E8%AF%81-%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-        <time datetime="2017-06-29T10:46:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>Apache账号密码登陆验证-配置</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2017/06/29/Apache%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86%E9%AA%8C%E8%AF%81-%E9%85%8D%E7%BD%AE/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Apache</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web认证</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2017/06/29/Apache%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86%E9%AA%8C%E8%AF%81-%E9%85%8D%E7%BD%AE/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/45/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="page-number" href="/page/45/">45</a><span class="page-number current">46</span><a class="page-number" href="/page/47/">47</a><a class="page-number" href="/page/48/">48</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/47/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -1199,8 +410,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

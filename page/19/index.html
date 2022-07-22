@@ -196,6 +196,99 @@
             
 
   
+    <article id="post-linux系统使用dd命令克隆与恢复" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/01/24/linux%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8dd%E5%91%BD%E4%BB%A4%E5%85%8B%E9%9A%86%E4%B8%8E%E6%81%A2%E5%A4%8D/" target="_blank">linux系统使用dd命令克隆与恢复</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/01/24/linux%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8dd%E5%91%BD%E4%BB%A4%E5%85%8B%E9%9A%86%E4%B8%8E%E6%81%A2%E5%A4%8D/" class="archive-article-date">
+        <time datetime="2019-01-24T09:14:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-24</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">服务器硬件老化，数据和业务迁移导出困难，这种情况下，使用dd将整个盘的数据制作成镜像，恢复到新服务器中是个不错的方案。</span><br></pre></td></tr></table></figure>
+<h5 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(1) 使用U盘制作livecd启动盘，在livecd环境进行操作</span><br><span class="line">(2) 准备1TB移动硬盘,在livecd系统中挂载，用于存储系统镜像</span><br><span class="line">(3) dd制作系统镜像</span><br><span class="line"></span><br><span class="line">(4) 新服务器进入livecd环境，挂载移动硬盘</span><br><span class="line">(5) dd系统数据恢复</span><br><span class="line">(6) 网卡服务启动错误修复</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2019/01/24/linux%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8dd%E5%91%BD%E4%BB%A4%E5%85%8B%E9%9A%86%E4%B8%8E%E6%81%A2%E5%A4%8D/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dd</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/01/24/linux%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8dd%E5%91%BD%E4%BB%A4%E5%85%8B%E9%9A%86%E4%B8%8E%E6%81%A2%E5%A4%8D/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-netflix流媒体解锁" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1199,114 +1292,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2018/12/14/nginx%E6%B8%85%E7%90%86Proxy-Cache%E7%BC%93%E5%AD%98/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux上学会使用DNS-over-HTTPS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/12/13/Linux%E4%B8%8A%E5%AD%A6%E4%BC%9A%E4%BD%BF%E7%94%A8DNS-over-HTTPS/" target="_blank">Linux上学会使用DNS over HTTPS</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/12/13/Linux%E4%B8%8A%E5%AD%A6%E4%BC%9A%E4%BD%BF%E7%94%A8DNS-over-HTTPS/" class="archive-article-date">
-        <time datetime="2018-12-13T08:31:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-13</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">适用场景：在国内有台linux服务器，解析不想被污染,可以采用此方法。</span><br></pre></td></tr></table></figure>
-<h5 id="官网下载Cloudflared二进制程序"><a href="#官网下载Cloudflared二进制程序" class="headerlink" title="官网下载Cloudflared二进制程序"></a>官网下载Cloudflared二进制程序</h5><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/argo-tunnel/downloads/">下载链接</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;bin.equinox.io&#x2F;c&#x2F;VdrWdbjqyF&#x2F;cloudflared-stable-linux-amd64.tgz</span><br><span class="line">tar -zxvf cloudflared-stable-linux-amd64.tgz</span><br><span class="line">mv cloudflared &#x2F;usr&#x2F;sbin&#x2F;</span><br><span class="line">cloudflared --version</span><br></pre></td></tr></table></figure>
-<h5 id="Glibc升级到2-17"><a href="#Glibc升级到2-17" class="headerlink" title="Glibc升级到2.17"></a>Glibc升级到2.17</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果报glibc.so.6的相关错误，就需要升级glibc版本</span><br></pre></td></tr></table></figure>
-<p>无损升级glibc-<a target="_blank" rel="noopener" href="https://wuyanteng.github.io/2018/12/13/Glibc%E7%BC%96%E8%AF%91%E5%8D%87%E7%BA%A7%E5%88%B02-17/#more">参考</a></p>
-    
-    <a class="article-more-a" href="/2018/12/13/Linux%E4%B8%8A%E5%AD%A6%E4%BC%9A%E4%BD%BF%E7%94%A8DNS-over-HTTPS/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DNS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">DNS over HTTPS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cloudflare</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/12/13/Linux%E4%B8%8A%E5%AD%A6%E4%BC%9A%E4%BD%BF%E7%94%A8DNS-over-HTTPS/">展开全文 >></a>
     </p>
     
 
