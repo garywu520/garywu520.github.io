@@ -196,6 +196,112 @@
             
 
   
+    <article id="post-MySQL双主架构-数据同步" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2018/11/28/MySQL%E5%8F%8C%E4%B8%BB%E6%9E%B6%E6%9E%84-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/" target="_blank">MySQL双主复制架构</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2018/11/28/MySQL%E5%8F%8C%E4%B8%BB%E6%9E%B6%E6%9E%84-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/" class="archive-article-date">
+        <time datetime="2018-11-28T10:43:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-28</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">本双主架构应用场景：多主单写，避免了主键冲突问题。当Master1节点挂了，直接将数据写入Master2节点，无需变更配置文件即可具有写入权限。</span><br><span class="line"></span><br><span class="line">另外，双主架构不能同步mysql库，也就意味着，所有的账号及权限，需要同时在Master2上再次创建</span><br></pre></td></tr></table></figure>
+<h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Master1: 10.0.10.101</span><br><span class="line">Master2: 10.0.10.102</span><br><span class="line"></span><br><span class="line">Master1与Master2双向同步</span><br></pre></td></tr></table></figure>
+<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Mysql版本：5.6.42</span><br><span class="line">安装方式：编译安装</span><br><span class="line">编译安装过程：略</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2018/11/28/MySQL%E5%8F%8C%E4%B8%BB%E6%9E%B6%E6%9E%84-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">双主复制</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">主主同步</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Master-Master</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2018/11/28/MySQL%E5%8F%8C%E4%B8%BB%E6%9E%B6%E6%9E%84-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CentOS启动卡在进度条问题处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1089,108 +1195,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2018/10/19/linux%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E6%89%80%E5%8D%A0%E7%94%A8%E7%9A%84%E7%A3%81%E7%9B%98io/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-查询mongo数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/10/18/%E6%9F%A5%E8%AF%A2mongo%E6%95%B0%E6%8D%AE/" target="_blank">查询mongo数据</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/10/18/%E6%9F%A5%E8%AF%A2mongo%E6%95%B0%E6%8D%AE/" class="archive-article-date">
-        <time datetime="2018-10-18T06:17:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-18</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">简单整理下查询mongo数据方法</span><br></pre></td></tr></table></figure>
-<h4 id="进入mongo数据库"><a href="#进入mongo数据库" class="headerlink" title="进入mongo数据库"></a>进入mongo数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mongo 10.0.0.200:27017</span><br><span class="line">rs.slaveOk();   让从库支持读操作</span><br><span class="line">show dbs; 查询数据库</span><br><span class="line">use video;  进入数据库</span><br><span class="line">show tables; 查询关系型表</span><br><span class="line">show collections； 查询所有表（集合）</span><br></pre></td></tr></table></figure>
-<h4 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SECONDARY&gt; db.表名.find()</span><br><span class="line"></span><br><span class="line">这个命令类似于mysql数据库的：select from 表名;</span><br></pre></td></tr></table></figure>
-<p>如果表过大，需要使用limit限制行数，否则可能对库造成很大压力。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SECONDARY&gt; db.表名.find().limit(10)    查看前10行数据</span><br></pre></td></tr></table></figure>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mongo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">查询mongo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">limit</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/10/18/%E6%9F%A5%E8%AF%A2mongo%E6%95%B0%E6%8D%AE/">展开全文 >></a>
     </p>
     
 
