@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Github项目Realease：https:&#x2F;&#x2F;github.com&#x2F;hishamhm&#x2F;htop&#x2F;releases  安装编译环境+依赖123yum groupinstall “Development Tools” -yyum install glibc-devel glibc-headers kernel-headers kernel-devel gnutls-develyum instal">
+  <meta name="description" content="安装编译环境+依赖123yum groupinstall “Development Tools” -yyum install glibc-devel glibc-headers kernel-headers kernel-devel gnutls-develyum install -y ncurses-devel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译安装htop3.0">
 <meta property="og:url" content="https://garywu520.github.io/2020/09/16/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85htop3-0/index.html">
 <meta property="og:site_name" content="Gary Wu">
-<meta property="og:description" content="Github项目Realease：https:&#x2F;&#x2F;github.com&#x2F;hishamhm&#x2F;htop&#x2F;releases  安装编译环境+依赖123yum groupinstall “Development Tools” -yyum install glibc-devel glibc-headers kernel-headers kernel-devel gnutls-develyum instal">
+<meta property="og:description" content="安装编译环境+依赖123yum groupinstall “Development Tools” -yyum install glibc-devel glibc-headers kernel-headers kernel-devel gnutls-develyum install -y ncurses-devel">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-09-16T13:13:53.000Z">
-<meta property="article:modified_time" content="2020-09-16T13:45:13.019Z">
+<meta property="article:modified_time" content="2022-07-27T06:15:01.728Z">
 <meta property="article:author" content="GaryWu">
 <meta property="article:tag" content="htop">
 <meta property="article:tag" content="htop3">
@@ -221,7 +221,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">102字</span>
+      <span class="post-count">265字</span>
     </span>
   </span>
 
@@ -241,15 +241,32 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<p>Github项目Realease：<a target="_blank" rel="noopener" href="https://github.com/hishamhm/htop/releases">https://github.com/hishamhm/htop/releases</a></p>
-</blockquote>
-<h5 id="安装编译环境-依赖"><a href="#安装编译环境-依赖" class="headerlink" title="安装编译环境+依赖"></a>安装编译环境+依赖</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall “Development Tools” -y</span><br><span class="line">yum install glibc-devel glibc-headers kernel-headers kernel-devel gnutls-devel</span><br><span class="line">yum install -y ncurses-devel</span><br></pre></td></tr></table></figure>
+    <h5 id="安装编译环境-依赖"><a href="#安装编译环境-依赖" class="headerlink" title="安装编译环境+依赖"></a>安装编译环境+依赖</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall “Development Tools” -y</span><br><span class="line">yum install glibc-devel glibc-headers kernel-headers kernel-devel gnutls-devel</span><br><span class="line">yum install -y ncurses-devel</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
+
+<br>
 
 <h5 id="编译htop3-0"><a href="#编译htop3-0" class="headerlink" title="编译htop3.0"></a>编译htop3.0</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/hishamhm/htop/archive/3.0.0beta5.tar.gz</span><br><span class="line">tar -xvzf 3.0.0beta5.tar.gz</span><br><span class="line">cd htop-3.0.0beta5/</span><br><span class="line">./autogen.sh &amp;&amp; ./configure &amp;&amp; make</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./htop -v</span></span><br><span class="line">htop 3.0.0beta5 - (C) 2004-2020 Hisham Muhammad</span><br><span class="line">Released under the GNU GPL.</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">which htop</span><br><span class="line">mv /usr/bin/htop /usr/bin/htop.bak</span><br><span class="line">cp ./htop /usr/bin/htop</span><br><span class="line">ls -lh /usr/bin/htop</span><br></pre></td></tr></table></figure>
+
+
+<br>
+
+<h4 id="Htop-3-2-1版本，已用内存在FreeBSD-13-1中的问题"><a href="#Htop-3-2-1版本，已用内存在FreeBSD-13-1中的问题" class="headerlink" title="Htop 3.2.1版本，已用内存在FreeBSD 13.1中的问题"></a>Htop 3.2.1版本，已用内存在FreeBSD 13.1中的问题</h4><ul>
+<li><p>已知问题：已用内存错误显示为16.0Z</p>
+</li>
+<li><p>它已被确认是一个bug, 在官方未修复前，解决方案：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//源码找到文件： htop/freebsd/Platform.c, 注释掉以下代码块</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">if</span> (fpl-&gt;zfs.enabled) &#123; </span><br><span class="line">    <span class="comment">// ZFS does not shrink below the value of zfs_arc_min. </span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> shrinkableSize = <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">if</span> (fpl-&gt;zfs.size &gt; fpl-&gt;zfs.min) </span><br><span class="line">       shrinkableSize = fpl-&gt;zfs.size - fpl-&gt;zfs.min; </span><br><span class="line">    <span class="keyword">this</span>-&gt;values[<span class="number">0</span>] -= shrinkableSize; </span><br><span class="line">    <span class="keyword">this</span>-&gt;values[<span class="number">3</span>] += shrinkableSize; </span><br><span class="line">    <span class="comment">// this-&gt;values[4] += shrinkableSize; </span></span><br><span class="line"> &#125; </span><br></pre></td></tr></table></figure>
+<p>然后重新编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span>  htop/</span><br><span class="line">./autogen.sh &amp;&amp; ./configure &amp;&amp; make</span><br></pre></td></tr></table></figure>
+<p>关于此问题的讨论：Github <a target="_blank" rel="noopener" href="https://github.com/htop-dev/htop/issues/1039">#1039</a></p>
+</li>
+</ul>
+  <br>
+
+<p>  Github项目：<a target="_blank" rel="noopener" href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a></p>
+<p>  Github项目Realease：<a target="_blank" rel="noopener" href="https://github.com/hishamhm/htop/releases">https://github.com/hishamhm/htop/releases</a></p>
 
     
 
