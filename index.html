@@ -196,6 +196,111 @@
             
 
   
+    <article id="post-IPFW防火墙-FreeBSD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/07/28/IPFW%E9%98%B2%E7%81%AB%E5%A2%99-FreeBSD/" target="_blank">IPFW防火墙-FreeBSD</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/07/28/IPFW%E9%98%B2%E7%81%AB%E5%A2%99-FreeBSD/" class="archive-article-date">
+        <time datetime="2022-07-28T09:03:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-28</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>IPFireWall(简称：IPFW)，IPFW 是为 FreeBSD 编写的状态防火墙</p>
+<br>
+
+<h4 id="数据包处理流程"><a href="#数据包处理流程" class="headerlink" title="数据包处理流程:"></a>数据包处理流程:</h4><ul>
+<li><p>首先：会将其与规则集中的第一个规则进行比较，并一次处理一个规则，按顺序从上到下移动。</p>
+</li>
+<li><p>当数据包与规则的选择参数匹配时，将执行规则的操作，并终止对规则集的搜索以查找该数据包。这被称为“首次匹配成功”。</p>
+</li>
+<li><p>如果数据包与任何规则都不匹配，则会被强制使用IPFW 默认规则(编号:65535)捕获，该规则会拒绝所有数据包并以静默方式丢弃它们。</p>
+</li>
+<li><p>但是也有例外，如果数据包与包含 <code>count</code>、 <code>skipto</code> 或 <code>tee</code> 关键字的规则匹配，则搜索将继续。</p>
+</li>
+</ul>
+<br>
+    
+    <a class="article-more-a" href="/2022/07/28/IPFW%E9%98%B2%E7%81%AB%E5%A2%99-FreeBSD/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ipfw</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">firewall</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/07/28/IPFW%E9%98%B2%E7%81%AB%E5%A2%99-FreeBSD/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-FreeBSD内核开启BBR" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1046,110 +1151,9 @@
 
 
   
-    <article id="post-Youtube-Music原生去广告" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/03/08/Youtube-Music%E5%8E%9F%E7%94%9F%E5%8E%BB%E5%B9%BF%E5%91%8A/" target="_blank">Youtube/Music原生去广告</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/03/08/Youtube-Music%E5%8E%9F%E7%94%9F%E5%8E%BB%E5%B9%BF%E5%91%8A/" class="archive-article-date">
-        <time datetime="2022-03-08T12:24:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Github: <a target="_blank" rel="noopener" href="https://github.com/garywu520/webapps-ads-removal">webapps-ads-removal</a></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>The older User-Agent terminals are no longer the mainstream advertising target, so you can use the “–user-agent” parameter of the nativefier open source tool to forcefully disguise User-Agent to achieve ad filtering. Of course, not most User-Agents can remove ads, you need to explore and test together.</p>
-    
-    <a class="article-more-a" href="/2022/03/08/Youtube-Music%E5%8E%9F%E7%94%9F%E5%8E%BB%E5%B9%BF%E5%91%8A/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Youtube</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Youtube Music</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ads</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nativefier</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/03/08/Youtube-Music%E5%8E%9F%E7%94%9F%E5%8E%BB%E5%B9%BF%E5%91%8A/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -5924,6 +5928,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">BBR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ipfw</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">firewall</a>
               </li>
             
             <div class="clearfix"></div>

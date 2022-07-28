@@ -196,6 +196,103 @@
             
 
   
+    <article id="post-Python3安装supervisor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/03/12/Python3%E5%AE%89%E8%A3%85supervisor/" target="_blank">Python3安装supervisor</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/03/12/Python3%E5%AE%89%E8%A3%85supervisor/" class="archive-article-date">
+        <time datetime="2021-03-12T03:49:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>安装Python3</p>
+</blockquote>
+<p>进入py3环境</p>
+<h5 id="pip安装"><a href="#pip安装" class="headerlink" title="pip安装"></a>pip安装</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install supervisor</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装后的二进制</span></span><br><span class="line">/opt/py3/bin/supervisord</span><br><span class="line">/opt/py3/bin/supervisorctl</span><br><span class="line">/opt/py3/bin/echo_supervisord_conf</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2021/03/12/Python3%E5%AE%89%E8%A3%85supervisor/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">supervisor</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">python3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/03/12/Python3%E5%AE%89%E8%A3%85supervisor/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-shell中grep排除grep" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1109,108 +1206,9 @@
 
 
   
-    <article id="post-Linux挂载AWS-S3存储桶" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/11/24/Linux%E6%8C%82%E8%BD%BDAWS-S3%E5%AD%98%E5%82%A8%E6%A1%B6/" target="_blank">Linux挂载AWS S3存储桶</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/11/24/Linux%E6%8C%82%E8%BD%BDAWS-S3%E5%AD%98%E5%82%A8%E6%A1%B6/" class="archive-article-date">
-        <time datetime="2020-11-24T14:00:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h5><ul>
-<li>获取S3存储桶Key ID和Key Secret，并创建好S3存储桶</li>
-</ul>
-<h5 id="1-安装s3fs"><a href="#1-安装s3fs" class="headerlink" title="1. 安装s3fs"></a>1. 安装s3fs</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2020/11/24/Linux%E6%8C%82%E8%BD%BDAWS-S3%E5%AD%98%E5%82%A8%E6%A1%B6/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">S3</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AWS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">对象存储</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/11/24/Linux%E6%8C%82%E8%BD%BDAWS-S3%E5%AD%98%E5%82%A8%E6%A1%B6/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -5985,6 +5983,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">BBR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ipfw</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">firewall</a>
               </li>
             
             <div class="clearfix"></div>

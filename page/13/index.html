@@ -196,6 +196,98 @@
             
 
   
+    <article id="post-nginx快速部署文件下载服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/08/21/nginx%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%9C%8D%E5%8A%A1/" target="_blank">nginx快速部署文件下载服务</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/08/21/nginx%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%9C%8D%E5%8A%A1/" class="archive-article-date">
+        <time datetime="2019-08-21T10:14:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="让nginx直接下载文件的方法"><a href="#让nginx直接下载文件的方法" class="headerlink" title="让nginx直接下载文件的方法"></a>让nginx直接下载文件的方法</h5><p>在nginx.conf下增加配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        access_log logs/access.download.com.log main;</span><br><span class="line">        error_log logs/error.download.com.log;</span><br><span class="line">        server_name download.com;</span><br><span class="line"></span><br><span class="line">        root /data/android;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">新增配置区域</span></span><br><span class="line">        location /app &#123;</span><br><span class="line">                default_type application/octet-stream;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将下载的文件放在/data/android/app目录下,  reload Nginx，之后就可以通过download.com访问了</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">nginx下载</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/08/21/nginx%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%9C%8D%E5%8A%A1/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-shell脚本监控TraceRoute" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1132,117 +1224,9 @@
 
 
   
-    <article id="post-Tomcat8直接访问与二级目录访问" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/08/07/Tomcat8%E7%9B%B4%E6%8E%A5%E8%AE%BF%E9%97%AE%E4%B8%8E%E4%BA%8C%E7%BA%A7%E7%9B%AE%E5%BD%95%E8%AE%BF%E9%97%AE/" target="_blank">Tomcat8直接访问与二级目录访问</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/08/07/Tomcat8%E7%9B%B4%E6%8E%A5%E8%AE%BF%E9%97%AE%E4%B8%8E%E4%BA%8C%E7%BA%A7%E7%9B%AE%E5%BD%95%E8%AE%BF%E9%97%AE/" class="archive-article-date">
-        <time datetime="2019-08-07T03:06:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="1-直接访问-工程部署"><a href="#1-直接访问-工程部署" class="headerlink" title="1. 直接访问-工程部署"></a>1. 直接访问-工程部署</h5><p>注：将应用程序部署到Tomcat根目录，【直接】访问方式为：http://[ip]:[port]</p>
-<ul>
-<li>这种方式最简单，直接删除Tomcat//webapps/ROOT下面的所有文件，将研发给的工程放到该目录下。</li>
-<li>Tomcat启动时，默认会读取和加载ROOT目录下面的所有项目。</li>
-</ul>
-    
-    <a class="article-more-a" href="/2019/08/07/Tomcat8%E7%9B%B4%E6%8E%A5%E8%AE%BF%E9%97%AE%E4%B8%8E%E4%BA%8C%E7%BA%A7%E7%9B%AE%E5%BD%95%E8%AE%BF%E9%97%AE/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">war</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tomcat8</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/08/07/Tomcat8%E7%9B%B4%E6%8E%A5%E8%AE%BF%E9%97%AE%E4%B8%8E%E4%BA%8C%E7%BA%A7%E7%9B%AE%E5%BD%95%E8%AE%BF%E9%97%AE/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/12/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/14/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/12/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/14/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -6017,6 +6001,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">BBR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ipfw</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">firewall</a>
               </li>
             
             <div class="clearfix"></div>
