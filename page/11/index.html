@@ -196,6 +196,103 @@
             
 
   
+    <article id="post-zabbix-server监控zabbix-agent存活" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/10/29/zabbix-server%E7%9B%91%E6%8E%A7zabbix-agent%E5%AD%98%E6%B4%BB/" target="_blank">zabbix server监控zabbix agent存活</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/10/29/zabbix-server%E7%9B%91%E6%8E%A7zabbix-agent%E5%AD%98%E6%B4%BB/" class="archive-article-date">
+        <time datetime="2019-10-29T07:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>正常逻辑</p>
+<p>如果按照正常部署方式，一般是创建zabbix-agent模板，通过net.tcp.listen[port] 或 自定义key，触发器≠1就告警，最后将模板应用到所有agent主机。</p>
+    
+    <a class="article-more-a" href="/2019/10/29/zabbix-server%E7%9B%91%E6%8E%A7zabbix-agent%E5%AD%98%E6%B4%BB/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">监控</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">zabbix server</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">zabbix agent</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/10/29/zabbix-server%E7%9B%91%E6%8E%A7zabbix-agent%E5%AD%98%E6%B4%BB/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MySQL两个核心参数优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1114,104 +1211,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/09/25/Redis-RDB%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E6%B5%81%E7%A8%8B/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-shell脚本执行redis命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/09/25/shell%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8Credis%E5%91%BD%E4%BB%A4/" target="_blank">shell脚本执行redis命令</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/25/shell%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8Credis%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2019-09-25T09:34:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>shell脚本中执行redis命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 192.168.1.186 -p 6380 -a test123 info</span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;get old1&quot; | redis-cli -h 192.168.1.186 -p 6380 -a test123</span><br></pre></td></tr></table></figure>
-<p>参数释义：</p>
-<ul>
-<li>-a 指定redis密码</li>
-<li>最后的”info” 则是想要执行的redis命令</li>
-</ul>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/25/shell%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8Credis%E5%91%BD%E4%BB%A4/">展开全文 >></a>
     </p>
     
 
@@ -6026,6 +6025,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">firewall</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">dhcp</a>
               </li>
             
             <div class="clearfix"></div>

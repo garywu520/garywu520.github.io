@@ -196,6 +196,106 @@
             
 
   
+    <article id="post-静态IP配置-FreeBSD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/07/29/%E9%9D%99%E6%80%81IP%E9%85%8D%E7%BD%AE-FreeBSD/" target="_blank">静态IP配置-FreeBSD</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/07/29/%E9%9D%99%E6%80%81IP%E9%85%8D%E7%BD%AE-FreeBSD/" class="archive-article-date">
+        <time datetime="2022-07-29T06:36:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="1-配置IP"><a href="#1-配置IP" class="headerlink" title="1. 配置IP"></a>1. 配置IP</h4><p>cat /etc/rc.conf</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hostname=<span class="string">&quot;FreeBSD-168&quot;</span></span><br><span class="line">ifconfig_vmx0=<span class="string">&quot;inet 172.16.10.168 netmask 255.255.255.0&quot;</span></span><br><span class="line">defaultrouter=<span class="string">&quot;172.16.10.1&quot;</span></span><br></pre></td></tr></table></figure>
+<p>注：</p>
+<ul>
+<li><p>其中vmx0为网络接口名称</p>
+</li>
+<li><p>defaultrouter为网关，即配置后添加一条默认路由</p>
+</li>
+</ul>
+    
+    <a class="article-more-a" href="/2022/07/29/%E9%9D%99%E6%80%81IP%E9%85%8D%E7%BD%AE-FreeBSD/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">静态IP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">dhcp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/07/29/%E9%9D%99%E6%80%81IP%E9%85%8D%E7%BD%AE-FreeBSD/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-IPFW防火墙-FreeBSD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1026,102 +1126,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/03/16/Xcode%E7%BC%96%E8%AF%91%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-kernel-upgrade" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/03/09/kernel-upgrade/" target="_blank">kernel upgrade</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/03/09/kernel-upgrade/" class="archive-article-date">
-        <time datetime="2022-03-09T11:07:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h4 id="AWS-Lightsail升级kernel"><a href="#AWS-Lightsail升级kernel" class="headerlink" title="AWS Lightsail升级kernel"></a>AWS Lightsail升级kernel</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#借助脚本,选择 原生BBR内核</span></span><br><span class="line">bash &lt;(curl -sL https://git.huaweicdn.net/tcp.sh)</span><br></pre></td></tr></table></figure>
-
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">centos7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kernel</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">kernel upgrade</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/03/09/kernel-upgrade/">展开全文 >></a>
     </p>
     
 
@@ -5936,6 +5940,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">firewall</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">dhcp</a>
               </li>
             
             <div class="clearfix"></div>

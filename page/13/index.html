@@ -196,6 +196,112 @@
             
 
   
+    <article id="post-Tomcat-内存优化配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/08/22/Tomcat-%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE/" target="_blank">Tomcat 内存优化配置</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/08/22/Tomcat-%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE/" class="archive-article-date">
+        <time datetime="2019-08-22T05:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>以Tomcat 8.x为例，来说明内存优化配置</p>
+<h5 id="一、修改配置如下"><a href="#一、修改配置如下" class="headerlink" title="一、修改配置如下"></a>一、修改配置如下</h5><p>修改 {tomcat_dir}/bin/catalina.sh ，搜索“Execute” 行，在下面加入如下行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ----- Execute The Requested Command -----------------------------------------</span></span><br><span class="line">JAVA_OPTS=&quot;$JAVA_OPTS -server -Xms256m -Xmx512m&quot;</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<p>-Xms256m：初始化堆内存大小（注意，不加M的话单位是KB）<br>-Xmx512m：最大堆内存大小<br> -XX:PermSize=128M：初始化类加载内存池大小 </p>
+<p>注：以下两个参数在Tomcat8中，启动会报错</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-XX:MaxPermSize=256M：最大类加载内存池大小 </span><br><span class="line">-XX:MaxNewSize=256M：设置JAVA堆区域新生代内存的最大可分配大小</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2019/08/22/Tomcat-%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jps</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">内存</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/08/22/Tomcat-%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-nginx快速部署文件下载服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1087,114 +1193,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/08/07/Tomcat-%E5%B0%86%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90war%E5%8C%85/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Tomcat访问日志格式化输出" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/08/07/Tomcat%E8%AE%BF%E9%97%AE%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA/" target="_blank">Tomcat访问日志格式化输出</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/08/07/Tomcat%E8%AE%BF%E9%97%AE%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA/" class="archive-article-date">
-        <time datetime="2019-08-07T03:17:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Tomcat catalina.log时间格式看着很不爽，不便于日志收集与分析，现对其进行调整下</p>
-<h5 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h5><p>目前的时间格式如下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">06-Jul-2019 21:12:27.444 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 857 ms</span><br></pre></td></tr></table></figure>
-<p>需要修改为</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2019-07-06 21:12:27.444 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 857 ms</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/08/07/Tomcat%E8%AE%BF%E9%97%AE%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tomcat8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">catalina</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">日志log</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/08/07/Tomcat%E8%AE%BF%E9%97%AE%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA/">展开全文 >></a>
     </p>
     
 
@@ -6009,6 +6007,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">firewall</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">dhcp</a>
               </li>
             
             <div class="clearfix"></div>

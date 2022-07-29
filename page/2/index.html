@@ -196,6 +196,102 @@
             
 
   
+    <article id="post-kernel-upgrade" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/03/09/kernel-upgrade/" target="_blank">kernel upgrade</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/03/09/kernel-upgrade/" class="archive-article-date">
+        <time datetime="2022-03-09T11:07:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-09</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="AWS-Lightsail升级kernel"><a href="#AWS-Lightsail升级kernel" class="headerlink" title="AWS Lightsail升级kernel"></a>AWS Lightsail升级kernel</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#借助脚本,选择 原生BBR内核</span></span><br><span class="line">bash &lt;(curl -sL https://git.huaweicdn.net/tcp.sh)</span><br></pre></td></tr></table></figure>
+
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">centos7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kernel</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">kernel upgrade</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/03/09/kernel-upgrade/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Youtube-Music原生去广告" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1087,107 +1183,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2021/06/08/Jenkins-Jobs%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-RDS-for-MySQL导入库权限问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/06/07/RDS-for-MySQL%E5%AF%BC%E5%85%A5%E5%BA%93%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/" target="_blank">RDS_for_MySQL导入库权限问题</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/06/07/RDS-for-MySQL%E5%AF%BC%E5%85%A5%E5%BA%93%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/" class="archive-article-date">
-        <time datetime="2021-06-07T03:17:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>RDS导出的库导入到另一个RDS出现权限错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Err] 1227 - Access denied; you need (at least one of) the SUPER privilege(s) </span><br></pre></td></tr></table></figure>
-<h5 id="一、错误原因"><a href="#一、错误原因" class="headerlink" title="一、错误原因"></a>一、错误原因</h5><ul>
-<li>导入RDS MySQL 实例：SQL 语句中含有需要 Supper 权限才可以执行的语句，而 RDS MySQL不提供 Super 权限，因此需要去除这类语句。</li>
-<li>本地 MySQL 实例没有启用 GTID。</li>
-</ul>
-    
-    <a class="article-more-a" href="/2021/06/07/RDS-for-MySQL%E5%AF%BC%E5%85%A5%E5%BA%93%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RDS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">权限</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/06/07/RDS-for-MySQL%E5%AF%BC%E5%85%A5%E5%BA%93%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/">展开全文 >></a>
     </p>
     
 
@@ -6002,6 +5997,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">firewall</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">dhcp</a>
               </li>
             
             <div class="clearfix"></div>
