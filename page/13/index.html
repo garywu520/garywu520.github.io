@@ -196,6 +196,126 @@
             
 
   
+    <article id="post-Nginx-301重定向到HTTPS的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/08/23/Nginx-301%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0HTTPS%E7%9A%84%E9%97%AE%E9%A2%98/" target="_blank">Nginx 301重定向到HTTPS的问题</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/08/23/Nginx-301%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0HTTPS%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
+        <time datetime="2019-08-23T08:14:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>Nginx强制配置301永久跳转后，APP发起POST请求会出现405错误，这是因为301跳转的操作让浏览器把POST请求变成了GET请求。</p>
+<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><ul>
+<li>301跳转示例：</li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">return</span> <span class="number">301</span> https://www.xxx.com$request_uri;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解决办法：</li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">return</span> <span class="number">307</span> https://www.xxx.com$request_uri;</span><br><span class="line">或</span><br><span class="line"><span class="attribute">return</span> <span class="number">308</span> https://www.xxx.com$request_uri;</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2019/08/23/Nginx-301%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0HTTPS%E7%9A%84%E9%97%AE%E9%A2%98/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">301</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GET</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">POST</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">307</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTTPS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/08/23/Nginx-301%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0HTTPS%E7%9A%84%E9%97%AE%E9%A2%98/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Tomcat-内存优化配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1079,120 +1199,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/08/07/Tomcat%E5%A4%9A%E5%AE%9E%E4%BE%8B%E9%83%A8%E7%BD%B2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Tomcat-将项目打包成war包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/08/07/Tomcat-%E5%B0%86%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90war%E5%8C%85/" target="_blank">Tomcat-将项目打包成war包</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/08/07/Tomcat-%E5%B0%86%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90war%E5%8C%85/" class="archive-article-date">
-        <time datetime="2019-08-07T05:50:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>要求：提前安装jdk</p>
-<h5 id="1-打包"><a href="#1-打包" class="headerlink" title="1. 打包"></a>1. 打包</h5><p>将当前目录下的所有文件打包成project.war</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar -cvfM0 project.war ./</span><br></pre></td></tr></table></figure>
-<p>参数说明：</p>
-<ul>
-<li>-c 创建war包</li>
-<li>-v 显示打包过程</li>
-<li>-f  指定JAR文件名</li>
-<li>-M  不产生所有项的清单（MANIFEST〕文件，此参数会忽略 -m 参数</li>
-<li>-0    这个是阿拉伯数字，只打包不压缩的意思</li>
-</ul>
-<h5 id="2-解压"><a href="#2-解压" class="headerlink" title="2. 解压"></a>2. 解压</h5><p>解压到当前目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar -xvf project.war</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jar</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">war</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/08/07/Tomcat-%E5%B0%86%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90war%E5%8C%85/">展开全文 >></a>
     </p>
     
 
@@ -6011,6 +6017,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">dhcp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">librex</a>
               </li>
             
             <div class="clearfix"></div>

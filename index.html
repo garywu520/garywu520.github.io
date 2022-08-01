@@ -196,6 +196,99 @@
             
 
   
+    <article id="post-私有部署Librex元搜索引擎-FreeBSD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/08/01/%E7%A7%81%E6%9C%89%E9%83%A8%E7%BD%B2Librex%E5%85%83%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E-FreeBSD/" target="_blank">私有部署Librex元搜索引擎-FreeBSD</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/08/01/%E7%A7%81%E6%9C%89%E9%83%A8%E7%BD%B2Librex%E5%85%83%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E-FreeBSD/" class="archive-article-date">
+        <time datetime="2022-08-01T10:48:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="1-源码拉取"><a href="#1-源码拉取" class="headerlink" title="1. 源码拉取"></a>1. 源码拉取</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Install Nginx/PHP and Module</span></span><br><span class="line">pkg install -y nginx  php74  php74-dom php74-curl php74-json php-fpm_exporter-2.0.4_2</span><br><span class="line"></span><br><span class="line">mkdir /var/www</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/hnhx/librex.git</span><br><span class="line"><span class="built_in">cd</span> librex/</span><br><span class="line">mv config.php.example config.php</span><br><span class="line">mv opensearch.xml.example opensearch.xml</span><br><span class="line"></span><br><span class="line"><span class="comment">#替换localhost(这里替换为本机内网IP)</span></span><br><span class="line"><span class="comment">#sed -i &#x27;s/http:\/\/localhost/https:\/\/your.domain/g&#x27; opensearch.xml</span></span><br><span class="line">sed -i <span class="string">&#x27;s/http:\/\/localhost/https:\/\/172.16.100.10/g&#x27;</span> opensearch.xml</span><br></pre></td></tr></table></figure>
+<br>
+    
+    <a class="article-more-a" href="/2022/08/01/%E7%A7%81%E6%9C%89%E9%83%A8%E7%BD%B2Librex%E5%85%83%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E-FreeBSD/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">google</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">librex</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/08/01/%E7%A7%81%E6%9C%89%E9%83%A8%E7%BD%B2Librex%E5%85%83%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E-FreeBSD/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-静态IP配置-FreeBSD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1032,100 +1125,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/04/01/%E4%BD%BF%E7%94%A8socks5%E8%BF%9E%E6%8E%A5ssh/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Xcode编译相关优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/03/16/Xcode%E7%BC%96%E8%AF%91%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/" target="_blank">Xcode编译相关优化</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/03/16/Xcode%E7%BC%96%E8%AF%91%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/" class="archive-article-date">
-        <time datetime="2022-03-16T10:28:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>在Xcode(版本≥11)上, 打开Terminal ，查看现有编译线程配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults <span class="built_in">read</span> com.apple.dt.Xcode</span><br><span class="line">defaults <span class="built_in">read</span> com.apple.dt.xcodebuild</span><br></pre></td></tr></table></figure>
-<br>
-    
-    <a class="article-more-a" href="/2022/03/16/Xcode%E7%BC%96%E8%AF%91%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">xcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">xcodebuild</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/03/16/Xcode%E7%BC%96%E8%AF%91%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/">展开全文 >></a>
     </p>
     
 
@@ -5944,6 +5943,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">dhcp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">librex</a>
               </li>
             
             <div class="clearfix"></div>
