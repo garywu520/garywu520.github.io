@@ -196,6 +196,100 @@
             
 
   
+    <article id="post-Kernel优化-FreeBSD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/08/03/Kernel%E4%BC%98%E5%8C%96-FreeBSD/" target="_blank">Kernel优化-FreeBSD</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/08/03/Kernel%E4%BC%98%E5%8C%96-FreeBSD/" class="archive-article-date">
+        <time datetime="2022-08-03T11:12:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-03</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="1-启动Loader优化"><a href="#1-启动Loader优化" class="headerlink" title="1. 启动Loader优化"></a>1. 启动Loader优化</h4><p>cat /boot/loader.conf</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">kern.maxdsiz=<span class="string">&quot;536870912&quot;</span></span><br><span class="line">kern.ipc.maxsockets=<span class="string">&quot;16424&quot;</span> </span><br><span class="line">kern.ipc.nmbclusters=<span class="string">&quot;32768&quot;</span> </span><br><span class="line">kern.ipc.nmbufs=<span class="string">&quot;65535&quot;</span></span><br><span class="line">kern.ipc.nsfbufs=<span class="string">&quot;2496&quot;</span></span><br><span class="line">net.inet.tcp.tcbhashsize=<span class="string">&quot;2048&quot;</span></span><br><span class="line">kern.maxusers=<span class="string">&quot;256&quot;</span></span><br></pre></td></tr></table></figure>
+<br>
+    
+    <a class="article-more-a" href="/2022/08/03/Kernel%E4%BC%98%E5%8C%96-FreeBSD/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kernel</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">sysctl</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/08/03/Kernel%E4%BC%98%E5%8C%96-FreeBSD/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-私有部署Librex元搜索引擎-FreeBSD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1023,108 +1117,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/07/18/FreeBSD%E5%90%AF%E7%94%A8Linux%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%85%BC%E5%AE%B9%E6%80%A7/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-使用socks5连接ssh" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/04/01/%E4%BD%BF%E7%94%A8socks5%E8%BF%9E%E6%8E%A5ssh/" target="_blank">使用socks5连接ssh</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/04/01/%E4%BD%BF%E7%94%A8socks5%E8%BF%9E%E6%8E%A5ssh/" class="archive-article-date">
-        <time datetime="2022-04-01T06:22:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-01</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>如何使用socks5代理去连接远程SSH主机？</p>
-<br>
-
-<h6 id="连接流程"><a href="#连接流程" class="headerlink" title="连接流程"></a>连接流程</h6><p>SSH Client —&gt; NC —&gt; Socks5 Proxy —&gt; Remote SSH Server</p>
-<br>
-
-<h6 id="命令行格式："><a href="#命令行格式：" class="headerlink" title="命令行格式："></a>命令行格式：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -o ProxyCommand&#x3D;&#39;&#x2F;usr&#x2F;bin&#x2F;nc -X 5 -x 127.0.0.1:9158 %h %p&#39; -i &#x2F;xxx&#x2F;xxx.key  -p 22 username@remote_hostname </span><br></pre></td></tr></table></figure>
-
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">socks5</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">proxy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/04/01/%E4%BD%BF%E7%94%A8socks5%E8%BF%9E%E6%8E%A5ssh/">展开全文 >></a>
     </p>
     
 
@@ -5951,6 +5943,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">librex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sysctl</a>
               </li>
             
             <div class="clearfix"></div>
