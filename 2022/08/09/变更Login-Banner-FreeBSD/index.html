@@ -19,7 +19,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://www.cyberciti.biz/media/new/cms/2021/05/FreeBSD-login-banner.png">
 <meta property="article:published_time" content="2022-08-09T10:22:07.000Z">
-<meta property="article:modified_time" content="2022-08-09T10:27:14.127Z">
+<meta property="article:modified_time" content="2022-08-09T10:44:21.009Z">
 <meta property="article:author" content="GaryWu">
 <meta property="article:tag" content="SSH">
 <meta property="article:tag" content="Login">
@@ -226,7 +226,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">82字</span>
+      <span class="post-count">95字</span>
     </span>
   </span>
 
@@ -257,7 +257,7 @@
 <p>可以看到定义的文件在/var/run/motd</p>
 <br>
 
-<h5 id="2-定义login-motd-bunner"><a href="#2-定义login-motd-bunner" class="headerlink" title="2. 定义login motd bunner"></a>2. 定义login motd bunner</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pkg search neofetch</span><br><span class="line">$ pkg install -y neofetch</span><br><span class="line">$ /usr/<span class="built_in">local</span>/bin/neofetch &gt; /var/run/motd</span><br></pre></td></tr></table></figure>
+<h5 id="2-定义login-motd-bunner"><a href="#2-定义login-motd-bunner" class="headerlink" title="2. 定义login motd bunner"></a>2. 定义login motd bunner</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ pkg search neofetch</span><br><span class="line">$ pkg install -y neofetch</span><br><span class="line"></span><br><span class="line"><span class="comment">#注：默认配置文件路经：~/.config/neofetch/config.conf</span></span><br><span class="line">$ /usr/<span class="built_in">local</span>/bin/neofetch &gt; /var/run/motd</span><br></pre></td></tr></table></figure>
 <p>Banner测试</p>
 <br>
 
