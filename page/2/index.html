@@ -196,6 +196,104 @@
             
 
   
+    <article id="post-PF防火墙-FreeBSD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/07/19/PF%E9%98%B2%E7%81%AB%E5%A2%99-FreeBSD/" target="_blank">PF防火墙-FreeBSD</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/07/19/PF%E9%98%B2%E7%81%AB%E5%A2%99-FreeBSD/" class="archive-article-date">
+        <time datetime="2022-07-19T10:59:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-19</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>PF 是一个功能齐全的完整防火墙，具有对 ALTQ（备用队列）的可选支持，后者提供服务质量（QoS）</p>
+<h4 id="1-定义一个简单规则文件"><a href="#1-定义一个简单规则文件" class="headerlink" title="1. 定义一个简单规则文件"></a>1. 定义一个简单规则文件</h4><p>cat /etc/pf_rules.conf</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义接口变量</span></span><br><span class="line">eth0=<span class="string">&quot;vmx0&quot;</span></span><br><span class="line"></span><br><span class="line">block <span class="keyword">in</span> all</span><br><span class="line">pass <span class="keyword">in</span> inet proto tcp to <span class="variable">$eth0</span> port 22</span><br><span class="line">pass <span class="keyword">in</span> inet proto tcp to <span class="variable">$eth0</span> port 53</span><br><span class="line">pass out all keep state</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2022/07/19/PF%E9%98%B2%E7%81%AB%E5%A2%99-FreeBSD/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iptables</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pf</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">firewalld</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/07/19/PF%E9%98%B2%E7%81%AB%E5%A2%99-FreeBSD/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-FreeBSD启用Linux二进制兼容性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1074,115 +1172,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2021/10/22/youtube-dl-for-macos/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Xray-XTLS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/07/03/Xray-XTLS/" target="_blank">Xray+XTLS</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/07/03/Xray-XTLS/" class="archive-article-date">
-        <time datetime="2021-07-03T07:36:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-03</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>TLS 与 XTLS区别，我在网络上找到了如下解释：</p>
-<p>XTLS去掉了旧时代翻墙模式中不必要的对加密数据的重复加密。即:</p>
-<ul>
-<li>如果原始数据是已经经过TLS加密的数据，此时XTLS<strong>不再</strong>和旧时代工具一样进行无用的重复加密，从而获得卓越性能。</li>
-<li>如果原始数据不是经过TLS加密的，而是明文数据，XTLS会进行TLS加密。</li>
-</ul>
-    
-    <a class="article-more-a" href="/2021/07/03/Xray-XTLS/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">TLS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">xray</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vmess</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vless</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">XTLS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/07/03/Xray-XTLS/">展开全文 >></a>
     </p>
     
 
@@ -6029,6 +6018,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">neofetch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">i2p</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">i2pd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">freebsd</a>
               </li>
             
             <div class="clearfix"></div>
