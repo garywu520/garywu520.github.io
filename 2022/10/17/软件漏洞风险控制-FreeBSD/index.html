@@ -18,7 +18,7 @@
 <meta property="og:description" content="FreeBSD有一种方法可以缓解第三方漏洞并警告管理员已知的安全问题，FreeBSD 的一个附加软件 pkg，可明确用于此目的。pkg 将轮询数据库是否存在安全问题。数据库由 FreeBSD 安全团队和 ports 开发人员更新和维护。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-10-17T08:25:47.000Z">
-<meta property="article:modified_time" content="2022-10-17T08:27:06.000Z">
+<meta property="article:modified_time" content="2022-10-17T08:28:24.001Z">
 <meta property="article:author" content="GaryWu">
 <meta property="article:tag" content="FreeBSD">
 <meta property="article:tag" content="安全">
@@ -221,7 +221,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">246字</span>
+      <span class="post-count">266字</span>
     </span>
   </span>
 
@@ -252,7 +252,7 @@
 <p>cat /etc/defaults/periodic.conf</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#开启Periolic</span><br><span class="line">daily_status_security_pkgaudit_enable=&quot;YES&quot;</span><br></pre></td></tr></table></figure>
 <p>更新数据库并查看已安装软件包的已知漏洞</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pkg audit -F</span><br><span class="line"></span><br><span class="line"><span class="comment">#软件包更新</span></span><br><span class="line">pkg upgrade gnutls go119 expat</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#列出当前可更新的软件列表-并显示漏洞内容</span></span><br><span class="line">pkg audit -F</span><br><span class="line"></span><br><span class="line"><span class="comment">#软件包更新-示例</span></span><br><span class="line">pkg upgrade go</span><br></pre></td></tr></table></figure>
 
 
 <p>参考：<a target="_blank" rel="noopener" href="https://handbook.bsdcn.org/di-14-zhang-an-quan/14.10.-jian-ce-di-san-fang-an-quan-wen-ti.html">FreeBSD简中手册</a></p>
