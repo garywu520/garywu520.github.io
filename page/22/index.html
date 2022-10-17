@@ -196,6 +196,103 @@
             
 
   
+    <article id="post-CentOS启动卡在进度条问题处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2018/11/26/CentOS%E5%90%AF%E5%8A%A8%E5%8D%A1%E5%9C%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/" target="_blank">CentOS启动卡在进度条问题处理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2018/11/26/CentOS%E5%90%AF%E5%8A%A8%E5%8D%A1%E5%9C%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/" class="archive-article-date">
+        <time datetime="2018-11-26T01:40:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-26</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CentOS开机的时候卡在进度条一直进不去, 接下来查找罪魁祸首。</span><br></pre></td></tr></table></figure>
+<h4 id="查看启动过程中的问题"><a href="#查看启动过程中的问题" class="headerlink" title="查看启动过程中的问题"></a>查看启动过程中的问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">启动菜单按“e” 进入编辑状态，然后移动到第二项kernel...接着按e进入编辑。</span><br><span class="line"></span><br><span class="line">去掉“rhgb quiet” 字样，按回车保存回到选择项，再按b启动它就能看到启动过程了</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意查看启动过程中卡在哪里？可以按f5键进度条&#x2F;命令行界面方式切换，确认卡问题后处理就好，比如我的就卡在开机启动MySQL上，一直进不去系统，所以可以使用单用户模式进入系统把MySQL启动项关闭后在进系统就没有问题了。</span><br></pre></td></tr></table></figure>
+<h4 id="进入单用户模式，关闭服务启动项"><a href="#进入单用户模式，关闭服务启动项" class="headerlink" title="进入单用户模式，关闭服务启动项"></a>进入单用户模式，关闭服务启动项</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">进入单用户模式:</span><br><span class="line">把ro改成rw，（把只读改成可写），再把rhgb quiet删除，最后增加init&#x3D;&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">设置完毕后，Ctrol+X来</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">centos6</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">启动卡在进度条</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2018/11/26/CentOS%E5%90%AF%E5%8A%A8%E5%8D%A1%E5%9C%A8%E8%BF%9B%E5%BA%A6%E6%9D%A1%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-编译安装Python3及扩展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1094,109 +1191,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2018/10/18/%E6%9F%A5%E8%AF%A2mongo%E6%95%B0%E6%8D%AE/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-sendmail发送邮件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/10/18/sendmail%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/" target="_blank">sendmail发送邮件</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/10/18/sendmail%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/" class="archive-article-date">
-        <time datetime="2018-10-18T03:01:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-18</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Gentoo系统模板内置了ssmtp软件，可直接使用sendmail命令发送</span><br><span class="line">即</span><br><span class="line"># emerge --ask mail-mta&#x2F;ssmtp</span><br><span class="line"># cat &#x2F;etc&#x2F;ssmtp&#x2F;ssmtp.conf </span><br><span class="line">root&#x3D;</span><br><span class="line">mailhub&#x3D;mail.xxx:25</span><br><span class="line">rewriteDomain&#x3D;mail.xxx.com</span><br><span class="line">hostname&#x3D;mail.xxx.com</span><br><span class="line">FromLineOverride&#x3D;YES</span><br></pre></td></tr></table></figure>
-<h2 id="安装mailx"><a href="#安装mailx" class="headerlink" title="安装mailx"></a>安装mailx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">eix mailx</span><br><span class="line">emerge mail-client&#x2F;mailx</span><br></pre></td></tr></table></figure>
-<h2 id="邮件发送命令"><a href="#邮件发送命令" class="headerlink" title="邮件发送命令"></a>邮件发送命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo -e  &quot;this is test\n Is true.&quot; |mail -s &quot;test&quot; mail@qq.com</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">也可进行如下命令测试，不建议</span><br><span class="line">echo &quot;主题&quot; |sendmail mail@qq.com</span><br></pre></td></tr></table></figure>
-
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mail</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mailx</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sendmail</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/10/18/sendmail%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/">展开全文 >></a>
     </p>
     
 
@@ -6059,6 +6053,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">freebsd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
             
             <div class="clearfix"></div>

@@ -196,6 +196,119 @@
             
 
   
+    <article id="post-使用GOST端口转发-通过TLS加密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/03/31/%E4%BD%BF%E7%94%A8GOST%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91-%E9%80%9A%E8%BF%87TLS%E5%8A%A0%E5%AF%86/" target="_blank">使用GOST端口转发-通过TLS加密</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/03/31/%E4%BD%BF%E7%94%A8GOST%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91-%E9%80%9A%E8%BF%87TLS%E5%8A%A0%E5%AF%86/" class="archive-article-date">
+        <time datetime="2020-03-31T03:15:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h5><blockquote>
+<p>有个MySQL测试服务，端口: 3307，服务器在香港，直连有时候非常不稳定，速度很慢，所以使用gost把这个服务转发到本地的一台linux上。</p>
+<p>另外，为了确保安全，优化了使用TLS来加密TCP 3307的流量。</p>
+</blockquote>
+<h5 id="GOST是什么"><a href="#GOST是什么" class="headerlink" title="GOST是什么"></a>GOST是什么</h5><blockquote>
+<ul>
+<li>GOST WIKI: <a target="_blank" rel="noopener" href="https://docs.ginuerzh.xyz/gost/tls/">https://docs.ginuerzh.xyz/gost/tls/</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Github release: <a target="_blank" rel="noopener" href="https://github.com/ginuerzh/gost/releases">GOST</a></li>
+</ul>
+</blockquote>
+    
+    <a class="article-more-a" href="/2020/03/31/%E4%BD%BF%E7%94%A8GOST%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91-%E9%80%9A%E8%BF%87TLS%E5%8A%A0%E5%AF%86/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">socat</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gost</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">端口转发</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">端口穿透</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/03/31/%E4%BD%BF%E7%94%A8GOST%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91-%E9%80%9A%E8%BF%87TLS%E5%8A%A0%E5%AF%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-反弹shell" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1076,102 +1189,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/02/07/docker%E6%97%A5%E5%BF%97%E9%99%90%E5%88%B6%E4%B8%8Edocker%E6%97%A5%E5%BF%97%E6%B8%85%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CTOP-docker容器运行状态TOP工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/02/03/CTOP-docker%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E7%8A%B6%E6%80%81TOP%E5%B7%A5%E5%85%B7/" target="_blank">CTOP--docker容器运行状态TOP工具</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/02/03/CTOP-docker%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E7%8A%B6%E6%80%81TOP%E5%B7%A5%E5%85%B7/" class="archive-article-date">
-        <time datetime="2020-02-03T13:29:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-03</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>官网：<a target="_blank" rel="noopener" href="https://ctop.sh/">https://ctop.sh/</a><br>github: <a target="_blank" rel="noopener" href="https://github.com/bcicen/ctop">https://github.com/bcicen/ctop</a></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;bcicen&#x2F;ctop&#x2F;releases&#x2F;download&#x2F;v0.7.3&#x2F;ctop-0.7.3-linux-amd64 -O &#x2F;usr&#x2F;local&#x2F;bin&#x2F;ctop</span><br><span class="line"></span><br><span class="line">chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;ctop</span><br></pre></td></tr></table></figure>
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">htop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">top</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ctop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/03/CTOP-docker%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E7%8A%B6%E6%80%81TOP%E5%B7%A5%E5%85%B7/">展开全文 >></a>
     </p>
     
 
@@ -6034,6 +6051,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">freebsd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
             
             <div class="clearfix"></div>

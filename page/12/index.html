@@ -196,6 +196,126 @@
             
 
   
+    <article id="post-OpenResty-Lua实现WAF应用防火墙" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/10/12/OpenResty-Lua%E5%AE%9E%E7%8E%B0WAF%E5%BA%94%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99/" target="_blank">OpenResty+Lua实现WAF应用防火墙</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/10/12/OpenResty-Lua%E5%AE%9E%E7%8E%B0WAF%E5%BA%94%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99/" class="archive-article-date">
+        <time datetime="2019-10-12T09:24:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="一、OpenResty概览"><a href="#一、OpenResty概览" class="headerlink" title="一、OpenResty概览"></a>一、OpenResty概览</h5><p>OpenResty是一个基于Lua扩展Nginx实现的可伸缩Web平台，其内部集成了大量精良的Lua库、第三方模块以及大多数依赖项。用于方便的部署能够处理超高并发、扩展性极高的动态Web应用。</p>
+<p>OpenResty的目标是让你的Web服务直接跑在Nginx服务内部，充分利用Nginx的非阻塞I/O模型，不仅仅对HTTP客户端请求，甚至于对后端诸如MySQL、PostgreSQL、Memcache以及Redis等都进行一致的高性能响应。</p>
+<h5 id="二、安装依赖库"><a href="#二、安装依赖库" class="headerlink" title="二、安装依赖库"></a>二、安装依赖库</h5><ul>
+<li><p>安装pcre依赖库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz</span><br><span class="line">tar -zxf pcre-8.43.tar.gz</span><br><span class="line">cd pcre-8.43</span><br><span class="line">./configure &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure></li>
+<li><p>安装zlib依赖库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y zlib zlib-devel</span><br></pre></td></tr></table></figure></li>
+<li><p>安装ssl依赖库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2019/10/12/OpenResty-Lua%E5%AE%9E%E7%8E%B0WAF%E5%BA%94%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OpenResty</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Lua</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WAF</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">防火墙</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">应用防火墙</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Iptables</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/10/12/OpenResty-Lua%E5%AE%9E%E7%8E%B0WAF%E5%BA%94%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-清理linux系统过多innode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1087,111 +1207,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/09/19/Redis%E4%B8%BB%E4%BB%8E-sentinel%E5%93%A8%E5%85%B5%E9%AB%98%E5%8F%AF%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-redis-key过期时间" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/09/17/redis-key%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4/" target="_blank">redis key过期时间</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/17/redis-key%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4/" class="archive-article-date">
-        <time datetime="2019-09-17T06:50:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>有时候我们并不希望redis的key一直存在。例如缓存，验证码等数据，我们希望它们能在一定时间内自动的被销毁。redis提供了一些命令，能够让我们对key设置过期时间，并且让key过期之后被自动删除。</p>
-<h5 id="一、设置-更新Key过期时间"><a href="#一、设置-更新Key过期时间" class="headerlink" title="一、设置/更新Key过期时间"></a>一、设置/更新Key过期时间</h5><ul>
-<li><p>秒级</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">redis&gt;</span><span class="bash"> EXPIRE keyname <span class="string">&quot;seconds&quot;</span></span></span><br><span class="line"></span><br><span class="line">接口描述：设置一个key在当前时间&quot;seconds&quot;(秒)之后过期。返回1代表设置成功，返回0代表key不存在或者无法设置过期时间。</span><br></pre></td></tr></table></figure></li>
-<li><p>毫秒级</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">redis&gt;</span><span class="bash"> PEXPIRE keyname <span class="string">&quot;milliseconds&quot;</span></span></span><br><span class="line"></span><br><span class="line">接口描述：设置一个key在当前时间&quot;milliseconds&quot;(毫秒)之后过期。返回1代表设置成功，返回0代表key不存在或者无法设置过期时间。</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/09/17/redis-key%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">expire</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">过期时间</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/17/redis-key%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4/">展开全文 >></a>
     </p>
     
 
@@ -6054,6 +6069,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">freebsd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
             
             <div class="clearfix"></div>
