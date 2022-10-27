@@ -1010,8 +1010,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h5 id="Nginx缓存"><a href="#Nginx缓存" class="headerlink" title="Nginx缓存"></a>Nginx缓存</h5><p>nginx基于proxy_cache_purge模块可以配置Nginx缓存。在http区域中添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">proxy_cache_path &#x2F;data&#x2F;A&#x2F;proxy_cache levels&#x3D;2:2 keys_zone&#x3D;first:20m inactive&#x3D;1d max_size&#x3D;100m;</span><br><span class="line"></span><br><span class="line">levels 设置目录层次 </span><br><span class="line">keys_zone 设置缓存名字和共享内存大小 </span><br><span class="line">inactive 在指定时间内没人访问则被删除在这里是1天 </span><br><span class="line">max_size 最大缓存空间</span><br></pre></td></tr></table></figure>
+    <h5 id="1-编译Nginx"><a href="#1-编译Nginx" class="headerlink" title="1. 编译Nginx"></a>1. 编译Nginx</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#前提：需要重新编译nginx</span></span><br><span class="line">./configure  –add-module=/root/ngx_cache_purge-2.3 </span><br></pre></td></tr></table></figure>
     
     <a class="article-more-a" href="/2018/12/14/nginx%E6%B8%85%E7%90%86Proxy-Cache%E7%BC%93%E5%AD%98/#more">more >></a>
     
