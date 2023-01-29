@@ -196,6 +196,99 @@
             
 
   
+    <article id="post-mysql数据差异化比对-mysqldiff" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/11/18/mysql%E6%95%B0%E6%8D%AE%E5%B7%AE%E5%BC%82%E5%8C%96%E6%AF%94%E5%AF%B9-mysqldiff/" target="_blank">mysql数据差异化比对-mysqldiff</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/11/18/mysql%E6%95%B0%E6%8D%AE%E5%B7%AE%E5%BC%82%E5%8C%96%E6%AF%94%E5%AF%B9-mysqldiff/" class="archive-article-date">
+        <time datetime="2020-11-18T06:55:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-18</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>安装mysqldiff工具</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum remove mysql-connector-python -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">centos 7</span></span><br><span class="line">rpm -Uvh http://repo.mysql.com/yum/mysql-connectors-community/el/7/x86_64/mysql-connector-python-2.1.8-1.el7.x86_64.rpm</span><br><span class="line"></span><br><span class="line">yum install -y mysql-utilities</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2020/11/18/mysql%E6%95%B0%E6%8D%AE%E5%B7%AE%E5%BC%82%E5%8C%96%E6%AF%94%E5%AF%B9-mysqldiff/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">mysql数据库差异化比对</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysqldiff</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/11/18/mysql%E6%95%B0%E6%8D%AE%E5%B7%AE%E5%BC%82%E5%8C%96%E6%AF%94%E5%AF%B9-mysqldiff/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Android-IOS设备测试集中管理平台ATXServer2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1092,108 +1185,6 @@
 
 
   
-    <article id="post-zabbix历史数据清理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/14/zabbix%E5%8E%86%E5%8F%B2%E6%95%B0%E6%8D%AE%E6%B8%85%E7%90%86/" target="_blank">zabbix历史数据清理</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/14/zabbix%E5%8E%86%E5%8F%B2%E6%95%B0%E6%8D%AE%E6%B8%85%E7%90%86/" class="archive-article-date">
-        <time datetime="2020-08-14T14:25:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>停止zabbix-server服务</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">停止zabbix-server服务是停止向数据库写入数据，因为在数据清理优化过程中，mysql会锁表。</span></span><br><span class="line">systemctl stop zabbix-server</span><br></pre></td></tr></table></figure>
-
-
-<h5 id="1-时间戳转换"><a href="#1-时间戳转换" class="headerlink" title="1.  时间戳转换"></a>1.  时间戳转换</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">取60天之前的时间戳</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> date -d $(date -d <span class="string">&quot;-60 day&quot;</span> +%Y%m%d) +%s</span></span><br><span class="line">1592150400</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2020/08/14/zabbix%E5%8E%86%E5%8F%B2%E6%95%B0%E6%8D%AE%E6%B8%85%E7%90%86/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">unix</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/14/zabbix%E5%8E%86%E5%8F%B2%E6%95%B0%E6%8D%AE%E6%B8%85%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
@@ -1208,7 +1199,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2022 <a href="https://garywu520.github.io/" target="_blank">GaryWu</a>
+    		&copy; 2018-2023 <a href="https://garywu520.github.io/" target="_blank">GaryWu</a>
     	</div>
       	<div class="footer-right">
 			
@@ -6031,6 +6022,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">memory</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Jemalloc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">内存分配器</a>
               </li>
             
             <div class="clearfix"></div>

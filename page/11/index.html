@@ -196,6 +196,107 @@
             
 
   
+    <article id="post-开源wiki系统-XWiki" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/20/%E5%BC%80%E6%BA%90wiki%E7%B3%BB%E7%BB%9F-XWiki/" target="_blank">开源wiki系统-XWiki</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/20/%E5%BC%80%E6%BA%90wiki%E7%B3%BB%E7%BB%9F-XWiki/" class="archive-article-date">
+        <time datetime="2019-11-20T07:38:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="一、XWiki介绍"><a href="#一、XWiki介绍" class="headerlink" title="一、XWiki介绍"></a>一、XWiki介绍</h5><p>就是一个开源wiki，不像 Confluence 一样需要购买 License 才能使用</p>
+<h5 id="二、Xwiki官网与下载"><a href="#二、Xwiki官网与下载" class="headerlink" title="二、Xwiki官网与下载"></a>二、Xwiki官网与下载</h5><ul>
+<li>官网： <a target="_blank" rel="noopener" href="https://www.xwiki.org/">https://www.xwiki.org/</a> </li>
+<li>XWiki下载页：<a target="_blank" rel="noopener" href="http://download.forge.ow2.org/xwiki/">xwiki download</a> – 检索关键字[xwiki-enterprise-installer-generic]</li>
+<li>XWwiki安装的版本：xwiki-enterprise-installer-generic-9.4</li>
+</ul>
+    
+    <a class="article-more-a" href="/2019/11/20/%E5%BC%80%E6%BA%90wiki%E7%B3%BB%E7%BB%9F-XWiki/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">wiki</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">XWiki</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">开源wiki</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/20/%E5%BC%80%E6%BA%90wiki%E7%B3%BB%E7%BB%9F-XWiki/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-部署自己的DoT-DNS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1152,104 +1253,6 @@
 
 
   
-    <article id="post-SSH保持长连接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/10/15/SSH%E4%BF%9D%E6%8C%81%E9%95%BF%E8%BF%9E%E6%8E%A5/" target="_blank">SSH保持长连接</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/10/15/SSH%E4%BF%9D%E6%8C%81%E9%95%BF%E8%BF%9E%E6%8E%A5/" class="archive-article-date">
-        <time datetime="2019-10-15T03:18:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="场景："><a href="#场景：" class="headerlink" title="场景："></a>场景：</h5><p>跳板机从阿里云北京到阿里云其他地方，过一会儿总出现无响应的问题。</p>
-<h5 id="方案一：服务端配置"><a href="#方案一：服务端配置" class="headerlink" title="方案一：服务端配置"></a>方案一：服务端配置</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config  #添加如下两行</span><br><span class="line"></span><br><span class="line">ClientAliveInterval 60</span><br><span class="line">ClientAliveCountMax 1</span><br></pre></td></tr></table></figure>
-<p> SSH Server 每 60 秒就会自动发送一个信号给 Client，而等待 Client 回应， 如果客户端没有回应，会记录下来直到记录数超过 ClientAliveCountMax 的值时，才会断开连接。 </p>
-    
-    <a class="article-more-a" href="/2019/10/15/SSH%E4%BF%9D%E6%8C%81%E9%95%BF%E8%BF%9E%E6%8E%A5/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Keepalive</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sshd</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/15/SSH%E4%BF%9D%E6%8C%81%E9%95%BF%E8%BF%9E%E6%8E%A5/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/10/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/12/">Next &amp;raquo;</a>
@@ -1264,7 +1267,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2022 <a href="https://garywu520.github.io/" target="_blank">GaryWu</a>
+    		&copy; 2018-2023 <a href="https://garywu520.github.io/" target="_blank">GaryWu</a>
     	</div>
       	<div class="footer-right">
 			
@@ -6087,6 +6090,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">memory</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Jemalloc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">内存分配器</a>
               </li>
             
             <div class="clearfix"></div>

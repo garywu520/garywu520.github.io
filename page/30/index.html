@@ -196,6 +196,108 @@
             
 
   
+    <article id="post-iptables设置规范" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2018/03/11/iptables%E8%AE%BE%E7%BD%AE%E8%A7%84%E8%8C%83/" target="_blank">iptables设置规范</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2018/03/11/iptables%E8%AE%BE%E7%BD%AE%E8%A7%84%E8%8C%83/" class="archive-article-date">
+        <time datetime="2018-03-11T09:22:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h5 id="一、Iptables配置流程："><a href="#一、Iptables配置流程：" class="headerlink" title="一、Iptables配置流程："></a>一、Iptables配置流程：</h5><p>先放行(务必包括SSH、本地回环以及已建立链)，后拒绝所有</p>
+<h5 id="二、关于Docker"><a href="#二、关于Docker" class="headerlink" title="二、关于Docker"></a>二、关于Docker</h5><p>iptables里面新增了docker项，除了iptables外，还需要配置docker启动配置文件，来关闭iptables动态将规则写入。</p>
+<p>参考：<a href="%5Bhttps://garywu520.github.io/blog/2019/12/03/Docker%E4%B8%8Eiptables%E9%98%B2%E7%81%AB%E5%A2%99/#more%5D(https://garywu520.github.io/blog/2019/12/03/Docker%E4%B8%8Eiptables%E9%98%B2%E7%81%AB%E5%A2%99/#more)">Docker与iptables防火墙</a></p>
+    
+    <a class="article-more-a" href="/2018/03/11/iptables%E8%AE%BE%E7%BD%AE%E8%A7%84%E8%8C%83/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iptables</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">防火墙</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ACCEPT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">DROP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2018/03/11/iptables%E8%AE%BE%E7%BD%AE%E8%A7%84%E8%8C%83/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-RouterOS时间同步" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1138,111 +1240,6 @@
 
 
   
-    <article id="post-Shell变量自增" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/02/14/Shell%E5%8F%98%E9%87%8F%E8%87%AA%E5%A2%9E/" target="_blank">Shell变量自增</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/02/14/Shell%E5%8F%98%E9%87%8F%E8%87%AA%E5%A2%9E/" class="archive-article-date">
-        <time datetime="2018-02-14T03:54:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>变量自增的实现方法有很多种：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(1) i&#x3D;&#96;expr $i + 1&#96;</span><br><span class="line">(2) let i+&#x3D;1</span><br><span class="line">(3) ((i++))</span><br><span class="line">(4) i&#x3D;$[$i+1]</span><br><span class="line">(5) i&#x3D;$(( $i + 1 ))</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2018/02/14/Shell%E5%8F%98%E9%87%8F%E8%87%AA%E5%A2%9E/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">expr</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">变量自增</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">shell基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/02/14/Shell%E5%8F%98%E9%87%8F%E8%87%AA%E5%A2%9E/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/29/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/31/">Next &amp;raquo;</a>
@@ -1257,7 +1254,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2022 <a href="https://garywu520.github.io/" target="_blank">GaryWu</a>
+    		&copy; 2018-2023 <a href="https://garywu520.github.io/" target="_blank">GaryWu</a>
     	</div>
       	<div class="footer-right">
 			
@@ -6080,6 +6077,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">memory</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Jemalloc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">内存分配器</a>
               </li>
             
             <div class="clearfix"></div>

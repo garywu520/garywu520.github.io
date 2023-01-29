@@ -196,6 +196,119 @@
             
 
   
+    <article id="post-zabbix监控docker容器及资源占用情况" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/02/12/zabbix%E7%9B%91%E6%8E%A7docker%E5%AE%B9%E5%99%A8%E5%8F%8A%E8%B5%84%E6%BA%90%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/" target="_blank">zabbix监控docker容器及资源占用情况</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/02/12/zabbix%E7%9B%91%E6%8E%A7docker%E5%AE%B9%E5%99%A8%E5%8F%8A%E8%B5%84%E6%BA%90%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/" class="archive-article-date">
+        <time datetime="2020-02-12T07:10:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>使用Zabbix监控Docker容器以及容器资源占用情况</p>
+</blockquote>
+<h5 id="1-环境"><a href="#1-环境" class="headerlink" title="1.环境"></a>1.环境</h5><blockquote>
+<ul>
+<li>Zabbix Server+Zabbix Client准备就绪</li>
+</ul>
+</blockquote>
+<h5 id="2-zabbix客户端配置"><a href="#2-zabbix客户端配置" class="headerlink" title="2. zabbix客户端配置"></a>2. zabbix客户端配置</h5><p>在有docker容器的zabbix客户端上进行如下操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装模块</span></span><br><span class="line">yum install -y python-simplejson</span><br><span class="line">pip install docker-py</span><br><span class="line">pip install requests urllib3 pyOpenSSL --force --upgrade</span><br><span class="line">pip install --upgrade --force-reinstall &#x27;requests==2.6.0&#x27;</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2020/02/12/zabbix%E7%9B%91%E6%8E%A7docker%E5%AE%B9%E5%99%A8%E5%8F%8A%E8%B5%84%E6%BA%90%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自动发现</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">docker监控</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/02/12/zabbix%E7%9B%91%E6%8E%A7docker%E5%AE%B9%E5%99%A8%E5%8F%8A%E8%B5%84%E6%BA%90%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="w-docker日志限制与docker日志清理" class="article article-type-w  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1128,112 +1241,6 @@
 
 
   
-    <article id="post-给zookeeper添加基本认证" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/12/12/%E7%BB%99zookeeper%E6%B7%BB%E5%8A%A0%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%81/" target="_blank">给zookeeper添加ACL基本认证</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/12/12/%E7%BB%99zookeeper%E6%B7%BB%E5%8A%A0%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%81/" class="archive-article-date">
-        <time datetime="2019-12-12T08:58:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <ol>
-<li><p>添加一个认证用户</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">密码为明文</span></span><br><span class="line">addauth digest user1:&#x27;password1&#x27;</span><br></pre></td></tr></table></figure></li>
-<li><p>设置权限</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setAcl / auth:user1:password1:cdrwa</span><br></pre></td></tr></table></figure></li>
-<li><p>查看ACL设置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getAcl /path</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/12/12/%E7%BB%99zookeeper%E6%B7%BB%E5%8A%A0%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%81/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">zookeeper</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">zk</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/12/%E7%BB%99zookeeper%E6%B7%BB%E5%8A%A0%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%81/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/8/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/10/">Next &amp;raquo;</a>
@@ -1248,7 +1255,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2022 <a href="https://garywu520.github.io/" target="_blank">GaryWu</a>
+    		&copy; 2018-2023 <a href="https://garywu520.github.io/" target="_blank">GaryWu</a>
     	</div>
       	<div class="footer-right">
 			
@@ -6071,6 +6078,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">memory</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Jemalloc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">内存分配器</a>
               </li>
             
             <div class="clearfix"></div>
