@@ -196,6 +196,112 @@
             
 
   
+    <article id="post-MySQL主从切换步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2018/11/29/MySQL%E4%B8%BB%E4%BB%8E%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/" target="_blank">MySQL主从切换步骤</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2018/11/29/MySQL%E4%B8%BB%E4%BB%8E%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/" class="archive-article-date">
+        <time datetime="2018-11-29T03:00:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>适用场景</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MySQL一主一丛环境，主库意外宕机，从库提升为主库</span><br></pre></td></tr></table></figure>
+<p>步骤</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(1)确认服务器已经完成所有同步操作</span><br><span class="line">    mysql&gt; stop slave io_thread;</span><br><span class="line">    mysql&gt; show processlist;</span><br><span class="line">    直到看到状态都为 XXX has read all relay log 表示从库更新均执行完毕</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(2)停止从服务器slave服务</span><br><span class="line">   mysql&gt; stop slave;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(3) 将从服务器切换为主服务器</span><br><span class="line">    mysql&gt; reset master;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(4) 检查新主库是否支持写入操作，若不能写入，需要将数据库设为可读写</span><br><span class="line">    mysql&gt; set global read_only&#x3D;0;  #关闭数据库只读属性</span><br></pre></td></tr></table></figure>
+
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MySQL主从切换</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL从提升为主</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2018/11/29/MySQL%E4%B8%BB%E4%BB%8E%E5%88%87%E6%8D%A2%E6%AD%A5%E9%AA%A4/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Jumpserver1-4-3备机-部署概要" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1083,108 +1189,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2018/10/29/CentOS7%E9%83%A8%E7%BD%B2Jumpserver-V1-4-3%E8%B7%B3%E6%9D%BF%E6%9C%BA/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Cacti流量叠加图形设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/10/19/Cacti%E6%B5%81%E9%87%8F%E5%8F%A0%E5%8A%A0%E5%9B%BE%E5%BD%A2%E8%AE%BE%E7%BD%AE/" target="_blank">Cacti流量叠加图形设置</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/10/19/Cacti%E6%B5%81%E9%87%8F%E5%8F%A0%E5%8A%A0%E5%9B%BE%E5%BD%A2%E8%AE%BE%E7%BD%AE/" class="archive-article-date">
-        <time datetime="2018-10-19T06:19:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-19</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cacti监控接口流量，有时候需求是：需要将多个监控图进行整合到一张图中并将加入的接口流量进行叠加，便于分析</span><br></pre></td></tr></table></figure>
-<h4 id="1-流量图整合-方法"><a href="#1-流量图整合-方法" class="headerlink" title="1. 流量图整合-方法"></a>1. 流量图整合-方法</h4><p>（1）Console –&gt;&gt; Graph Management –&gt;&gt; Add –&gt;&gt;直接点击Create</p>
-<p><img src="https://raw.githubusercontent.com/wuyanteng/wuyanteng.github.io/master/images/cacti-1.png"></p>
-    
-    <a class="article-more-a" href="/2018/10/19/Cacti%E6%B5%81%E9%87%8F%E5%8F%A0%E5%8A%A0%E5%9B%BE%E5%BD%A2%E8%AE%BE%E7%BD%AE/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Cacti流量叠加图形</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Cacti整合图形</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Graph</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/10/19/Cacti%E6%B5%81%E9%87%8F%E5%8F%A0%E5%8A%A0%E5%9B%BE%E5%BD%A2%E8%AE%BE%E7%BD%AE/">展开全文 >></a>
     </p>
     
 
@@ -6063,6 +6067,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">内存分配器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">stars</a>
               </li>
             
             <div class="clearfix"></div>

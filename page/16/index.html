@@ -196,6 +196,113 @@
             
 
   
+    <article id="post-ESXI-vm灾难恢复" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/06/13/ESXI-vm%E7%81%BE%E9%9A%BE%E6%81%A2%E5%A4%8D/" target="_blank">ESXI vm灾难恢复</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/06/13/ESXI-vm%E7%81%BE%E9%9A%BE%E6%81%A2%E5%A4%8D/" class="archive-article-date">
+        <time datetime="2019-06-13T04:13:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-13</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">本案例适用于 ESXI中正在运行的VM文件误删除，当重启vm后提示文件丢失，其他情况仅供参考</span><br></pre></td></tr></table></figure>
+<h5 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h5><p>(1) 在原vm上添加一块和原硬盘大小一致的虚拟硬盘AA [也就是说新AA的vmdk文件需要在原目录]</p>
+<p>(2)开启SSH服务，并ssh登陆到ESXI</p>
+<p>(3)找到并cd到原vm目录</p>
+    
+    <a class="article-more-a" href="/2019/06/13/ESXI-vm%E7%81%BE%E9%9A%BE%E6%81%A2%E5%A4%8D/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ESXI</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">VM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">虚拟机</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">虚拟化</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/06/13/ESXI-vm%E7%81%BE%E9%9A%BE%E6%81%A2%E5%A4%8D/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ES关闭分片迁移功能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1137,121 +1244,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/04/13/%E8%A7%A3%E5%86%B3ES%E9%9B%86%E7%BE%A4%E5%AD%98%E5%9C%A8UNASSIGNED%E7%9A%84%E9%97%AE%E9%A2%98/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-linux通用系统备份与恢复" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/04/10/linux%E9%80%9A%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" target="_blank">linux通用系统备份与恢复</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/04/10/linux%E9%80%9A%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" class="archive-article-date">
-        <time datetime="2019-04-10T09:38:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>适用场景</p>
-</blockquote>
-<p>Linux系统备份与恢复使用dd命令将整块磁盘拷贝与恢复就可以快速的启动操作系统。但有个问题是：如果之前的磁盘有逻辑坏道怎么办？这样一来，dd恢复后的操作系统也大几率存在逻辑坏道的问题。</p>
-<p>基于此，本文章详细介绍如何使用tar来备份与还原系统。</p>
-<h4 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h4><ul>
-<li><p><strong>boot分区为独立分区</strong></p>
-<p>这里备份恢复的系统所使用的boot分区，均为独立分区，大小200M</p>
-</li>
-<li><p><strong>对应linux发行版的livecd</strong></p>
-<p>这里是Gentoo系统，故这里下载 install-amd64-minimal-20170302.iso</p>
-</li>
-<li><p><strong>移动硬盘</strong></p>
-<p>tar压缩后，将压缩文件放到移动硬盘中</p>
-</li>
-</ul>
-    
-    <a class="article-more-a" href="/2019/04/10/linux%E9%80%9A%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">系统备份</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">系统恢复</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/04/10/linux%E9%80%9A%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/">展开全文 >></a>
     </p>
     
 
@@ -6130,6 +6122,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">内存分配器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">stars</a>
               </li>
             
             <div class="clearfix"></div>

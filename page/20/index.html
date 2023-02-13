@@ -196,6 +196,122 @@
             
 
   
+    <article id="post-mail命令抄送与密送" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/02/14/mail%E5%91%BD%E4%BB%A4%E6%8A%84%E9%80%81%E4%B8%8E%E5%AF%86%E9%80%81/" target="_blank">mail命令抄送与密送</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/02/14/mail%E5%91%BD%E4%BB%A4%E6%8A%84%E9%80%81%E4%B8%8E%E5%AF%86%E9%80%81/" class="archive-article-date">
+        <time datetime="2019-02-14T08:15:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>写shell经常使用mail发送邮件，抄送与密送使用方法如下：</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://wuyanteng.github.io/2018/02/09/postfix%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/">postfix+mailx发送邮件</a></p>
+<p>此命令很可能会在你写脚本的过程中起到至关重要的作用，方法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">发送给单个人或单个群组</span></span><br><span class="line">echo &quot;这里是邮件内容正文&quot; | mail -s &quot;主题&quot; xxx@xxx.com </span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">发送给单个人或单个群组</span></span><br><span class="line">echo &quot;这里是邮件内容正文&quot; | mail -s &quot;主题&quot; -c xxx2@xxx.com -b xxx3@xxx.com xxx1@xxx.com </span><br></pre></td></tr></table></figure>
+<p>参数释义：</p>
+<ul>
+<li>-c:  抄送</li>
+<li>-b:  密送</li>
+<li>最后指定第一个收件人</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">postfix</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mail</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mailx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sendmail</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ssmtp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/02/14/mail%E5%91%BD%E4%BB%A4%E6%8A%84%E9%80%81%E4%B8%8E%E5%AF%86%E9%80%81/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-linux系统使用dd命令克隆与恢复" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1187,110 +1303,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2018/12/19/Hadoop%20HA%202.7.3%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2-%E7%BB%88%E6%9E%81%E7%89%88/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nginx清理Proxy-Cache缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2018/12/14/nginx%E6%B8%85%E7%90%86Proxy-Cache%E7%BC%93%E5%AD%98/" target="_blank">nginx清理Proxy Cache缓存</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2018/12/14/nginx%E6%B8%85%E7%90%86Proxy-Cache%E7%BC%93%E5%AD%98/" class="archive-article-date">
-        <time datetime="2018-12-14T05:06:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h5 id="1-编译Nginx"><a href="#1-编译Nginx" class="headerlink" title="1. 编译Nginx"></a>1. 编译Nginx</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#前提：需要重新编译nginx</span></span><br><span class="line">./configure  –add-module=/root/ngx_cache_purge-2.3 </span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2018/12/14/nginx%E6%B8%85%E7%90%86Proxy-Cache%E7%BC%93%E5%AD%98/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cache</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">proxy cache</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Nginx缓存清理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2018/12/14/nginx%E6%B8%85%E7%90%86Proxy-Cache%E7%BC%93%E5%AD%98/">展开全文 >></a>
     </p>
     
 
@@ -6169,6 +6181,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">内存分配器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">stars</a>
               </li>
             
             <div class="clearfix"></div>
