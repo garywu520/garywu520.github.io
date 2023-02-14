@@ -18,7 +18,7 @@
 <meta property="og:description" content="Jemalloc介绍Jemalloc是新一代内存分配器，它在FreeBSD被默认使用，侧重于减少内存碎片和提升高并发场景下内存的分配效率。Jemalloc应用十分广泛，在MySQL,Redis等场景中都有大量使用。 Github Release: Jemalloc">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-01-29T09:48:21.000Z">
-<meta property="article:modified_time" content="2023-02-06T09:58:02.210Z">
+<meta property="article:modified_time" content="2023-02-14T09:16:01.165Z">
 <meta property="article:author" content="GaryWu">
 <meta property="article:tag" content="内存">
 <meta property="article:tag" content="memory">
@@ -223,7 +223,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">369字</span>
+      <span class="post-count">447字</span>
     </span>
   </span>
 
@@ -232,7 +232,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -263,8 +263,14 @@
 
 <h4 id="场景2-为整个Linux系统启用Jemailoc动态库"><a href="#场景2-为整个Linux系统启用Jemailoc动态库" class="headerlink" title="场景2: 为整个Linux系统启用Jemailoc动态库"></a>场景2: 为整个Linux系统启用Jemailoc动态库</h4><p>cat /etc/ld.so.conf.d/jemalloc.conf</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/jemalloc-5.3.0/lib/libjemalloc.so</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#立即永久生效</span></span><br><span class="line">ldconfig</span><br><span class="line"></span><br><span class="line"><span class="comment">#验证</span></span><br><span class="line">ldconfig -v |grep jemalloc</span><br></pre></td></tr></table></figure>
-<p>此时，CentOS系统中所有应用都已经使用了Jemailoc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#立即永久生效</span></span><br><span class="line">ldconfig</span><br><span class="line"><span class="built_in">export</span> LD_PRELOAD=/usr/<span class="built_in">local</span>/jemalloc-5.3.0/lib/libjemalloc.so</span><br><span class="line"></span><br><span class="line"><span class="comment">#验证(如果值为0,则说明动态库未应用到任何程序)</span></span><br><span class="line">lsof -n |grep jemalloc|wc -l</span><br></pre></td></tr></table></figure>
+<p>针对ubuntu/debian全局动态库开机加载</p>
+<p>cat /etc/init.d/jemalloc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$  /etc/init.d/jemalloc</span><br><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment">#Provides:jemalloc</span></span><br><span class="line"><span class="comment">#Default-Start: 2 3 4</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> LD_PRELOAD=/usr/<span class="built_in">local</span>/jemalloc-5.3.0/lib/libjemalloc.so</span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<p>添加权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 jemalloc</span><br><span class="line">update-rc.d jemalloc defaults</span><br><span class="line">service --status-all|grep jemalloc</span><br><span class="line">lsof -n |grep jemalloc|wc -l</span><br></pre></td></tr></table></figure>
+
+
 <h4 id="附录：使用C程序验证Jemailloc是否工作"><a href="#附录：使用C程序验证Jemailloc是否工作" class="headerlink" title="附录：使用C程序验证Jemailloc是否工作"></a>附录：使用C程序验证Jemailloc是否工作</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#C程序</span></span><br><span class="line">$ cat ex_stats_print.c </span><br><span class="line"><span class="comment">#include &lt;stdlib.h&gt;</span></span><br><span class="line"></span><br><span class="line">int <span class="function"><span class="title">main</span></span>() &#123;</span><br><span class="line">  int *a = malloc(sizeof(int) * 100);</span><br><span class="line">  free(a);</span><br><span class="line">  <span class="built_in">return</span> EXIT_SUCCESS;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#编译C程序</span></span><br><span class="line">$ gcc ex_stats_print.c -o print.out -L/usr/<span class="built_in">local</span>/jemalloc-5.3.0/lib -ljemalloc</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看报告</span></span><br><span class="line">$ MALLOC_CONF=stats_print:<span class="literal">true</span> ./print.out</span><br></pre></td></tr></table></figure>
 
     
@@ -5277,11 +5283,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">stars</a>
+                <a href="javascript:void(0)" class="js-tag color2">github star</a>
               </li>
             
             <div class="clearfix"></div>
