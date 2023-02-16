@@ -18,7 +18,7 @@
 <meta property="og:description" content="Jemalloc介绍Jemalloc是新一代内存分配器，它在FreeBSD被默认使用，侧重于减少内存碎片和提升高并发场景下内存的分配效率。Jemalloc应用十分广泛，在MySQL,Redis等场景中都有大量使用。 Github Release: Jemalloc">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-01-29T09:48:21.000Z">
-<meta property="article:modified_time" content="2023-02-14T09:16:01.165Z">
+<meta property="article:modified_time" content="2023-02-16T06:42:48.874Z">
 <meta property="article:author" content="GaryWu">
 <meta property="article:tag" content="内存">
 <meta property="article:tag" content="memory">
@@ -223,7 +223,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">447字</span>
+      <span class="post-count">450字</span>
     </span>
   </span>
 
@@ -249,7 +249,7 @@
 
 
 
-<h4 id="1-Install"><a href="#1-Install" class="headerlink" title="1. Install"></a>1. Install</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">yum install -y bzip2 autoconf automake libtool</span><br><span class="line">wget https://github.com/jemalloc/jemalloc/releases/download/5.3.0/jemalloc-5.3.0.tar.bz2</span><br><span class="line">bzip2 -d jemalloc-5.3.0.tar.bz2</span><br><span class="line">tar -xf jemalloc-5.3.0.tar</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> jemalloc-5.3.0</span><br><span class="line">./autogen.sh</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/jemalloc-5.3.0</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<h4 id="1-Install"><a href="#1-Install" class="headerlink" title="1. Install"></a>1. Install</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">yum install -y bzip2 autoconf automake libtool</span><br><span class="line">wget https://github.com/jemalloc/jemalloc/releases/download/5.3.0/jemalloc-5.3.0.tar.bz2</span><br><span class="line">bzip2 -d jemalloc-5.3.0.tar.bz2</span><br><span class="line">tar -xf jemalloc-5.3.0.tar</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> jemalloc-5.3.0</span><br><span class="line">./autogen.sh</span><br><span class="line">./configure --enable-autogen --auto--prefix=/usr/<span class="built_in">local</span>/jemalloc-5.3.0</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 <br>
 
 <h4 id="注：Linux动态库加载顺序"><a href="#注：Linux动态库加载顺序" class="headerlink" title="注：Linux动态库加载顺序"></a>注：Linux动态库加载顺序</h4><p><strong>LD_PRELOAD &gt; LD_LIBRARY_PATH &gt; /etc/ld.so.cache &gt; /lib &gt; /usr/lib</strong></p>
